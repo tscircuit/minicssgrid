@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "main": "dist/index.js",
   "type": "module",
+  "scripts": {
+    "format": "biome format --write .",
+    "format:check": "biome format ."
+  },
   "devDependencies": {
     "@biomejs/biome": "^2.1.2",
     "@types/bun": "latest",

@@ -1,59 +1,59 @@
 /* ────────────────────────────────────────────────────────
    Primitive value helpers
    ──────────────────────────────────────────────────────── */
-type Fr = `${number}fr`; // e.g. "1fr"
-type Px = `${number}mm`; // e.g. "120px"
-type Percent = `${number}%`; // e.g. "50%"
-type Keyword = "auto" | "min-content" | "max-content";
-type TrackSize = Fr | Px | Percent | Keyword;
+type Fr = `${number}fr` // e.g. "1fr"
+type Px = `${number}mm` // e.g. "120px"
+type Percent = `${number}%` // e.g. "50%"
+type Keyword = "auto" | "min-content" | "max-content"
+type TrackSize = Fr | Px | Percent | Keyword
 
 /** A single track definition (string) or a repeat/minmax helper */
 type Track =
-	| TrackSize
-	| `minmax(${TrackSize}, ${TrackSize})`
-	| `repeat(${number}, ${TrackSize})`;
+  | TrackSize
+  | `minmax(${TrackSize}, ${TrackSize})`
+  | `repeat(${number}, ${TrackSize})`
 
 /** A full template as string (CSS‑like) or structured array  */
-type GridTemplate = string | Track[];
+type GridTemplate = string | Track[]
 
 /* ────────────────────────────────────────────────────────
       Grid‑item description
       ──────────────────────────────────────────────────────── */
 interface GridItem {
-	/** Stable identifier – never a DOM node */
-	key: string;
+  /** Stable identifier – never a DOM node */
+  key: string
 
-	/* Explicit placement (1‑based like CSS Grid) */
-	row?: number; // → starts at this line
-	column?: number;
-	rowSpan?: number; // → default 1
-	columnSpan?: number;
+  /* Explicit placement (1‑based like CSS Grid) */
+  row?: number // → starts at this line
+  column?: number
+  rowSpan?: number // → default 1
+  columnSpan?: number
 
-	/** Named area (alternative to numeric placement) */
-	area?: string;
+  /** Named area (alternative to numeric placement) */
+  area?: string
 
-	/** Any extra data your engine wants to carry along */
-	payload?: unknown;
+  /** Any extra data your engine wants to carry along */
+  payload?: unknown
 }
 
 /* ────────────────────────────────────────────────────────
       Top‑level configuration object
       ──────────────────────────────────────────────────────── */
 export interface CssGridOptions {
-	/** All grid items (order irrelevant unless you want it) */
-	children: GridItem[];
+  /** All grid items (order irrelevant unless you want it) */
+  children: GridItem[]
 
-	/* Track templates */
-	gridTemplateRows?: GridTemplate; // e.g. "repeat(2, 1fr)" or ['1fr','2fr']
-	gridTemplateColumns?: GridTemplate;
+  /* Track templates */
+  gridTemplateRows?: GridTemplate // e.g. "repeat(2, 1fr)" or ['1fr','2fr']
+  gridTemplateColumns?: GridTemplate
 
-	/* Gaps in *css‑logical* order: [rowGap, columnGap] */
-	gap?: number | [number, number];
+  /* Gaps in *css‑logical* order: [rowGap, columnGap] */
+  gap?: number | [number, number]
 
-	/* Alignment – mirror CSS keywords, but feel free to extend */
-	justifyItems?: "start" | "end" | "center" | "stretch";
-	alignItems?: "start" | "end" | "center" | "stretch";
+  /* Alignment – mirror CSS keywords, but feel free to extend */
+  justifyItems?: "start" | "end" | "center" | "stretch"
+  alignItems?: "start" | "end" | "center" | "stretch"
 
-	/** Vendor‑agostic hooks for custom features */
-	[extension: string]: unknown;
+  /** Vendor‑agostic hooks for custom features */
+  [extension: string]: unknown
 }
