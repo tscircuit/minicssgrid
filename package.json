@@ -4,8 +4,10 @@
   "main": "dist/index.js",
   "type": "module",
   "devDependencies": {
+    "@biomejs/biome": "^2.1.2",
     "@types/bun": "latest",
-    "bun-match-svg": "^0.0.12"
+    "bun-match-svg": "^0.0.12",
+    "graphics-debug": "^0.0.61"
   },
   "peerDependencies": {
     "typescript": "^5"

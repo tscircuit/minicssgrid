@@ -1,6 +1,16 @@
 /* ────────────────────────────────────────────────────────
       The class skeleton
       ──────────────────────────────────────────────────────── */
+
+/** Final position of a single grid item (1-based like CSS Grid) */
+export interface GridCell {
+	key: string;
+	row: number;
+	column: number;
+	rowSpan: number;
+	columnSpan: number;
+}
+
 export class CssGrid {
 	private readonly opts: CssGridOptions;
 
@@ -11,7 +21,7 @@ export class CssGrid {
 	}
 
 	/** Returns the computed layout matrix, ready for rendering elsewhere */
-	public layout(): /* your own matrix type */ {
-		// …
-	};
+	public layout(): GridCell[] {
+		throw new Error("Not implemented");
+	}
 }
