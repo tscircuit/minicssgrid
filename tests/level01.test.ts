@@ -13,7 +13,13 @@ test("level1", () => {
       backgroundColor: "white",
     }),
   ).toMatchSvgSnapshot(import.meta.path)
-  expect(grid.layout()).toMatchInlineSnapshot()
+  expect(grid.layout()).toMatchInlineSnapshot(`
+    {
+      "cells": [],
+      "columnSizes": [],
+      "rowSizes": [],
+    }
+  `)
 
   const go = grid.visualize()
   const svg = getSvgFromGraphicsObject(go)
