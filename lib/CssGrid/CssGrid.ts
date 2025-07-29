@@ -3,6 +3,7 @@ import type { GraphicsObject } from "graphics-debug"
 import type { CssGridOptions } from "../types"
 import { CssGrid_convertToHtml } from "./CssGrid_convertToHtml"
 import { CssGrid_visualize } from "./CssGrid_visualize"
+import { CssGrid_layout } from "./CssGrid_layout"
 
 /** Final position of a single grid item (1-based like CSS Grid) */
 export interface GridCell {
@@ -28,7 +29,7 @@ export class CssGrid {
     rowSizes: number[]
     columnSizes: number[]
   } {
-    throw new Error("Not implemented")
+    return CssGrid_layout(this)
   }
 
   public convertToHtml(): string {
