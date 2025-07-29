@@ -1,8 +1,8 @@
 import { test, expect } from "@playwright/test"
-import { CssGrid } from "lib/CssGrid"
+import { CssGrid } from "lib/CssGrid/CssGrid"
 import basics01 from "testcases/basics/basics01"
-import * as fs from "fs"
-import * as path from "path"
+import * as fs from "node:fs"
+import * as path from "node:path"
 
 const TEST_CASES = {
   "basics/basics01": basics01,
@@ -38,35 +38,41 @@ test("CssGrid convertToHtml renders correctly with testcase01", async ({
     await page.setContent(fullHtml)
 
     // Extract positions of all named elements
-    const elementsData: Record<string, { x: number; y: number; width: number; height: number }> = {}
-    
+    const elementBounds: Record<
+      string,
+      { x: number; y: number; width: number; height: number }
+    > = {}
+
     // Find all div elements inside the grid container
     const childDivs = await page.locator("div > div").all()
-    
+
     for (const div of childDivs) {
       const text = await div.textContent()
       if (text?.trim()) {
         const boundingBox = await div.boundingBox()
         if (boundingBox) {
-          elementsData[text.trim()] = {
+          elementBounds[text.trim()] = {
             x: boundingBox.x,
             y: boundingBox.y,
             width: boundingBox.width,
-            height: boundingBox.height
+            height: boundingBox.height,
           }
         }
       }
     }
-    
+
     // Save to file
-    const outputPath = path.join("testcases", `${testcasePath}.browser-result.json`)
+    const outputPath = path.join(
+      "testcases",
+      `${testcasePath}.browser-result.json`,
+    )
     const outputDir = path.dirname(outputPath)
-    
+
     // Ensure directory exists
     if (!fs.existsSync(outputDir)) {
       fs.mkdirSync(outputDir, { recursive: true })
     }
-    
-    fs.writeFileSync(outputPath, JSON.stringify(elementsData, null, 2))
+
+    fs.writeFileSync(outputPath, JSON.stringify(elementBounds, null, 2))
   }
 })
