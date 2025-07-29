@@ -1,0 +1,108 @@
+<svg width="640" height="640" viewBox="0 0 640 640" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="white" />
+  <g>
+    <circle data-type="point" data-label="" data-x="0" data-y="0" cx="40" cy="188.55555555555557" r="3" fill="black" />
+  </g>
+  <g>
+    <circle data-type="point" data-label="" data-x="100" data-y="0" cx="122.96296296296296" cy="188.55555555555557" r="3" fill="black" />
+  </g>
+  <g>
+    <circle data-type="point" data-label="" data-x="100" data-y="100" cx="122.96296296296296" cy="271.51851851851853" r="3" fill="black" />
+  </g>
+  <g>
+    <circle data-type="point" data-label="" data-x="0" data-y="100" cx="40" cy="271.51851851851853" r="3" fill="black" />
+  </g>
+  <g>
+    <circle data-type="point" data-label="corner" data-x="375" data-y="0" cx="351.1111111111111" cy="188.55555555555557" r="3" fill="black" />
+  </g>
+  <g>
+    <circle data-type="point" data-label="corner" data-x="475" data-y="0" cx="434.0740740740741" cy="188.55555555555557" r="3" fill="black" />
+  </g>
+  <g>
+    <circle data-type="point" data-label="corner" data-x="475" data-y="100" cx="434.0740740740741" cy="271.51851851851853" r="3" fill="black" />
+  </g>
+  <g>
+    <circle data-type="point" data-label="corner" data-x="375" data-y="100" cx="351.1111111111111" cy="271.51851851851853" r="3" fill="black" />
+  </g>
+  <g>
+    <rect data-type="rect" data-label="background" data-x="150" data-y="150" x="40" y="188.55555555555557" width="248.8888888888889" height="248.88888888888889" fill="hsl(240deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
+  </g>
+  <g>
+    <rect data-type="rect" data-label="overlay1" data-x="100" data-y="100" x="40" y="188.55555555555557" width="165.92592592592592" height="165.92592592592595" fill="hsl(80deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
+  </g>
+  <g>
+    <rect data-type="rect" data-label="overlay2" data-x="200" data-y="200" x="122.96296296296296" y="271.51851851851853" width="165.92592592592595" height="165.92592592592592" fill="hsl(120deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
+  </g>
+  <g>
+    <rect data-type="rect" data-label="corner" data-x="250" data-y="250" x="205.92592592592592" y="354.4814814814815" width="82.96296296296299" height="82.96296296296293" fill="none" stroke="black" stroke-width="1.2053571428571428" />
+  </g>
+  <g>
+    <rect data-type="rect" data-label="background" data-x="525" data-y="150" x="351.1111111111111" y="188.55555555555557" width="248.8888888888889" height="248.88888888888889" fill="hsl(240deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
+  </g>
+  <g>
+    <rect data-type="rect" data-label="overlay1" data-x="475" data-y="100" x="351.1111111111111" y="188.55555555555557" width="165.92592592592587" height="165.92592592592595" fill="hsl(80deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
+  </g>
+  <g>
+    <rect data-type="rect" data-label="overlay2" data-x="575" data-y="200" x="434.0740740740741" y="271.51851851851853" width="165.92592592592592" height="165.92592592592592" fill="hsl(120deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
+  </g>
+  <g>
+    <rect data-type="rect" data-label="corner" data-x="625" data-y="250" x="517.037037037037" y="354.4814814814815" width="82.96296296296305" height="82.96296296296293" fill="none" stroke="black" stroke-width="1.2053571428571428" />
+  </g><text data-type="text" data-label="algo" data-x="150" data-y="316.875" x="164.44444444444446" y="451.44444444444446" fill="black" font-size="14" font-family="sans-serif" text-anchor="middle" dominant-baseline="text-after-edge">algo</text><text data-type="text" data-label="correct" data-x="525" data-y="316.875" x="475.55555555555554" y="451.44444444444446" fill="black" font-size="14" font-family="sans-serif" text-anchor="middle" dominant-baseline="text-after-edge">correct</text>
+  <g id="crosshair" style="display: none">
+    <line id="crosshair-h" y1="0" y2="640" stroke="#666" stroke-width="0.5" />
+    <line id="crosshair-v" x1="0" x2="640" stroke="#666" stroke-width="0.5" /><text id="coordinates" font-family="monospace" font-size="12" fill="#666"></text>
+  </g>
+  <script>
+    <![CDATA[
+    document.currentScript.parentElement.addEventListener('mousemove', (e) => {
+      const svg = e.currentTarget;
+      const rect = svg.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const crosshair = svg.getElementById('crosshair');
+      const h = svg.getElementById('crosshair-h');
+      const v = svg.getElementById('crosshair-v');
+      const coords = svg.getElementById('coordinates');
+
+      crosshair.style.display = 'block';
+      h.setAttribute('x1', '0');
+      h.setAttribute('x2', '640');
+      h.setAttribute('y1', y);
+      h.setAttribute('y2', y);
+      v.setAttribute('x1', x);
+      v.setAttribute('x2', x);
+      v.setAttribute('y1', '0');
+      v.setAttribute('y2', '640');
+
+      // Calculate real coordinates using inverse transformation
+      const matrix = {
+        "a": 0.8296296296296296,
+        "c": 0,
+        "e": 40,
+        "b": 0,
+        "d": 0.8296296296296296,
+        "f": 188.55555555555557
+      };
+      // Manually invert and apply the affine transform
+      // Since we only use translate and scale, we can directly compute:
+      // x' = (x - tx) / sx
+      // y' = (y - ty) / sy
+      const sx = matrix.a;
+      const sy = matrix.d;
+      const tx = matrix.e;
+      const ty = matrix.f;
+      const realPoint = {
+        x: (x - tx) / sx,
+        y: (y - ty) / sy // Flip y back since we used negative scale
+      }
+
+      coords.textContent = `(${realPoint.x.toFixed(2)}, ${realPoint.y.toFixed(2)})`;
+      coords.setAttribute('x', (x + 5).toString());
+      coords.setAttribute('y', (y - 5).toString());
+    });
+    document.currentScript.parentElement.addEventListener('mouseleave', () => {
+      document.currentScript.parentElement.getElementById('crosshair').style.display = 'none';
+    });
+    ]]>
+  </script>
+</svg>

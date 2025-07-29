@@ -1,0 +1,94 @@
+import { expect, test } from "bun:test"
+import level12 from "testcases/level12"
+import browserResult from "testcases/level12.browser-result.json"
+import { testGrid } from "./fixtures/testGrid"
+
+test("level12", () => {
+  const { laidOutResult, outputViz, layout } = testGrid(level12, browserResult)
+
+  expect(browserResult).toMatchInlineSnapshot(`
+    {
+      "auto-width": {
+        "height": 100,
+        "width": 73.828125,
+        "x": 0,
+        "y": 0,
+      },
+      "fixed-width": {
+        "height": 100,
+        "width": 100,
+        "x": 73.828125,
+        "y": 0,
+      },
+      "flexible": {
+        "height": 100,
+        "width": 126.171875,
+        "x": 173.828125,
+        "y": 0,
+      },
+    }
+  `)
+  expect(laidOutResult).toMatchInlineSnapshot(`
+    {
+      "auto-width": {
+        "height": 0,
+        "width": 0,
+        "x": 0,
+        "y": 0,
+      },
+      "fixed-width": {
+        "height": 0,
+        "width": 100,
+        "x": 0,
+        "y": 0,
+      },
+      "flexible": {
+        "height": 0,
+        "width": 200,
+        "x": 100,
+        "y": 0,
+      },
+    }
+  `)
+
+  expect(layout).toMatchInlineSnapshot(`
+    {
+      "cells": [
+        {
+          "column": 0,
+          "columnSpan": 1,
+          "key": "auto-width",
+          "row": 0,
+          "rowSpan": 1,
+        },
+        {
+          "column": 1,
+          "columnSpan": 1,
+          "key": "fixed-width",
+          "row": 0,
+          "rowSpan": 1,
+        },
+        {
+          "column": 2,
+          "columnSpan": 1,
+          "key": "flexible",
+          "row": 0,
+          "rowSpan": 1,
+        },
+      ],
+      "columnSizes": [
+        0,
+        100,
+        200,
+      ],
+      "rowSizes": [
+        0,
+      ],
+    }
+  `)
+  expect(outputViz).toMatchSvgSnapshot(import.meta.path)
+
+  if (!process.env.BUN_UPDATE_SNAPSHOTS) {
+    expect(laidOutResult).toEqual(browserResult)
+  }
+})

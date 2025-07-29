@@ -55,7 +55,7 @@ This is a TypeScript library (`@tscircuit/minigrid`) that implements a CSS Grid 
 ## Introducing Test Cases
 
 1. Create a test case in `testcases/levelXX.ts`
-2. Generate the browser result by running `bun run generate-browser-result`
+2. Generate the browser result by running `bun run generate-browser-results`
 3. Create a test in `tests/levelXX.test.ts` with the following structure:
 4. Run `bun test tests/levelXX.test.ts -u` to see the test results and update the snapshots
 
