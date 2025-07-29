@@ -1,9 +1,6 @@
 import { expect, test } from "bun:test"
-import { CssGrid } from "lib/CssGrid/CssGrid"
 import level1 from "testcases/level01"
 import browserResult from "testcases/level01.browser-result.json"
-import { getSvgFromGraphicsObject } from "graphics-debug"
-import { visualizeBrowserResult } from "lib/visualizeBrowserResult"
 import { testGrid } from "./fixtures/testGrid"
 
 test("level01", () => {
@@ -11,6 +8,12 @@ test("level01", () => {
     level1,
     browserResult,
   )
+
+  console.log({
+    browserResultSvg,
+    layout,
+    outputViz,
+  })
 
   expect(layout).toMatchInlineSnapshot(`
     {
@@ -21,10 +24,10 @@ test("level01", () => {
   `)
 
   expect(browserResultSvg).toMatchSvgSnapshot(
-    import.meta.path.replace(".test.ts", ".browser-result.svg"),
+    import.meta.path.replace(".test.ts", ".browser-result"),
   )
 
   expect(outputViz).toMatchSvgSnapshot(
-    import.meta.path.replace(".test.ts", ".output.svg"),
+    import.meta.path.replace(".test.ts", ".output"),
   )
 })
