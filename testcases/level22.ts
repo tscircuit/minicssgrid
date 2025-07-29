@@ -3,7 +3,7 @@ import type { CssGridOptions } from "lib/types"
 export default {
   children: [
     { key: "water", column: 1, columnEnd: 2, row: 1, rowEnd: 6 },
-    { key: "poison", column: 5, columnEnd: 6, row: 1, rowEnd: 6 }
+    { key: "poison", column: 5, columnEnd: 6, row: 1, rowEnd: 6 },
   ],
   containerWidth: 100,
   containerHeight: 100,

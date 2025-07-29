@@ -11,7 +11,7 @@ export default {
     { key: "water-4", order: -1 },
     { key: "poison-4", order: 0 },
     { key: "water-5", order: -1 },
-    { key: "poison-5", order: 0 }
+    { key: "poison-5", order: 0 },
   ],
   containerWidth: 100,
   containerHeight: 100,

@@ -7,10 +7,12 @@ import type { CssGridOptions } from "lib/types"
 async function loadTestCases(): Promise<Record<string, CssGridOptions>> {
   const testCases: Record<string, CssGridOptions> = {}
   const testcasesDir = path.join(process.cwd(), "testcases")
-  
+
   const files = fs.readdirSync(testcasesDir)
-  const tsFiles = files.filter(file => file.endsWith(".ts") && !file.includes("browser-result"))
-  
+  const tsFiles = files.filter(
+    (file) => file.endsWith(".ts") && !file.includes("browser-result"),
+  )
+
   for (const file of tsFiles) {
     const testcaseName = path.basename(file, ".ts")
     try {
@@ -20,14 +22,14 @@ async function loadTestCases(): Promise<Record<string, CssGridOptions>> {
       console.warn(`Failed to load testcase ${testcaseName}:`, error)
     }
   }
-  
+
   return testCases
 }
 
 async function generateBrowserResults() {
   const testCases = await loadTestCases()
   console.log(`Found ${Object.keys(testCases).length} test cases`)
-  
+
   const browser = await chromium.launch()
   const context = await browser.newContext({
     ...devices["Desktop Chrome"],
