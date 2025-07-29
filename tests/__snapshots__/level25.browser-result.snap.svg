@@ -1,25 +1,25 @@
 <svg width="640" height="640" viewBox="0 0 640 640" xmlns="http://www.w3.org/2000/svg">
   <rect width="100%" height="100%" fill="white" />
   <g>
-    <circle data-type="point" data-label="corner" data-x="0" data-y="0" cx="40" cy="110" r="3" fill="black" />
+    <circle data-type="point" data-label="corner" data-x="0" data-y="0" cx="40" cy="151.94223014161116" r="3" fill="black" />
   </g>
   <g>
-    <circle data-type="point" data-label="corner" data-x="800" data-y="0" cx="600" cy="110" r="3" fill="black" />
+    <circle data-type="point" data-label="corner" data-x="100" data-y="0" cx="376.1155397167777" cy="151.94223014161116" r="3" fill="black" />
   </g>
   <g>
-    <circle data-type="point" data-label="corner" data-x="800" data-y="600" cx="600" cy="530" r="3" fill="black" />
+    <circle data-type="point" data-label="corner" data-x="100" data-y="100" cx="376.1155397167777" cy="488.05776985838884" r="3" fill="black" />
   </g>
   <g>
-    <circle data-type="point" data-label="corner" data-x="0" data-y="600" cx="40" cy="530" r="3" fill="black" />
+    <circle data-type="point" data-label="corner" data-x="0" data-y="100" cx="40" cy="488.05776985838884" r="3" fill="black" />
   </g>
   <g>
-    <rect data-type="rect" data-label="water" data-x="37.5" data-y="50" x="40" y="110" width="52.5" height="70" fill="red" stroke="black" stroke-width="1.4285714285714286" />
+    <rect data-type="rect" data-label="water" data-x="37.5" data-y="50" x="40" y="151.94223014161116" width="252.08665478758326" height="336.1155397167777" fill="hsl(160deg, 100%, 50%)" stroke="black" stroke-width="0.29751674107142856" />
   </g>
   <g>
-    <rect data-type="rect" data-label="poison" data-x="98.578125" data-y="50" x="92.5" y="110" width="33.00937499999999" height="70" fill="red" stroke="black" stroke-width="1.4285714285714286" />
+    <rect data-type="rect" data-label="poison" data-x="98.578125" data-y="50" x="292.08665478758326" y="151.94223014161116" width="158.49948419769294" height="336.1155397167777" fill="none" stroke="black" stroke-width="0.29751674107142856" />
   </g>
   <g>
-    <rect data-type="rect" data-label="water-2" data-x="144.3828125" data-y="50" x="125.50937499999999" y="110" width="31.117187499999986" height="70" fill="red" stroke="black" stroke-width="1.4285714285714286" />
+    <rect data-type="rect" data-label="water-2" data-x="144.3828125" data-y="50" x="450.5861389852762" y="151.94223014161116" width="149.4138610147238" height="336.1155397167777" fill="hsl(200deg, 100%, 50%)" stroke="black" stroke-width="0.29751674107142856" />
   </g>
   <g id="crosshair" style="display: none">
     <line id="crosshair-h" y1="0" y2="640" stroke="#666" stroke-width="0.5" />
@@ -49,12 +49,12 @@
 
       // Calculate real coordinates using inverse transformation
       const matrix = {
-        "a": 0.7,
+        "a": 3.3611553971677766,
         "c": 0,
         "e": 40,
         "b": 0,
-        "d": 0.7,
-        "f": 110
+        "d": 3.3611553971677766,
+        "f": 151.94223014161116
       };
       // Manually invert and apply the affine transform
       // Since we only use translate and scale, we can directly compute:

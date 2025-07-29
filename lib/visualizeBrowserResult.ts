@@ -28,9 +28,9 @@ export const visualizeBrowserResult = (
 
   go.points.push(
     { x: 0, y: 0, label: "corner" },
-    { x: 800, y: 0, label: "corner" },
-    { x: 800, y: 600, label: "corner" },
-    { x: 0, y: 600, label: "corner" },
+    { x: 100, y: 0, label: "corner" },
+    { x: 100, y: 100, label: "corner" },
+    { x: 0, y: 100, label: "corner" },
   )
 
   // Convert each item in browserOutput to a rectangle
@@ -42,7 +42,7 @@ export const visualizeBrowserResult = (
       },
       width: item.width,
       height: item.height,
-      fill: "red", // COLORS[stringHash(key) % COLORS.length],
+      fill: COLORS[stringHash(key) % COLORS.length],
       label: key,
     })
   }
