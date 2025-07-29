@@ -19,10 +19,13 @@ export const testGrid = (
   const layout = grid.layout()
 
   const outputViz = grid.visualize()
+  const outputVizSvg = getSvgFromGraphicsObject(outputViz, {
+    backgroundColor: "white",
+  })
 
   return {
     browserResultSvg,
     layout,
-    outputViz,
+    outputViz: outputVizSvg,
   }
 }
