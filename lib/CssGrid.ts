@@ -1,3 +1,4 @@
+import type { GraphicsObject } from "graphics-debug"
 /* ────────────────────────────────────────────────────────
       The class skeleton
       ──────────────────────────────────────────────────────── */
@@ -24,6 +25,14 @@ export class CssGrid {
 
   /** Returns the computed layout matrix, ready for rendering elsewhere */
   public layout(): GridCell[] {
+    throw new Error("Not implemented")
+  }
+
+  public convertToHtml(): string {
+    throw new Error("Not implemented")
+  }
+
+  public visualize(): GraphicsObject {
     throw new Error("Not implemented")
   }
 }
