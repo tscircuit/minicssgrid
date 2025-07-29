@@ -4,12 +4,137 @@ import browserResult from "testcases/level19.browser-result.json"
 import { testGrid } from "./fixtures/testGrid"
 
 test("level19", () => {
-  const { browserResultSvg, layout, outputViz } = testGrid(
-    level19,
-    browserResult,
-  )
+  const { laidOutResult, outputViz, layout } = testGrid(level19, browserResult)
 
 
+  expect(browserResult).toMatchInlineSnapshot(`
+    {
+      "poison-1": {
+        "height": 20,
+        "width": 20,
+        "x": 20,
+        "y": 0,
+      },
+      "poison-2": {
+        "height": 20,
+        "width": 20,
+        "x": 60,
+        "y": 0,
+      },
+      "poison-3": {
+        "height": 20,
+        "width": 20,
+        "x": 0,
+        "y": 20,
+      },
+      "poison-4": {
+        "height": 20,
+        "width": 20,
+        "x": 40,
+        "y": 20,
+      },
+      "poison-5": {
+        "height": 20,
+        "width": 20,
+        "x": 80,
+        "y": 20,
+      },
+      "water-1": {
+        "height": 20,
+        "width": 20,
+        "x": 0,
+        "y": 0,
+      },
+      "water-2": {
+        "height": 20,
+        "width": 20,
+        "x": 40,
+        "y": 0,
+      },
+      "water-3": {
+        "height": 20,
+        "width": 20,
+        "x": 80,
+        "y": 0,
+      },
+      "water-4": {
+        "height": 20,
+        "width": 20,
+        "x": 20,
+        "y": 20,
+      },
+      "water-5": {
+        "height": 20,
+        "width": 20,
+        "x": 60,
+        "y": 20,
+      },
+    }
+  `)
+  expect(laidOutResult).toMatchInlineSnapshot(`
+    {
+      "poison-1": {
+        "height": 20,
+        "width": 20,
+        "x": 30,
+        "y": 10,
+      },
+      "poison-2": {
+        "height": 20,
+        "width": 20,
+        "x": 70,
+        "y": 10,
+      },
+      "poison-3": {
+        "height": 20,
+        "width": 20,
+        "x": 10,
+        "y": 30,
+      },
+      "poison-4": {
+        "height": 20,
+        "width": 20,
+        "x": 50,
+        "y": 30,
+      },
+      "poison-5": {
+        "height": 20,
+        "width": 20,
+        "x": 90,
+        "y": 30,
+      },
+      "water-1": {
+        "height": 20,
+        "width": 20,
+        "x": 10,
+        "y": 10,
+      },
+      "water-2": {
+        "height": 20,
+        "width": 20,
+        "x": 50,
+        "y": 10,
+      },
+      "water-3": {
+        "height": 20,
+        "width": 20,
+        "x": 90,
+        "y": 10,
+      },
+      "water-4": {
+        "height": 20,
+        "width": 20,
+        "x": 30,
+        "y": 30,
+      },
+      "water-5": {
+        "height": 20,
+        "width": 20,
+        "x": 70,
+        "y": 30,
+      },
+    }
+  `)
   expect(layout).toMatchInlineSnapshot(`
     {
       "cells": [
@@ -101,11 +226,5 @@ test("level19", () => {
     }
   `)
 
-  expect(browserResultSvg).toMatchSvgSnapshot(
-    import.meta.path.replace(".test.ts", ".browser-result"),
-  )
-
-  expect(outputViz).toMatchSvgSnapshot(
-    import.meta.path.replace(".test.ts", ".output"),
-  )
+  expect(outputViz).toMatchSvgSnapshot(import.meta.path)
 })

@@ -1,17 +1,6 @@
 import type { GraphicsObject } from "graphics-debug"
 import type { CssGrid } from "./CssGrid"
-
-const COLORS = [0, 1, 2, 3, 4, 5, 6, 7, 8].map(
-  (i) => `hsl(${(i * 360) / 9}deg, 100%, 50%)`,
-)
-
-const stringHash = (str: string): number => {
-  let hash = 0
-  for (let i = 0; i < str.length; i++) {
-    hash = (hash << 5) - hash + str.charCodeAt(i)
-  }
-  return hash
-}
+import { getColor } from "lib/colors"
 
 export const CssGrid_visualize = (grid: CssGrid): GraphicsObject => {
   const layout = grid.layout()
@@ -57,7 +46,7 @@ export const CssGrid_visualize = (grid: CssGrid): GraphicsObject => {
       center: { x: x + width / 2, y: y + height / 2 },
       width,
       height,
-      color: COLORS[stringHash(key) % COLORS.length],
+      fill: getColor(key),
       label: key,
     })
   }

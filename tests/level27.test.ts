@@ -4,12 +4,28 @@ import browserResult from "testcases/level27.browser-result.json"
 import { testGrid } from "./fixtures/testGrid"
 
 test("level27", () => {
-  const { browserResultSvg, layout, outputViz } = testGrid(
-    level27,
-    browserResult,
-  )
+  const { laidOutResult, outputViz, layout } = testGrid(level27, browserResult)
 
-
+  expect(browserResult).toMatchInlineSnapshot(`
+    {
+      "water": {
+        "height": 100,
+        "width": 100,
+        "x": 0,
+        "y": 0,
+      },
+    }
+  `)
+  expect(laidOutResult).toMatchInlineSnapshot(`
+    {
+      "water": {
+        "height": 60,
+        "width": 200,
+        "x": 100,
+        "y": 30,
+      },
+    }
+  `)
   expect(layout).toMatchInlineSnapshot(`
     {
       "cells": [
@@ -32,11 +48,5 @@ test("level27", () => {
     }
   `)
 
-  expect(browserResultSvg).toMatchSvgSnapshot(
-    import.meta.path.replace(".test.ts", ".browser-result"),
-  )
-
-  expect(outputViz).toMatchSvgSnapshot(
-    import.meta.path.replace(".test.ts", ".output"),
-  )
+  expect(outputViz).toMatchSvgSnapshot(import.meta.path)
 })

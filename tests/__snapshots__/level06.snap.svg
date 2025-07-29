@@ -25,10 +25,10 @@
     <circle data-type="point" data-label="corner" data-x="125" data-y="100" cx="351.11111111111114" cy="437.44444444444446" r="3" fill="black" />
   </g>
   <g>
-    <rect data-type="rect" data-label="water" data-x="10" data-y="10" x="40" y="188.55555555555554" width="49.77777777777777" height="49.77777777777777" fill="hsl(160deg, 100%, 50%)" stroke="black" stroke-width="0.4017857142857143" />
+    <rect data-type="rect" data-label="poison" data-x="10" data-y="10" x="40" y="188.55555555555554" width="49.77777777777777" height="49.77777777777777" fill="none" stroke="black" stroke-width="0.4017857142857143" />
   </g>
   <g>
-    <rect data-type="rect" data-label="water" data-x="175" data-y="10" x="450.6666666666667" y="188.55555555555554" width="49.77777777777777" height="49.77777777777777" fill="hsl(160deg, 100%, 50%)" stroke="black" stroke-width="0.4017857142857143" />
+    <rect data-type="rect" data-label="poison" data-x="195" data-y="10" x="500.44444444444446" y="188.55555555555554" width="49.777777777777715" height="49.77777777777777" fill="none" stroke="black" stroke-width="0.4017857142857143" />
   </g><text data-type="text" data-label="algo" data-x="50" data-y="105.625" x="164.44444444444446" y="451.44444444444446" fill="black" font-size="14" font-family="sans-serif" text-anchor="middle" dominant-baseline="text-after-edge">algo</text><text data-type="text" data-label="correct" data-x="175" data-y="105.625" x="475.55555555555554" y="451.44444444444446" fill="black" font-size="14" font-family="sans-serif" text-anchor="middle" dominant-baseline="text-after-edge">correct</text>
   <g id="crosshair" style="display: none">
     <line id="crosshair-h" y1="0" y2="640" stroke="#666" stroke-width="0.5" />
