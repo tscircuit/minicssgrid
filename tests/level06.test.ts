@@ -21,8 +21,8 @@ test("level06", () => {
       "poison": {
         "height": 20,
         "width": 20,
-        "x": 10,
-        "y": 10,
+        "x": 60,
+        "y": 0,
       },
     }
   `)
@@ -30,7 +30,7 @@ test("level06", () => {
     {
       "cells": [
         {
-          "column": 0,
+          "column": 3,
           "columnSpan": 1,
           "key": "poison",
           "row": 0,

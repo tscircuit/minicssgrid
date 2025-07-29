@@ -6,7 +6,6 @@ import { testGrid } from "./fixtures/testGrid"
 test("level19", () => {
   const { laidOutResult, outputViz, layout } = testGrid(level19, browserResult)
 
-
   expect(browserResult).toMatchInlineSnapshot(`
     {
       "poison-1": {
@@ -76,62 +75,62 @@ test("level19", () => {
       "poison-1": {
         "height": 20,
         "width": 20,
-        "x": 30,
-        "y": 10,
+        "x": 20,
+        "y": 0,
       },
       "poison-2": {
         "height": 20,
         "width": 20,
-        "x": 70,
-        "y": 10,
+        "x": 60,
+        "y": 0,
       },
       "poison-3": {
         "height": 20,
         "width": 20,
-        "x": 10,
-        "y": 30,
+        "x": 0,
+        "y": 20,
       },
       "poison-4": {
         "height": 20,
         "width": 20,
-        "x": 50,
-        "y": 30,
+        "x": 40,
+        "y": 20,
       },
       "poison-5": {
         "height": 20,
         "width": 20,
-        "x": 90,
-        "y": 30,
+        "x": 80,
+        "y": 20,
       },
       "water-1": {
         "height": 20,
         "width": 20,
-        "x": 10,
-        "y": 10,
+        "x": 0,
+        "y": 0,
       },
       "water-2": {
         "height": 20,
         "width": 20,
-        "x": 50,
-        "y": 10,
+        "x": 40,
+        "y": 0,
       },
       "water-3": {
         "height": 20,
         "width": 20,
-        "x": 90,
-        "y": 10,
+        "x": 80,
+        "y": 0,
       },
       "water-4": {
         "height": 20,
         "width": 20,
-        "x": 30,
-        "y": 30,
+        "x": 20,
+        "y": 20,
       },
       "water-5": {
         "height": 20,
         "width": 20,
-        "x": 70,
-        "y": 30,
+        "x": 60,
+        "y": 20,
       },
     }
   `)

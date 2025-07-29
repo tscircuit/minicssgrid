@@ -6,7 +6,7 @@ import type { CssGrid, GridCell } from "./CssGrid"
 function expandRepeat(templateStr: string): string {
   // Only handles single-level repeat(N, X) as used in the repo
   return templateStr.replace(/repeat\((\d+),\s*([^)]+)\)/g, (_, count, val) =>
-    Array(Number(count)).fill(val.trim()).join(" ")
+    Array(Number(count)).fill(val.trim()).join(" "),
   )
 }
 
@@ -17,7 +17,10 @@ function tokenize(templateStr: string): string[] {
 }
 
 // pxFromToken: returns px value or undefined for "fr"
-function pxFromToken(token: string, containerSize: number | undefined): number | undefined | { fr: number } {
+function pxFromToken(
+  token: string,
+  containerSize: number | undefined,
+): number | undefined | { fr: number } {
   if (token.endsWith("%")) {
     const n = parseFloat(token)
     return containerSize != null ? (containerSize * n) / 100 : 0
@@ -62,15 +65,21 @@ export const CssGrid_layout = (
     rowsTpl = rows?.trim()
     colsTpl = cols?.trim()
   } else {
-    rowsTpl = typeof opts.gridTemplateRows === "string" ? opts.gridTemplateRows : undefined
-    colsTpl = typeof opts.gridTemplateColumns === "string" ? opts.gridTemplateColumns : undefined
+    rowsTpl =
+      typeof opts.gridTemplateRows === "string"
+        ? opts.gridTemplateRows
+        : undefined
+    colsTpl =
+      typeof opts.gridTemplateColumns === "string"
+        ? opts.gridTemplateColumns
+        : undefined
   }
 
   // --- 3. Build numeric track size arrays ---
 
   function buildTrackSizes(
     tpl: string | undefined,
-    containerSize: number | undefined
+    containerSize: number | undefined,
   ): number[] {
     if (!tpl) return []
     const expanded = expandRepeat(tpl)
@@ -98,11 +107,7 @@ export const CssGrid_layout = (
     const free = Math.max((containerSize ?? 0) - sumFixed, 0)
     // Second pass: assign fr tracks
     return sizes.map((v) =>
-      typeof v === "number"
-        ? v
-        : totalFr > 0
-        ? (free / totalFr) * v.fr
-        : 0
+      typeof v === "number" ? v : totalFr > 0 ? (free / totalFr) * v.fr : 0,
     )
   }
 
@@ -145,7 +150,8 @@ export const CssGrid_layout = (
           ? parseInt(child.rowEnd)
           : (child.rowEnd as number)
       if (rowStart !== undefined) {
-        rowSpan = end - (typeof rowStart === "string" ? parseInt(rowStart) : rowStart)
+        rowSpan =
+          end - (typeof rowStart === "string" ? parseInt(rowStart) : rowStart)
       } else {
         rowStart = end - rowSpan
       }
@@ -156,7 +162,8 @@ export const CssGrid_layout = (
           ? parseInt(child.columnEnd)
           : (child.columnEnd as number)
       if (colStart !== undefined) {
-        colSpan = end - (typeof colStart === "string" ? parseInt(colStart) : colStart)
+        colSpan =
+          end - (typeof colStart === "string" ? parseInt(colStart) : colStart)
       } else {
         colStart = end - colSpan
       }
@@ -172,9 +179,15 @@ export const CssGrid_layout = (
     if (typeof colStart === "number" && colStart < 0)
       colStart = resolveNegativeLine(colStart, colCount)
 
-    // If still undefined, use auto-placement
-    if (rowStart === undefined || colStart === undefined) {
-      // row-major: nextAutoCell
+    // Handle partial placement - if only one dimension is specified
+    if (rowStart === undefined && colStart !== undefined) {
+      // Column specified but not row - place in row 1
+      rowStart = 1
+    } else if (colStart === undefined && rowStart !== undefined) {
+      // Row specified but not column - place in column 1
+      colStart = 1
+    } else if (rowStart === undefined && colStart === undefined) {
+      // Neither specified - use auto-placement
       const idx = nextAutoCell
       rowStart = Math.floor(idx / colCount) + 1
       colStart = (idx % colCount) + 1
@@ -205,7 +218,8 @@ export const CssGrid_layout = (
   let maxCol = columnSizes.length
   for (const cell of cells) {
     if (cell.row + cell.rowSpan > maxRow) maxRow = cell.row + cell.rowSpan
-    if (cell.column + cell.columnSpan > maxCol) maxCol = cell.column + cell.columnSpan
+    if (cell.column + cell.columnSpan > maxCol)
+      maxCol = cell.column + cell.columnSpan
   }
   while (rowSizes.length < maxRow) rowSizes.push(0)
   while (columnSizes.length < maxCol) columnSizes.push(0)

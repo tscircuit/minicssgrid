@@ -56,9 +56,9 @@ export const CssGrid_convertToHtml = (grid: CssGrid) => {
       if (typeof c.row === "string" && c.row.includes("/")) {
         cs.push(`grid-row:${c.row}`)
       } else {
-        const start = c.rowStart ?? c.row       // alias handling
-        const end   = c.rowEnd
-        const span  = c.rowSpan
+        const start = c.rowStart ?? c.row // alias handling
+        const end = c.rowEnd
+        const span = c.rowSpan
 
         if (start !== undefined || end !== undefined) {
           if (start !== undefined && end !== undefined) {
@@ -82,8 +82,8 @@ export const CssGrid_convertToHtml = (grid: CssGrid) => {
         cs.push(`grid-column:${c.column}`)
       } else {
         const start = c.columnStart ?? c.column // alias handling
-        const end   = c.columnEnd
-        const span  = c.columnSpan
+        const end = c.columnEnd
+        const span = c.columnSpan
 
         if (start !== undefined || end !== undefined) {
           if (start !== undefined && end !== undefined) {

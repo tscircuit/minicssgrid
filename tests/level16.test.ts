@@ -6,7 +6,6 @@ import { testGrid } from "./fixtures/testGrid"
 test("level16", () => {
   const { laidOutResult, outputViz, layout } = testGrid(level16, browserResult)
 
-
   expect(browserResult).toMatchInlineSnapshot(`
     {
       "water": {
@@ -22,8 +21,8 @@ test("level16", () => {
       "water": {
         "height": 60,
         "width": 80,
-        "x": 60,
-        "y": 30,
+        "x": 20,
+        "y": 0,
       },
     }
   `)

@@ -21,8 +21,8 @@ test("level10", () => {
       "water": {
         "height": 20,
         "width": 40,
-        "x": 20,
-        "y": 10,
+        "x": 60,
+        "y": 0,
       },
     }
   `)
@@ -30,7 +30,7 @@ test("level10", () => {
     {
       "cells": [
         {
-          "column": 0,
+          "column": 3,
           "columnSpan": 2,
           "key": "water",
           "row": 0,

@@ -21,7 +21,7 @@ test("level26", () => {
       "water": {
         "height": 0,
         "width": 100,
-        "x": 50,
+        "x": 0,
         "y": 100,
       },
     }

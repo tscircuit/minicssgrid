@@ -28,8 +28,8 @@ export const testGrid = (
 
   for (const rect of algoOutputGraphics.rects ?? []) {
     laidOutResult[rect.label!] = {
-      x: rect.center.x,
-      y: rect.center.y,
+      x: rect.center.x - rect.width / 2, // Convert center to top-left
+      y: rect.center.y - rect.height / 2, // Convert center to top-left
       width: rect.width,
       height: rect.height,
     }
