@@ -4,16 +4,15 @@ import level1 from "testcases/level01"
 import browserResult from "testcases/level01.browser-result.json"
 import { getSvgFromGraphicsObject } from "graphics-debug"
 import { visualizeBrowserResult } from "lib/visualizeBrowserResult"
+import { testGrid } from "./fixtures/testGrid"
 
-test("level1", () => {
-  const grid = new CssGrid(level1)
+test("level01", () => {
+  const { browserResultSvg, layout, outputViz } = testGrid(
+    level1,
+    browserResult,
+  )
 
-  expect(
-    getSvgFromGraphicsObject(visualizeBrowserResult(browserResult), {
-      backgroundColor: "white",
-    }),
-  ).toMatchSvgSnapshot(import.meta.path)
-  expect(grid.layout()).toMatchInlineSnapshot(`
+  expect(layout).toMatchInlineSnapshot(`
     {
       "cells": [],
       "columnSizes": [],
@@ -21,7 +20,11 @@ test("level1", () => {
     }
   `)
 
-  const go = grid.visualize()
-  const svg = getSvgFromGraphicsObject(go)
-  expect(svg).toMatchSvgSnapshot(import.meta.path)
+  expect(browserResultSvg).toMatchSvgSnapshot(
+    import.meta.path.replace(".test.ts", ".browser-result.svg"),
+  )
+
+  expect(outputViz).toMatchSvgSnapshot(
+    import.meta.path.replace(".test.ts", ".output.svg"),
+  )
 })
