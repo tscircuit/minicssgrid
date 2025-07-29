@@ -12,9 +12,57 @@ test("level18", () => {
 
   expect(layout).toMatchInlineSnapshot(`
     {
-      "cells": [],
-      "columnSizes": [],
-      "rowSizes": [],
+      "cells": [
+        {
+          "column": 0,
+          "columnSpan": 1,
+          "key": "water-1",
+          "row": 0,
+          "rowSpan": 1,
+        },
+        {
+          "column": 1,
+          "columnSpan": 1,
+          "key": "poison",
+          "row": 0,
+          "rowSpan": 1,
+        },
+        {
+          "column": 2,
+          "columnSpan": 1,
+          "key": "water-2",
+          "row": 0,
+          "rowSpan": 1,
+        },
+        {
+          "column": 3,
+          "columnSpan": 1,
+          "key": "water-3",
+          "row": 0,
+          "rowSpan": 1,
+        },
+        {
+          "column": 4,
+          "columnSpan": 1,
+          "key": "water-4",
+          "row": 0,
+          "rowSpan": 1,
+        },
+      ],
+      "columnSizes": [
+        20,
+        20,
+        20,
+        20,
+        20,
+      ],
+      "rowSizes": [
+        20,
+        20,
+        20,
+        20,
+        20,
+      ],
     }
   `)
 

@@ -12,9 +12,32 @@ test("level21", () => {
 
   expect(layout).toMatchInlineSnapshot(`
     {
-      "cells": [],
-      "columnSizes": [],
-      "rowSizes": [],
+      "cells": [
+        {
+          "column": 0,
+          "columnSpan": 1,
+          "key": "water",
+          "row": 0,
+          "rowSpan": 1,
+        },
+      ],
+      "columnSizes": [
+        12.5,
+        12.5,
+        12.5,
+        12.5,
+        12.5,
+        12.5,
+        12.5,
+        12.5,
+      ],
+      "rowSizes": [
+        20,
+        20,
+        20,
+        20,
+        20,
+      ],
     }
   `)
 

@@ -1,4 +1,7 @@
-import { getSvgFromGraphicsObject } from "graphics-debug"
+import {
+  getSvgFromGraphicsObject,
+  stackGraphicsHorizontally,
+} from "graphics-debug"
 import { CssGrid } from "lib/index"
 import type { BrowserResult, CssGridOptions } from "lib/types"
 import { visualizeBrowserResult } from "lib/visualizeBrowserResult"
@@ -9,23 +12,57 @@ export const testGrid = (
 ) => {
   const grid = new CssGrid(input)
 
-  const browserResultSvg = getSvgFromGraphicsObject(
-    visualizeBrowserResult(browserResult),
+  const browserResultGraphics = visualizeBrowserResult(browserResult)
+  const browserResultSvg = getSvgFromGraphicsObject(browserResultGraphics, {
+    backgroundColor: "white",
+  })
+
+  const layout = grid.layout()
+
+  const algoOutputGraphics = grid.visualize()
+
+  const laidOutResult: Record<
+    string,
+    { x: number; y: number; width: number; height: number }
+  > = {}
+
+  for (const rect of algoOutputGraphics.rects ?? []) {
+    laidOutResult[rect.label!] = {
+      x: rect.center.x,
+      y: rect.center.y,
+      width: rect.width,
+      height: rect.height,
+    }
+  }
+
+  algoOutputGraphics.points?.push(
+    {
+      x: 0,
+      y: 0,
+    },
+    {
+      x: 100,
+      y: 0,
+    },
+    {
+      x: 100,
+      y: 100,
+    },
+    { x: 0, y: 100 },
+  )
+  const outputVizSvg = getSvgFromGraphicsObject(
+    stackGraphicsHorizontally([algoOutputGraphics, browserResultGraphics], {
+      titles: ["algo", "correct"],
+    }),
     {
       backgroundColor: "white",
     },
   )
 
-  const layout = grid.layout()
-
-  const outputViz = grid.visualize()
-  const outputVizSvg = getSvgFromGraphicsObject(outputViz, {
-    backgroundColor: "white",
-  })
-
   return {
     browserResultSvg,
     layout,
+    laidOutResult,
     outputViz: outputVizSvg,
   }
 }

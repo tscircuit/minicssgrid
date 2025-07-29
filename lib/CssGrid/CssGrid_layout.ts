@@ -1,5 +1,47 @@
 import type { CssGrid, GridCell } from "./CssGrid"
 
+// --- Helpers ---
+
+// Expand repeat(N, X) into X X X...
+function expandRepeat(templateStr: string): string {
+  // Only handles single-level repeat(N, X) as used in the repo
+  return templateStr.replace(/repeat\((\d+),\s*([^)]+)\)/g, (_, count, val) =>
+    Array(Number(count)).fill(val.trim()).join(" ")
+  )
+}
+
+// Tokenize a template string into track tokens
+function tokenize(templateStr: string): string[] {
+  // Split by whitespace, ignore empty
+  return templateStr.trim().split(/\s+/).filter(Boolean)
+}
+
+// pxFromToken: returns px value or undefined for "fr"
+function pxFromToken(token: string, containerSize: number | undefined): number | undefined | { fr: number } {
+  if (token.endsWith("%")) {
+    const n = parseFloat(token)
+    return containerSize != null ? (containerSize * n) / 100 : 0
+  }
+  if (token.endsWith("px")) {
+    return parseFloat(token)
+  }
+  if (token.endsWith("em")) {
+    return parseFloat(token) * 16
+  }
+  if (token.endsWith("fr")) {
+    return { fr: parseFloat(token) }
+  }
+  // fallback: treat as px if number
+  const n = parseFloat(token)
+  if (!isNaN(n)) return n
+  return 0
+}
+
+// CSS negative line index resolution
+function resolveNegativeLine(idx: number, trackCnt: number): number {
+  return idx > 0 ? idx : trackCnt + 2 + idx
+}
+
 export const CssGrid_layout = (
   grid: CssGrid,
 ): {
@@ -7,16 +49,171 @@ export const CssGrid_layout = (
   rowSizes: number[]
   columnSizes: number[]
 } => {
-  const {
-    children,
-    containerWidth,
-    containerHeight,
-    gridTemplateColumns,
-    gridTemplateRows,
-  } = grid.opts
+  const opts = grid.opts
+  const children = opts.children
+
+  // --- 2. Parse user options for templates ---
+  let rowsTpl: string | undefined
+  let colsTpl: string | undefined
+
+  if ("gridTemplate" in opts && typeof opts.gridTemplate === "string") {
+    // e.g. "1fr 2fr / 100px 1fr"
+    const [rows, cols] = opts.gridTemplate.split("/")
+    rowsTpl = rows?.trim()
+    colsTpl = cols?.trim()
+  } else {
+    rowsTpl = typeof opts.gridTemplateRows === "string" ? opts.gridTemplateRows : undefined
+    colsTpl = typeof opts.gridTemplateColumns === "string" ? opts.gridTemplateColumns : undefined
+  }
+
+  // --- 3. Build numeric track size arrays ---
+
+  function buildTrackSizes(
+    tpl: string | undefined,
+    containerSize: number | undefined
+  ): number[] {
+    if (!tpl) return []
+    const expanded = expandRepeat(tpl)
+    const tokens = tokenize(expanded)
+    // First pass: collect fixed sizes and total fr
+    let sumFixed = 0
+    let totalFr = 0
+    const frTokens: { idx: number; fr: number }[] = []
+    const sizes: (number | { fr: number })[] = []
+    tokens.forEach((token, i) => {
+      const px = pxFromToken(token, containerSize)
+      if (typeof px === "number") {
+        sizes.push(px)
+        sumFixed += px
+      } else if (px && typeof px === "object" && "fr" in px) {
+        sizes.push(px)
+        totalFr += px.fr
+        frTokens.push({ idx: i, fr: px.fr })
+      } else {
+        sizes.push(0)
+        sumFixed += 0
+      }
+    })
+    // Compute free space
+    const free = Math.max((containerSize ?? 0) - sumFixed, 0)
+    // Second pass: assign fr tracks
+    return sizes.map((v) =>
+      typeof v === "number"
+        ? v
+        : totalFr > 0
+        ? (free / totalFr) * v.fr
+        : 0
+    )
+  }
+
+  const rowSizes = buildTrackSizes(rowsTpl, opts.containerHeight)
+  const columnSizes = buildTrackSizes(colsTpl, opts.containerWidth)
+
+  const rowCount = rowSizes.length
+  const colCount = columnSizes.length
+
+  // --- 4. Item placement (auto-placement, cut-down) ---
+
+  const cells: GridCell[] = []
+  let nextAutoCell = 0 // row-major index
+
+  for (const child of children) {
+    // Placement: row/col start
+    let rowStart: number | undefined =
+      child.rowStart !== undefined ? child.rowStart : child.row
+    let colStart: number | undefined =
+      child.columnStart !== undefined ? child.columnStart : child.column
+
+    // Spans
+    let rowSpan: number =
+      child.rowSpan !== undefined
+        ? typeof child.rowSpan === "string"
+          ? parseInt(child.rowSpan)
+          : (child.rowSpan as number)
+        : 1
+    let colSpan: number =
+      child.columnSpan !== undefined
+        ? typeof child.columnSpan === "string"
+          ? parseInt(child.columnSpan)
+          : (child.columnSpan as number)
+        : 1
+
+    // End indices (not used for placement, but for span calculation)
+    if (child.rowEnd !== undefined) {
+      const end =
+        typeof child.rowEnd === "string"
+          ? parseInt(child.rowEnd)
+          : (child.rowEnd as number)
+      if (rowStart !== undefined) {
+        rowSpan = end - (typeof rowStart === "string" ? parseInt(rowStart) : rowStart)
+      } else {
+        rowStart = end - rowSpan
+      }
+    }
+    if (child.columnEnd !== undefined) {
+      const end =
+        typeof child.columnEnd === "string"
+          ? parseInt(child.columnEnd)
+          : (child.columnEnd as number)
+      if (colStart !== undefined) {
+        colSpan = end - (typeof colStart === "string" ? parseInt(colStart) : colStart)
+      } else {
+        colStart = end - colSpan
+      }
+    }
+
+    // Parse string indices
+    if (typeof rowStart === "string") rowStart = parseInt(rowStart)
+    if (typeof colStart === "string") colStart = parseInt(colStart)
+
+    // Negative line indices
+    if (typeof rowStart === "number" && rowStart < 0)
+      rowStart = resolveNegativeLine(rowStart, rowCount)
+    if (typeof colStart === "number" && colStart < 0)
+      colStart = resolveNegativeLine(colStart, colCount)
+
+    // If still undefined, use auto-placement
+    if (rowStart === undefined || colStart === undefined) {
+      // row-major: nextAutoCell
+      const idx = nextAutoCell
+      rowStart = Math.floor(idx / colCount) + 1
+      colStart = (idx % colCount) + 1
+    }
+
+    // Compute end indices
+    const row = (rowStart as number) - 1
+    const column = (colStart as number) - 1
+
+    // Clamp spans to at least 1
+    rowSpan = Math.max(1, rowSpan)
+    colSpan = Math.max(1, colSpan)
+
+    cells.push({
+      key: child.key,
+      row,
+      column,
+      rowSpan,
+      columnSpan: colSpan,
+    })
+
+    // Advance auto cursor
+    nextAutoCell += colSpan
+  }
+
+  // --- 5. Ensure size arrays are long enough for implicit tracks ---
+  let maxRow = rowSizes.length
+  let maxCol = columnSizes.length
+  for (const cell of cells) {
+    if (cell.row + cell.rowSpan > maxRow) maxRow = cell.row + cell.rowSpan
+    if (cell.column + cell.columnSpan > maxCol) maxCol = cell.column + cell.columnSpan
+  }
+  while (rowSizes.length < maxRow) rowSizes.push(0)
+  while (columnSizes.length < maxCol) columnSizes.push(0)
+
+  // --- 6. Return assembled object ---
   return {
-    cells: [],
-    rowSizes: [],
-    columnSizes: [],
+    cells,
+    rowSizes,
+    columnSizes,
   }
 }

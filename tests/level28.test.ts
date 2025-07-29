@@ -12,9 +12,30 @@ test("level28", () => {
 
   expect(layout).toMatchInlineSnapshot(`
     {
-      "cells": [],
-      "columnSizes": [],
-      "rowSizes": [],
+      "cells": [
+        {
+          "column": 0,
+          "columnSpan": 1,
+          "key": "water",
+          "row": 0,
+          "rowSpan": 1,
+        },
+        {
+          "column": 1,
+          "columnSpan": 1,
+          "key": "poison",
+          "row": 0,
+          "rowSpan": 1,
+        },
+      ],
+      "columnSizes": [
+        20,
+        80,
+      ],
+      "rowSizes": [
+        50,
+        50,
+      ],
     }
   `)
 
