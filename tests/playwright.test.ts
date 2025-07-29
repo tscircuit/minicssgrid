@@ -26,6 +26,10 @@ test("CssGrid convertToHtml renders correctly with testcase01", async ({
         <title>Grid Test</title>
         <style>
           body { margin: 0; padding: 0px; font-family: Arial, sans-serif; }
+          body > div {
+            width: 100%;
+            height: 100%;
+          }
         </style>
       </head>
       <body>
@@ -35,6 +39,7 @@ test("CssGrid convertToHtml renders correctly with testcase01", async ({
     `
 
     // Set the HTML content in the page
+    console.log(fullHtml)
     await page.setContent(fullHtml)
 
     // Extract positions of all named elements

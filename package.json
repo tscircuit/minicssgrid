@@ -4,6 +4,7 @@
   "main": "dist/index.js",
   "type": "module",
   "scripts": {
+    "start": "cosmos",
     "format": "biome format --write .",
     "format:check": "biome format ."
   },
@@ -13,7 +14,9 @@
     "@types/bun": "latest",
     "bun-match-svg": "^0.0.12",
     "graphics-debug": "^0.0.61",
-    "playwright": "^1.54.1"
+    "playwright": "^1.54.1",
+    "react-cosmos": "^7.0.0",
+    "react-cosmos-plugin-vite": "^7.0.0"
   },
   "peerDependencies": {
     "typescript": "^5"
