@@ -37,28 +37,28 @@ test("level15", () => {
   expect(laidOutResult).toMatchInlineSnapshot(`
     {
       "center-item": {
-        "height": 100,
-        "width": 200,
+        "height": 18,
+        "width": 81.125,
         "x": 0,
-        "y": 100,
+        "y": 182,
       },
       "end-item": {
-        "height": 100,
-        "width": 200,
+        "height": 18,
+        "width": 59,
         "x": 200,
-        "y": 0,
+        "y": 82,
       },
       "start-item": {
-        "height": 100,
-        "width": 200,
+        "height": 18,
+        "width": 73.75,
         "x": 0,
-        "y": 0,
+        "y": 82,
       },
       "stretch-item": {
-        "height": 100,
-        "width": 200,
+        "height": 18,
+        "width": 88.5,
         "x": 200,
-        "y": 100,
+        "y": 182,
       },
     }
   `)

@@ -31,21 +31,21 @@ test("level12", () => {
   expect(laidOutResult).toMatchInlineSnapshot(`
     {
       "auto-width": {
-        "height": 100,
-        "width": 100,
+        "height": 18,
+        "width": 73.75,
         "x": 0,
         "y": 0,
       },
       "fixed-width": {
-        "height": 100,
+        "height": 18,
         "width": 100,
-        "x": 100,
+        "x": 73.75,
         "y": 0,
       },
       "flexible": {
-        "height": 100,
-        "width": 100,
-        "x": 200,
+        "height": 18,
+        "width": 126.25,
+        "x": 173.75,
         "y": 0,
       },
     }

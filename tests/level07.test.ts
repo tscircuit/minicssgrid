@@ -37,28 +37,28 @@ test("level07", () => {
   expect(laidOutResult).toMatchInlineSnapshot(`
     {
       "content": {
-        "height": 250,
+        "height": 282,
         "width": 200,
         "x": 100,
-        "y": 50,
+        "y": 18,
       },
       "footer": {
-        "height": 50,
+        "height": 18,
         "width": 300,
         "x": 0,
-        "y": 250,
+        "y": 282,
       },
       "header": {
-        "height": 50,
+        "height": 18,
         "width": 300,
         "x": 0,
         "y": 0,
       },
       "sidebar": {
-        "height": 200,
+        "height": 264,
         "width": 100,
         "x": 0,
-        "y": 50,
+        "y": 18,
       },
     }
   `)

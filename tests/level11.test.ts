@@ -25,16 +25,16 @@ test("level11", () => {
   expect(laidOutResult).toMatchInlineSnapshot(`
     {
       "another-item": {
-        "height": 100,
-        "width": 100,
-        "x": 100,
-        "y": 0,
+        "height": 18,
+        "width": 88.5,
+        "x": 105.75,
+        "y": 41,
       },
       "center-item": {
-        "height": 100,
-        "width": 100,
-        "x": 0,
-        "y": 0,
+        "height": 18,
+        "width": 81.125,
+        "x": 9.4375,
+        "y": 41,
       },
     }
   `)
