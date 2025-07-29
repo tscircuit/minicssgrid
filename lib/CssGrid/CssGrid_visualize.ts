@@ -15,7 +15,7 @@ export const CssGrid_visualize = (grid: CssGrid): GraphicsObject => {
     texts: [],
   }
 
-  const { cells, rowSizes, columnSizes } = layout
+  const { cells, rowSizes, columnSizes, rowGap = 0, columnGap = 0 } = layout
 
   for (const cell of cells) {
     const { column, row, columnSpan, rowSpan, key } = cell
@@ -25,10 +25,12 @@ export const CssGrid_visualize = (grid: CssGrid): GraphicsObject => {
 
     for (let i = 0; i < column; i++) {
       x += columnSizes[i]!
+      x += columnGap
     }
 
     for (let i = 0; i < row; i++) {
       y += rowSizes[i]!
+      y += rowGap
     }
 
     let width = 0
@@ -36,10 +38,12 @@ export const CssGrid_visualize = (grid: CssGrid): GraphicsObject => {
 
     for (let i = column; i < column + columnSpan; i++) {
       width += columnSizes[i]!
+      if (i < column + columnSpan - 1) width += columnGap
     }
 
     for (let i = row; i < row + rowSpan; i++) {
       height += rowSizes[i]!
+      if (i < row + rowSpan - 1) height += rowGap
     }
 
     go.rects.push({

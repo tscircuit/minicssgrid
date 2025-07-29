@@ -95,10 +95,12 @@ test("level04", () => {
           "rowSpan": 1,
         },
       ],
+      "columnGap": 0,
       "columnSizes": [
         100,
         200,
       ],
+      "rowGap": 0,
       "rowSizes": [
         50,
         120,

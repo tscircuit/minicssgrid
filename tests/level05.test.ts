@@ -37,28 +37,28 @@ test("level05", () => {
   expect(laidOutResult).toMatchInlineSnapshot(`
     {
       "box1": {
-        "height": 120,
-        "width": 120,
+        "height": 110,
+        "width": 110,
         "x": 0,
         "y": 0,
       },
       "box2": {
-        "height": 120,
-        "width": 120,
-        "x": 120,
+        "height": 110,
+        "width": 110,
+        "x": 130,
         "y": 0,
       },
       "box3": {
-        "height": 120,
-        "width": 120,
+        "height": 110,
+        "width": 110,
         "x": 0,
-        "y": 120,
+        "y": 130,
       },
       "box4": {
-        "height": 120,
-        "width": 120,
-        "x": 120,
-        "y": 120,
+        "height": 110,
+        "width": 110,
+        "x": 130,
+        "y": 130,
       },
     }
   `)
@@ -95,13 +95,15 @@ test("level05", () => {
           "rowSpan": 1,
         },
       ],
+      "columnGap": 20,
       "columnSizes": [
-        120,
-        120,
+        110,
+        110,
       ],
+      "rowGap": 20,
       "rowSizes": [
-        120,
-        120,
+        110,
+        110,
       ],
     }
   `)

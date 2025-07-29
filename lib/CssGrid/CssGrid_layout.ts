@@ -21,6 +21,9 @@ function pxFromToken(
   token: string,
   containerSize: number | undefined,
 ): number | undefined | { fr: number } {
+  if (token === "auto") {
+    return { fr: 1 }
+  }
   if (token.endsWith("%")) {
     const n = parseFloat(token)
     return containerSize != null ? (containerSize * n) / 100 : 0
@@ -80,17 +83,21 @@ export const CssGrid_layout = (
   function buildTrackSizes(
     tpl: string | undefined,
     containerSize: number | undefined,
+    gap: number,
   ): number[] {
     if (!tpl) return []
     const expanded = expandRepeat(tpl)
     const tokens = tokenize(expanded)
+    const trackCount = tokens.length
+    const sizeForTracks =
+      containerSize != null ? containerSize - gap * (trackCount - 1) : undefined
     // First pass: collect fixed sizes and total fr
     let sumFixed = 0
     let totalFr = 0
     const frTokens: { idx: number; fr: number }[] = []
     const sizes: (number | { fr: number })[] = []
     tokens.forEach((token, i) => {
-      const px = pxFromToken(token, containerSize)
+      const px = pxFromToken(token, sizeForTracks)
       if (typeof px === "number") {
         sizes.push(px)
         sumFixed += px
@@ -104,15 +111,28 @@ export const CssGrid_layout = (
       }
     })
     // Compute free space
-    const free = Math.max((containerSize ?? 0) - sumFixed, 0)
+    const free = Math.max((sizeForTracks ?? 0) - sumFixed, 0)
     // Second pass: assign fr tracks
     return sizes.map((v) =>
       typeof v === "number" ? v : totalFr > 0 ? (free / totalFr) * v.fr : 0,
     )
   }
 
-  const rowSizes = buildTrackSizes(rowsTpl, opts.containerHeight)
-  const columnSizes = buildTrackSizes(colsTpl, opts.containerWidth)
+  const rowGap =
+    typeof opts.gap === "number"
+      ? opts.gap
+      : Array.isArray(opts.gap)
+        ? opts.gap[0]
+        : 0
+  const columnGap =
+    typeof opts.gap === "number"
+      ? opts.gap
+      : Array.isArray(opts.gap)
+        ? opts.gap[1]
+        : 0
+
+  const rowSizes = buildTrackSizes(rowsTpl, opts.containerHeight, rowGap)
+  const columnSizes = buildTrackSizes(colsTpl, opts.containerWidth, columnGap)
 
   const rowCount = rowSizes.length
   const colCount = columnSizes.length
@@ -229,5 +249,7 @@ export const CssGrid_layout = (
     cells,
     rowSizes,
     columnSizes,
+    rowGap,
+    columnGap,
   }
 }

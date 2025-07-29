@@ -31,21 +31,21 @@ test("level12", () => {
   expect(laidOutResult).toMatchInlineSnapshot(`
     {
       "auto-width": {
-        "height": 0,
-        "width": 0,
-        "x": 0,
-        "y": 0,
-      },
-      "fixed-width": {
-        "height": 0,
+        "height": 100,
         "width": 100,
         "x": 0,
         "y": 0,
       },
-      "flexible": {
-        "height": 0,
-        "width": 200,
+      "fixed-width": {
+        "height": 100,
+        "width": 100,
         "x": 100,
+        "y": 0,
+      },
+      "flexible": {
+        "height": 100,
+        "width": 100,
+        "x": 200,
         "y": 0,
       },
     }
@@ -76,13 +76,15 @@ test("level12", () => {
           "rowSpan": 1,
         },
       ],
+      "columnGap": 0,
       "columnSizes": [
-        0,
         100,
-        200,
+        100,
+        100,
       ],
+      "rowGap": 0,
       "rowSizes": [
-        0,
+        100,
       ],
     }
   `)

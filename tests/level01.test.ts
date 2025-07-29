@@ -38,6 +38,7 @@ test("level01", () => {
           "rowSpan": 1,
         },
       ],
+      "columnGap": 0,
       "columnSizes": [
         20,
         20,
@@ -45,6 +46,7 @@ test("level01", () => {
         20,
         20,
       ],
+      "rowGap": 0,
       "rowSizes": [
         20,
         20,
