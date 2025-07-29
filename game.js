@@ -1,4 +1,5 @@
 var levels = [
+  // CssGridOptions
   // {
   //   children: [{ key: "water", column: 3 }],
   //   containerWidth: 100,
@@ -14,6 +15,15 @@ var levels = [
     before: "#garden {\n  display: grid;\n  grid-template-columns: 20% 20% 20% 20% 20%;\n  grid-template-rows: 20% 20% 20% 20% 20%;\n}\n\n#water {\n",
     after: "}"
   },
+  
+  // CssGridOptions
+  // {
+  //   children: [{ key: "poison", column: 5 }],
+  //   containerWidth: 100,
+  //   containerHeight: 100,
+  //   gridTemplateColumns: "20% 20% 20% 20% 20%",
+  //   gridTemplateRows: "20% 20% 20% 20% 20%",
+  // }
   {
     name: 'grid-column-start 2',
     board: 'w',
