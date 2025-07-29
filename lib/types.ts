@@ -61,3 +61,5 @@ export interface CssGridOptions {
   containerWidth?: number
   containerHeight?: number
 }
+
+export type BrowserResult = any

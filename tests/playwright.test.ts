@@ -1,11 +1,11 @@
 import { test, expect } from "@playwright/test"
 import { CssGrid } from "lib/CssGrid/CssGrid"
-import basics01 from "testcases/basics/basics01"
+import level1 from "testcases/level1"
 import * as fs from "node:fs"
 import * as path from "node:path"
 
 const TEST_CASES = {
-  "basics/basics01": basics01,
+  level1: level1,
 }
 
 test("CssGrid convertToHtml renders correctly with testcase01", async ({
