@@ -53,4 +53,7 @@ export interface CssGridOptions {
   /* Alignment – mirror CSS keywords, but feel free to extend */
   justifyItems?: "start" | "end" | "center" | "stretch"
   alignItems?: "start" | "end" | "center" | "stretch"
+
+  containerWidth?: number
+  containerHeight?: number
 }

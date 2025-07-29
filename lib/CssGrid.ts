@@ -24,7 +24,11 @@ export class CssGrid {
   }
 
   /** Returns the computed layout matrix, ready for rendering elsewhere */
-  public layout(): GridCell[] {
+  public layout(): {
+    cells: GridCell[]
+    rowSizes: number[]
+    columnSizes: number[]
+  } {
     throw new Error("Not implemented")
   }
 

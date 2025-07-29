@@ -11,7 +11,8 @@
     "@biomejs/biome": "^2.1.2",
     "@types/bun": "latest",
     "bun-match-svg": "^0.0.12",
-    "graphics-debug": "^0.0.61"
+    "graphics-debug": "^0.0.61",
+    "playwright": "^1.54.1"
   },
   "peerDependencies": {
     "typescript": "^5"

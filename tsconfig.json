@@ -8,6 +8,12 @@
     "jsx": "react-jsx",
     "allowJs": true,
 
+    "paths": {
+      "testcases/*": ["./testcases/*"],
+      "tests/*": ["./tests/*"],
+      "lib/*": ["./lib/*"]
+    },
+
     // Bundler mode
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,

@@ -1,12 +1,8 @@
 import { expect, test } from "bun:test"
-import { CssGrid } from "../../lib/CssGrid"
+import { CssGrid } from "lib/CssGrid"
+import basic01 from "testcases/basics/basics01"
 
 test("minimal single-item layout", () => {
-  const grid = new CssGrid({
-    children: [{ key: "a" }],
-  })
-
-  expect(grid.layout()).toEqual([
-    { key: "a", row: 1, column: 1, rowSpan: 1, columnSpan: 1 },
-  ])
+  const grid = new CssGrid(basic01)
+  console.log(grid.convertToHtml())
 })
