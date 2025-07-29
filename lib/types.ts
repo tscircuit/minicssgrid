@@ -62,4 +62,11 @@ export interface CssGridOptions {
   containerHeight?: number
 }
 
-export type BrowserResult = any
+export interface BrowserResultItem {
+  x: number
+  y: number
+  width: number
+  height: number
+}
+
+export type BrowserResult = Record<string, BrowserResultItem>

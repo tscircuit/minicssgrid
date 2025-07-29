@@ -8,9 +8,11 @@ import { visualizeBrowserResult } from "lib/visualizeBrowserResult"
 test("level1", () => {
   const grid = new CssGrid(level1)
 
-  expect(visualizeBrowserResult(browserResult)).toMatchSvgSnapshot(
-    import.meta.path,
-  )
+  expect(
+    getSvgFromGraphicsObject(visualizeBrowserResult(browserResult), {
+      backgroundColor: "white",
+    }),
+  ).toMatchSvgSnapshot(import.meta.path)
   // expect(grid.layout()).toMatchInlineSnapshot()
 
   // const go = grid.visualize()
