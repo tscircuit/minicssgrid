@@ -1,7 +1,7 @@
 import type { CssGridOptions } from "lib/types"
 
 export default {
-  children: [{ key: "water", column: 5, columnEnd: 2 }],
+  children: [{ key: "water", columnStart: 5, columnEnd: 2 }],
   containerWidth: 100,
   containerHeight: 100,
   gridTemplateColumns: "20% 20% 20% 20% 20%",

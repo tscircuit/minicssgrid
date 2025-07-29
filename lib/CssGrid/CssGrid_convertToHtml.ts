@@ -46,18 +46,58 @@ export const CssGrid_convertToHtml = (grid: CssGrid) => {
   const childDivs = grid.opts.children.map((c) => {
     const cs: string[] = ["display:flex", `background-color:${getColor(c.key)}`]
 
+    /* placement ------------------------------------------------ */
+    // 1. Named area still has top priority
     if (c.area) {
       cs.push(`grid-area:${c.area}`)
     } else {
-      if (c.row !== undefined || c.rowSpan !== undefined) {
-        const start = c.row ?? "auto"
-        const span = c.rowSpan ? ` / span ${c.rowSpan}` : ""
-        cs.push(`grid-row:${start}${span}`)
+      /* ----- rows ----- */
+      // full custom string always wins (e.g. "2 / span 3")
+      if (typeof c.row === "string" && c.row.includes("/")) {
+        cs.push(`grid-row:${c.row}`)
+      } else {
+        const start = c.rowStart ?? c.row       // alias handling
+        const end   = c.rowEnd
+        const span  = c.rowSpan
+
+        if (start !== undefined || end !== undefined) {
+          if (start !== undefined && end !== undefined) {
+            cs.push(`grid-row:${start} / ${end}`)
+          } else if (start !== undefined) {
+            span !== undefined
+              ? cs.push(`grid-row:${start} / span ${span}`)
+              : cs.push(`grid-row-start:${start}`)
+          } else {
+            // only end
+            cs.push(`grid-row-end:${end}`)
+          }
+        } else if (span !== undefined) {
+          // no explicit start/end → just a span
+          cs.push(`grid-row:auto / span ${span}`)
+        }
       }
-      if (c.column !== undefined || c.columnSpan !== undefined) {
-        const start = c.column ?? "auto"
-        const span = c.columnSpan ? ` / span ${c.columnSpan}` : ""
-        cs.push(`grid-column:${start}${span}`)
+
+      /* ----- columns ----- */
+      if (typeof c.column === "string" && c.column.includes("/")) {
+        cs.push(`grid-column:${c.column}`)
+      } else {
+        const start = c.columnStart ?? c.column // alias handling
+        const end   = c.columnEnd
+        const span  = c.columnSpan
+
+        if (start !== undefined || end !== undefined) {
+          if (start !== undefined && end !== undefined) {
+            cs.push(`grid-column:${start} / ${end}`)
+          } else if (start !== undefined) {
+            span !== undefined
+              ? cs.push(`grid-column:${start} / span ${span}`)
+              : cs.push(`grid-column-start:${start}`)
+          } else {
+            cs.push(`grid-column-end:${end}`)
+          }
+        } else if (span !== undefined) {
+          cs.push(`grid-column:auto / span ${span}`)
+        }
       }
     }
 
