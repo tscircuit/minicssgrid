@@ -28,6 +28,8 @@ interface GridItem {
   column?: number
   rowSpan?: number // → default 1
   columnSpan?: number
+  rowEnd?: number
+  columnEnd?: number
 
   /** Named area (alternative to numeric placement) */
   area?: string
