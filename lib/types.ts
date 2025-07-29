@@ -24,15 +24,17 @@ interface GridItem {
   key: string
 
   /* Explicit placement (1‑based like CSS Grid) */
-  row?: number // → starts at this line
-  column?: number
-  rowSpan?: number // → default 1
-  columnSpan?: number
-  rowEnd?: number
-  columnEnd?: number
+  row?: number | string
+  column?: number | string
+  rowStart?: number | string
+  columnStart?: number | string
+  rowEnd?: number | string
+  columnEnd?: number | string
 
   /** Named area (alternative to numeric placement) */
   area?: string
+
+  order?: number | string
 
   /** Any extra data your engine wants to carry along */
   payload?: unknown
