@@ -2,25 +2,25 @@
   "background": {
     "x": 0,
     "y": 0,
-    "width": 300,
+    "width": 50,
     "height": 300
   },
   "overlay1": {
     "x": 0,
     "y": 0,
-    "width": 200,
+    "width": 40,
     "height": 200
   },
   "overlay2": {
     "x": 100,
     "y": 100,
-    "width": 200,
+    "width": 40,
     "height": 200
   },
   "corner": {
     "x": 200,
     "y": 200,
-    "width": 100,
+    "width": 30,
     "height": 100
   }
 }

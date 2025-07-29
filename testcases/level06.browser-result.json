@@ -2,37 +2,37 @@
   "a": {
     "x": 0,
     "y": 0,
-    "width": 80,
+    "width": 5,
     "height": 95
   },
   "b": {
     "x": 110,
     "y": 0,
-    "width": 80,
+    "width": 5,
     "height": 95
   },
   "c": {
     "x": 220,
     "y": 0,
-    "width": 80,
+    "width": 5,
     "height": 95
   },
   "d": {
     "x": 0,
     "y": 105,
-    "width": 80,
+    "width": 5,
     "height": 95
   },
   "e": {
     "x": 110,
     "y": 105,
-    "width": 80,
+    "width": 5,
     "height": 95
   },
   "f": {
     "x": 220,
     "y": 105,
-    "width": 80,
+    "width": 5,
     "height": 95
   }
 }

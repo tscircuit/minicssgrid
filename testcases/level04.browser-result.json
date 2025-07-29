@@ -2,25 +2,25 @@
   "header": {
     "x": 0,
     "y": 0,
-    "width": 100,
+    "width": 30,
     "height": 50
   },
   "sidebar": {
     "x": 100,
     "y": 0,
-    "width": 200,
+    "width": 35,
     "height": 50
   },
   "content": {
     "x": 0,
     "y": 50,
-    "width": 100,
+    "width": 35,
     "height": 120
   },
   "footer": {
     "x": 100,
     "y": 50,
-    "width": 200,
+    "width": 30,
     "height": 120
   }
 }

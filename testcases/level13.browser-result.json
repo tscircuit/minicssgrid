@@ -2,19 +2,19 @@
   "sidebar": {
     "x": 0,
     "y": 0,
-    "width": 100,
+    "width": 35,
     "height": 300
   },
   "main": {
     "x": 100,
     "y": 0,
-    "width": 220,
+    "width": 20,
     "height": 300
   },
   "ads": {
     "x": 320,
     "y": 0,
-    "width": 80,
+    "width": 15,
     "height": 300
   }
 }

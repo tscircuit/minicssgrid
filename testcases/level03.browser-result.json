@@ -2,25 +2,25 @@
   "item1": {
     "x": 0,
     "y": 0,
-    "width": 100,
+    "width": 25,
     "height": 100
   },
   "item2": {
     "x": 100,
     "y": 0,
-    "width": 100,
+    "width": 25,
     "height": 100
   },
   "item3": {
     "x": 0,
     "y": 100,
-    "width": 100,
+    "width": 25,
     "height": 100
   },
   "item4": {
     "x": 100,
     "y": 100,
-    "width": 100,
+    "width": 25,
     "height": 100
   }
 }

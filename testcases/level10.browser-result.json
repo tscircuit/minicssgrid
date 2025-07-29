@@ -2,25 +2,25 @@
   "first": {
     "x": 0,
     "y": 0,
-    "width": 100,
+    "width": 25,
     "height": 100
   },
   "second": {
     "x": 100,
     "y": 0,
-    "width": 100,
+    "width": 30,
     "height": 100
   },
   "third": {
     "x": 200,
     "y": 0,
-    "width": 100,
+    "width": 25,
     "height": 100
   },
   "fourth": {
     "x": 300,
     "y": 0,
-    "width": 100,
+    "width": 30,
     "height": 100
   }
 }

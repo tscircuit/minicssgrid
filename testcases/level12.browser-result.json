@@ -2,19 +2,19 @@
   "auto-width": {
     "x": 0,
     "y": 0,
-    "width": 73.828125,
+    "width": 50,
     "height": 100
   },
   "fixed-width": {
-    "x": 73.828125,
+    "x": 50,
     "y": 0,
-    "width": 100,
+    "width": 55,
     "height": 100
   },
   "flexible": {
-    "x": 173.828125,
+    "x": 150,
     "y": 0,
-    "width": 126.171875,
+    "width": 40,
     "height": 100
   }
 }
