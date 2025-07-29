@@ -9,6 +9,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.1.2",
+    "@playwright/test": "^1.54.1",
     "@types/bun": "latest",
     "bun-match-svg": "^0.0.12",
     "graphics-debug": "^0.0.61",
