@@ -2,7 +2,7 @@
    Primitive value helpers
    ──────────────────────────────────────────────────────── */
 type Fr = `${number}fr` // e.g. "1fr"
-type Px = `${number}mm` // e.g. "120px"
+type Px = `${number}px` // e.g. "120px"
 type Percent = `${number}%` // e.g. "50%"
 type Keyword = "auto" | "min-content" | "max-content"
 type TrackSize = Fr | Px | Percent | Keyword
@@ -53,7 +53,4 @@ export interface CssGridOptions {
   /* Alignment – mirror CSS keywords, but feel free to extend */
   justifyItems?: "start" | "end" | "center" | "stretch"
   alignItems?: "start" | "end" | "center" | "stretch"
-
-  /** Vendor‑agostic hooks for custom features */
-  [extension: string]: unknown
 }
