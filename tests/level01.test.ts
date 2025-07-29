@@ -26,6 +26,7 @@ test("level01", () => {
       },
     }
   `)
+  expect(laidOutResult).toEqual(browserResult)
   expect(layout).toMatchInlineSnapshot(`
     {
       "cells": [
