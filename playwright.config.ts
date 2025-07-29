@@ -10,7 +10,7 @@ export default defineConfig({
   reporter: "html",
   use: {
     trace: "on-first-retry",
-    viewport: { width: 600, height: 800 },
+    viewport: { width: 120, height: 120 },
   },
   projects: [
     {

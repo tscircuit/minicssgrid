@@ -1,5 +1,6 @@
 import type { CssGridOptions } from "lib/types"
 import type { CssGrid } from "./CssGrid"
+import { getColor } from "lib/colors"
 
 export const CssGrid_convertToHtml = (grid: CssGrid) => {
   // helper to turn a template value into valid CSS text
@@ -7,7 +8,7 @@ export const CssGrid_convertToHtml = (grid: CssGrid) => {
     !tpl ? undefined : typeof tpl === "string" ? tpl : tpl.join(" ")
 
   /* ───────────── 1. build container style ───────────── */
-  const s: string[] = ["display:grid"]
+  const s: string[] = ["display:grid", "background-color:gray"]
 
   const {
     gridTemplateRows,
@@ -43,7 +44,7 @@ export const CssGrid_convertToHtml = (grid: CssGrid) => {
 
   /* ───────────── 2. build children markup ───────────── */
   const childDivs = grid.opts.children.map((c) => {
-    const cs: string[] = []
+    const cs: string[] = ["display:flex", `background-color:${getColor(c.key)}`]
 
     if (c.area) {
       cs.push(`grid-area:${c.area}`)

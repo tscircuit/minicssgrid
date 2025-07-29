@@ -26,6 +26,8 @@ interface GridItem {
   /* Explicit placement (1‑based like CSS Grid) */
   row?: number | string
   column?: number | string
+  rowSpan?: number | string
+  columnSpan?: number | string
   rowStart?: number | string
   columnStart?: number | string
   rowEnd?: number | string
