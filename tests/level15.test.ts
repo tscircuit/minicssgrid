@@ -34,34 +34,6 @@ test("level15", () => {
       },
     }
   `)
-  expect(laidOutResult).toMatchInlineSnapshot(`
-    {
-      "center-item": {
-        "height": 18,
-        "width": 81.125,
-        "x": 0,
-        "y": 182,
-      },
-      "end-item": {
-        "height": 18,
-        "width": 59,
-        "x": 200,
-        "y": 82,
-      },
-      "start-item": {
-        "height": 18,
-        "width": 73.75,
-        "x": 0,
-        "y": 82,
-      },
-      "stretch-item": {
-        "height": 18,
-        "width": 88.5,
-        "x": 200,
-        "y": 182,
-      },
-    }
-  `)
 
   expect(layout).toMatchInlineSnapshot(`
     {

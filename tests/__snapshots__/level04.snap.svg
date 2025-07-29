@@ -25,16 +25,16 @@
     <circle data-type="point" data-label="corner" data-x="375" data-y="100" cx="351.1111111111111" cy="325.44444444444446" r="3" fill="black" />
   </g>
   <g>
-    <rect data-type="rect" data-label="header" data-x="50" data-y="9" x="40" y="242.48148148148147" width="82.96296296296296" height="14.933333333333337" fill="none" stroke="black" stroke-width="1.2053571428571428" />
+    <rect data-type="rect" data-label="header" data-x="50" data-y="25" x="40" y="242.48148148148147" width="82.96296296296296" height="41.48148148148147" fill="none" stroke="black" stroke-width="1.2053571428571428" />
   </g>
   <g>
-    <rect data-type="rect" data-label="sidebar" data-x="200" data-y="9" x="122.96296296296296" y="242.48148148148147" width="165.92592592592595" height="14.933333333333337" fill="hsl(160deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
+    <rect data-type="rect" data-label="sidebar" data-x="200" data-y="25" x="122.96296296296296" y="242.48148148148147" width="165.92592592592595" height="41.48148148148147" fill="hsl(160deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
   </g>
   <g>
-    <rect data-type="rect" data-label="content" data-x="50" data-y="94" x="40" y="257.4148148148148" width="82.96296296296296" height="126.10370370370367" fill="hsl(40deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
+    <rect data-type="rect" data-label="content" data-x="50" data-y="110" x="40" y="283.96296296296293" width="82.96296296296296" height="99.55555555555554" fill="hsl(40deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
   </g>
   <g>
-    <rect data-type="rect" data-label="footer" data-x="200" data-y="94" x="122.96296296296296" y="257.4148148148148" width="165.92592592592595" height="126.10370370370367" fill="none" stroke="black" stroke-width="1.2053571428571428" />
+    <rect data-type="rect" data-label="footer" data-x="200" data-y="110" x="122.96296296296296" y="283.96296296296293" width="165.92592592592595" height="99.55555555555554" fill="none" stroke="black" stroke-width="1.2053571428571428" />
   </g>
   <g>
     <rect data-type="rect" data-label="header" data-x="425" data-y="25" x="351.1111111111111" y="242.48148148148147" width="82.96296296296299" height="41.48148148148147" fill="none" stroke="black" stroke-width="1.2053571428571428" />

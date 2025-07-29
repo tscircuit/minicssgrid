@@ -1,41 +1,41 @@
 <svg width="640" height="640" viewBox="0 0 640 640" xmlns="http://www.w3.org/2000/svg">
   <rect width="100%" height="100%" fill="white" />
   <g>
-    <circle data-type="point" data-label="" data-x="0" data-y="0" cx="40" cy="249.0439697707826" r="3" fill="black" />
+    <circle data-type="point" data-label="" data-x="0" data-y="0" cx="40" cy="249.15291945852903" r="3" fill="black" />
   </g>
   <g>
-    <circle data-type="point" data-label="" data-x="100" data-y="0" cx="167.91206045843484" cy="249.0439697707826" r="3" fill="black" />
+    <circle data-type="point" data-label="" data-x="100" data-y="0" cx="167.69416108294197" cy="249.15291945852903" r="3" fill="black" />
   </g>
   <g>
-    <circle data-type="point" data-label="" data-x="100" data-y="100" cx="167.91206045843484" cy="376.95603022921745" r="3" fill="black" />
+    <circle data-type="point" data-label="" data-x="100" data-y="100" cx="167.69416108294197" cy="376.847080541471" r="3" fill="black" />
   </g>
   <g>
-    <circle data-type="point" data-label="" data-x="0" data-y="100" cx="40" cy="376.95603022921745" r="3" fill="black" />
+    <circle data-type="point" data-label="" data-x="0" data-y="100" cx="40" cy="376.847080541471" r="3" fill="black" />
   </g>
   <g>
-    <circle data-type="point" data-label="corner" data-x="242.89453125" data-y="0" cx="350.69139966273184" cy="249.0439697707826" r="3" fill="black" />
+    <circle data-type="point" data-label="corner" data-x="243.6416015625" data-y="0" cx="351.1160991642784" cy="249.15291945852903" r="3" fill="black" />
   </g>
   <g>
-    <circle data-type="point" data-label="corner" data-x="342.89453125" data-y="0" cx="478.6034601211667" cy="249.0439697707826" r="3" fill="black" />
+    <circle data-type="point" data-label="corner" data-x="343.6416015625" data-y="0" cx="478.8102602472204" cy="249.15291945852903" r="3" fill="black" />
   </g>
   <g>
-    <circle data-type="point" data-label="corner" data-x="342.89453125" data-y="100" cx="478.6034601211667" cy="376.95603022921745" r="3" fill="black" />
+    <circle data-type="point" data-label="corner" data-x="343.6416015625" data-y="100" cx="478.8102602472204" cy="376.847080541471" r="3" fill="black" />
   </g>
   <g>
-    <circle data-type="point" data-label="corner" data-x="242.89453125" data-y="100" cx="350.69139966273184" cy="376.95603022921745" r="3" fill="black" />
+    <circle data-type="point" data-label="corner" data-x="243.6416015625" data-y="100" cx="351.1160991642784" cy="376.847080541471" r="3" fill="black" />
   </g>
   <g>
-    <rect data-type="rect" data-label="center-item" data-x="50" data-y="50" x="52.07170070576478" y="301.4879145587409" width="103.76865904690524" height="23.024170882518263" fill="none" stroke="black" stroke-width="0.7817871093750001" />
+    <rect data-type="rect" data-label="center-item" data-x="50" data-y="50" x="52.749463895624984" y="301.50752550253526" width="102.195233291692" height="22.98494899492954" fill="none" stroke="black" stroke-width="0.7831211635044643" />
   </g>
   <g>
-    <rect data-type="rect" data-label="another-item" data-x="150" data-y="50" x="175.26700393479481" y="301.4879145587409" width="113.2021735057148" height="23.024170882518263" fill="none" stroke="black" stroke-width="0.7817871093750001" />
+    <rect data-type="rect" data-label="another-item" data-x="150" data-y="50" x="174.18860630676974" y="301.50752550253526" width="114.70527063528644" height="22.98494899492954" fill="none" stroke="black" stroke-width="0.7831211635044643" />
   </g>
   <g>
-    <rect data-type="rect" data-label="center-item" data-x="292.89453125" data-y="50" x="363.4626194491287" y="301.4879145587409" width="102.36962088564115" height="23.024170882518263" fill="none" stroke="black" stroke-width="0.7817871093750001" />
+    <rect data-type="rect" data-label="center-item" data-x="293.6416015625" data-y="50" x="363.8655630599034" y="301.50752550253526" width="102.19523329169203" height="22.98494899492954" fill="none" stroke="black" stroke-width="0.7831211635044643" />
   </g>
   <g>
-    <rect data-type="rect" data-label="another-item" data-x="392.88671875" data-y="50" x="485.09899444132157" y="301.4879145587409" width="114.90100555867843" height="23.024170882518263" fill="none" stroke="black" stroke-width="0.7817871093750001" />
-  </g><text data-type="text" data-label="algo" data-x="97.125" data-y="110.94501953125" x="164.2345887202548" y="390.9560302292174" fill="black" font-size="14" font-family="sans-serif" text-anchor="middle" dominant-baseline="text-after-edge">algo</text><text data-type="text" data-label="correct" data-x="340.34765625" data-y="110.94501953125" x="475.3456998313659" y="390.9560302292174" fill="black" font-size="14" font-family="sans-serif" text-anchor="middle" dominant-baseline="text-after-edge">correct</text>
+    <rect data-type="rect" data-label="another-item" data-x="393.6337890625" data-y="50" x="485.2947293647136" y="301.50752550253526" width="114.70527063528641" height="22.98494899492954" fill="none" stroke="black" stroke-width="0.7831211635044643" />
+  </g><text data-type="text" data-label="algo" data-x="97.45703125" data-y="110.9636962890625" x="164.4469384710281" y="390.847080541471" fill="black" font-size="14.000000000000002" font-family="sans-serif" text-anchor="middle" dominant-baseline="text-after-edge">algo</text><text data-type="text" data-label="correct" data-x="341.0947265625" data-y="110.9636962890625" x="475.55804958213923" y="390.847080541471" fill="black" font-size="14.000000000000002" font-family="sans-serif" text-anchor="middle" dominant-baseline="text-after-edge">correct</text>
   <g id="crosshair" style="display: none">
     <line id="crosshair-h" y1="0" y2="640" stroke="#666" stroke-width="0.5" />
     <line id="crosshair-v" x1="0" x2="640" stroke="#666" stroke-width="0.5" /><text id="coordinates" font-family="monospace" font-size="12" fill="#666"></text>
@@ -64,12 +64,12 @@
 
       // Calculate real coordinates using inverse transformation
       const matrix = {
-        "a": 1.2791206045843482,
+        "a": 1.2769416108294198,
         "c": 0,
         "e": 40,
         "b": 0,
-        "d": 1.2791206045843482,
-        "f": 249.0439697707826
+        "d": 1.2769416108294198,
+        "f": 249.15291945852903
       };
       // Manually invert and apply the affine transform
       // Since we only use translate and scale, we can directly compute:

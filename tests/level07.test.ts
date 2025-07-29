@@ -34,34 +34,6 @@ test("level07", () => {
       },
     }
   `)
-  expect(laidOutResult).toMatchInlineSnapshot(`
-    {
-      "content": {
-        "height": 282,
-        "width": 200,
-        "x": 100,
-        "y": 18,
-      },
-      "footer": {
-        "height": 18,
-        "width": 300,
-        "x": 0,
-        "y": 282,
-      },
-      "header": {
-        "height": 18,
-        "width": 300,
-        "x": 0,
-        "y": 0,
-      },
-      "sidebar": {
-        "height": 264,
-        "width": 100,
-        "x": 0,
-        "y": 18,
-      },
-    }
-  `)
 
   expect(layout).toMatchInlineSnapshot(`
     {

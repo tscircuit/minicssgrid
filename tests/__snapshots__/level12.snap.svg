@@ -25,13 +25,13 @@
     <circle data-type="point" data-label="corner" data-x="375" data-y="100" cx="351.1111111111111" cy="354.4814814814815" r="3" fill="black" />
   </g>
   <g>
-    <rect data-type="rect" data-label="auto-width" data-x="36.875" data-y="9" x="40" y="271.51851851851853" width="61.18518518518519" height="14.933333333333337" fill="hsl(240deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
+    <rect data-type="rect" data-label="auto-width" data-x="50" data-y="50" x="40" y="271.51851851851853" width="82.96296296296296" height="82.96296296296299" fill="hsl(240deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
   </g>
   <g>
-    <rect data-type="rect" data-label="fixed-width" data-x="123.75" data-y="9" x="101.18518518518519" y="271.51851851851853" width="82.96296296296296" height="14.933333333333337" fill="hsl(320deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
+    <rect data-type="rect" data-label="fixed-width" data-x="150" data-y="50" x="122.96296296296296" y="271.51851851851853" width="82.96296296296296" height="82.96296296296299" fill="hsl(320deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
   </g>
   <g>
-    <rect data-type="rect" data-label="flexible" data-x="236.875" data-y="9" x="184.14814814814815" y="271.51851851851853" width="104.74074074074076" height="14.933333333333337" fill="hsl(320deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
+    <rect data-type="rect" data-label="flexible" data-x="250" data-y="50" x="205.92592592592592" y="271.51851851851853" width="82.96296296296299" height="82.96296296296299" fill="hsl(320deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
   </g>
   <g>
     <rect data-type="rect" data-label="auto-width" data-x="411.9140625" data-y="50" x="351.1111111111111" y="271.51851851851853" width="61.25" height="82.96296296296299" fill="hsl(240deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />

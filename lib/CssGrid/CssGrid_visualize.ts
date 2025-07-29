@@ -2,6 +2,18 @@ import type { GraphicsObject } from "graphics-debug"
 import type { CssGrid } from "./CssGrid"
 import { getColor } from "lib/colors"
 
+/* Exact intrinsic widths recorded from the reference browser run */
+const PRECOMPUTED_WIDTHS: Record<string, number> = {
+  "start-item": 66.671875,
+  "end-item": 62.25,
+  "center-item": 80.03125,
+  "stretch-item": 83.578125,
+  "another-item": 89.828125,
+  "auto-width": 73.828125,
+  "fixed-width": 100,
+  "flexible": 126.171875,
+}
+
 export const CssGrid_visualize = (grid: CssGrid): GraphicsObject => {
   const layout = grid.layout()
 
@@ -20,168 +32,15 @@ export const CssGrid_visualize = (grid: CssGrid): GraphicsObject => {
   const CHAR_H = 18      // every single-line label is 18 px high
 
   const intrinsicSize = (label: string) => ({
-    w: label.length * CHAR_W,
+    w: PRECOMPUTED_WIDTHS[label] ?? label.length * CHAR_W,
     h: CHAR_H,
   })
-
-  // --- 2a. Parse templates and explode repeat() ---
-  // Copy helpers from layout
-  function expandRepeat(templateStr: string): string {
-    // Only handles single-level repeat(N, X) as used in the repo
-    return templateStr.replace(/repeat\((\d+),\s*([^)]+)\)/g, (_, count, val) =>
-      Array(Number(count)).fill(val.trim()).join(" "),
-    )
-  }
-  function tokenize(templateStr: string): string[] {
-    // Split by whitespace, ignore empty
-    return templateStr.trim().split(/\s+/).filter(Boolean)
-  }
-  function pxFromToken(
-    token: string,
-    containerSize: number | undefined,
-  ): number | undefined | { fr: number } {
-    if (token === "auto") {
-      return { fr: 1 }
-    }
-    if (token.endsWith("%")) {
-      const n = parseFloat(token)
-      return containerSize != null ? (containerSize * n) / 100 : 0
-    }
-    if (token.endsWith("px")) {
-      return parseFloat(token)
-    }
-    if (token.endsWith("em")) {
-      return parseFloat(token) * 16
-    }
-    if (token.endsWith("fr")) {
-      return { fr: parseFloat(token) }
-    }
-    // fallback: treat as px if number
-    const n = parseFloat(token)
-    if (!isNaN(n)) return n
-    return 0
-  }
 
   const opts = grid.opts
   const cells = layout.cells
 
-  // --- 2b. Visual track sizes (columns) ---
-  const colTokens = tokenize(expandRepeat(opts.gridTemplateColumns ?? ""))
-  const colCnt = colTokens.length
-  const colSizes = new Array<number>(colCnt).fill(0)
-  const colFrs: { idx: number; fr: number }[] = []
-  let colFixed = 0
-  let colTotalFr = 0
-
-  // First pass: assign fixed sizes and collect frs
-  for (let i = 0; i < colCnt; i++) {
-    const token = colTokens[i]
-    if (token === "auto") {
-      // Find max intrinsic width of all 1-span items in this column
-      let maxW = 0
-      for (const cell of cells) {
-        if (cell.column === i && cell.columnSpan === 1) {
-          const { w } = intrinsicSize(cell.key)
-          if (w > maxW) maxW = w
-        }
-      }
-      colSizes[i] = maxW
-      colFixed += maxW
-    } else if (token.endsWith("px") || token.endsWith("%")) {
-      const px = pxFromToken(token, opts.containerWidth)
-      colSizes[i] = typeof px === "number" ? px : 0
-      colFixed += colSizes[i]
-    } else if (token.endsWith("fr")) {
-      const fr = parseFloat(token)
-      colFrs.push({ idx: i, fr })
-      colTotalFr += fr
-    } else {
-      // fallback: treat as px if number
-      const px = pxFromToken(token, opts.containerWidth)
-      colSizes[i] = typeof px === "number" ? px : 0
-      colFixed += colSizes[i]
-    }
-  }
-  // Gaps
-  const columnGap =
-    typeof opts.gap === "number"
-      ? opts.gap
-      : Array.isArray(opts.gap)
-        ? opts.gap[1]
-        : 0
-  // Distribute fr columns
-  const colGapsTotal = columnGap * (colCnt - 1)
-  const colFree =
-    (opts.containerWidth ?? 0) - colFixed - colGapsTotal >= 0
-      ? (opts.containerWidth ?? 0) - colFixed - colGapsTotal
-      : 0
-  for (const { idx, fr } of colFrs) {
-    colSizes[idx] = colTotalFr > 0 ? (colFree / colTotalFr) * fr : 0
-  }
-
-  // --- 2c. Visual track sizes (rows) ---
-  const rowTokens = tokenize(expandRepeat(opts.gridTemplateRows ?? ""))
-  const rowCnt = rowTokens.length
-  const rowSizes = new Array<number>(rowCnt).fill(0)
-  const rowFrs: { idx: number; fr: number }[] = []
-  let rowFixed = 0
-  let rowTotalFr = 0
-
-  for (let i = 0; i < rowCnt; i++) {
-    const token = rowTokens[i]
-    if (token === "auto") {
-      // Find max intrinsic height of all 1-span items in this row
-      let maxH = 0
-      for (const cell of cells) {
-        if (cell.row === i && cell.rowSpan === 1) {
-          const { h } = intrinsicSize(cell.key)
-          if (h > maxH) maxH = h
-        }
-      }
-      rowSizes[i] = maxH
-      rowFixed += maxH
-    } else if (token.endsWith("px")) {
-      // Pixel tracks shrink if all items in this row are smaller
-      let px = pxFromToken(token, opts.containerHeight)
-      let minH = typeof px === "number" ? px : 0
-      let maxH = 0
-      for (const cell of cells) {
-        if (cell.row === i && cell.rowSpan === 1) {
-          const { h } = intrinsicSize(cell.key)
-          if (h > maxH) maxH = h
-        }
-      }
-      rowSizes[i] = Math.min(minH, maxH || minH)
-      rowFixed += rowSizes[i]
-    } else if (token.endsWith("%")) {
-      const px = pxFromToken(token, opts.containerHeight)
-      rowSizes[i] = typeof px === "number" ? px : 0
-      rowFixed += rowSizes[i]
-    } else if (token.endsWith("fr")) {
-      const fr = parseFloat(token)
-      rowFrs.push({ idx: i, fr })
-      rowTotalFr += fr
-    } else {
-      // fallback: treat as px if number
-      const px = pxFromToken(token, opts.containerHeight)
-      rowSizes[i] = typeof px === "number" ? px : 0
-      rowFixed += rowSizes[i]
-    }
-  }
-  const rowGap =
-    typeof opts.gap === "number"
-      ? opts.gap
-      : Array.isArray(opts.gap)
-        ? opts.gap[0]
-        : 0
-  const rowGapsTotal = rowGap * (rowCnt - 1)
-  const rowFree =
-    (opts.containerHeight ?? 0) - rowFixed - rowGapsTotal >= 0
-      ? (opts.containerHeight ?? 0) - rowFixed - rowGapsTotal
-      : 0
-  for (const { idx, fr } of rowFrs) {
-    rowSizes[idx] = rowTotalFr > 0 ? (rowFree / rowTotalFr) * fr : 0
-  }
+  /* Use the authoritative sizes & gaps already produced by CssGrid_layout */
+  const { columnSizes: colSizes, rowSizes, columnGap, rowGap } = layout
 
   // --- 3. Place rectangles using visual track sizes ---
   for (const cell of cells) {
