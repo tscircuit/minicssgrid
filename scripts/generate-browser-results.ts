@@ -1,18 +1,42 @@
-import { test, expect } from "@playwright/test"
-import { CssGrid } from "lib/CssGrid/CssGrid"
-import level1 from "testcases/level1"
 import * as fs from "node:fs"
 import * as path from "node:path"
+import { chromium, devices } from "playwright"
+import { CssGrid } from "lib/CssGrid/CssGrid"
+import type { CssGridOptions } from "lib/types"
 
-const TEST_CASES = {
-  level1: level1,
+async function loadTestCases(): Promise<Record<string, CssGridOptions>> {
+  const testCases: Record<string, CssGridOptions> = {}
+  const testcasesDir = path.join(process.cwd(), "testcases")
+  
+  const files = fs.readdirSync(testcasesDir)
+  const tsFiles = files.filter(file => file.endsWith(".ts") && !file.includes("browser-result"))
+  
+  for (const file of tsFiles) {
+    const testcaseName = path.basename(file, ".ts")
+    try {
+      const testcaseModule = await import(`../testcases/${testcaseName}`)
+      testCases[testcaseName] = testcaseModule.default
+    } catch (error) {
+      console.warn(`Failed to load testcase ${testcaseName}:`, error)
+    }
+  }
+  
+  return testCases
 }
 
-test("CssGrid convertToHtml renders correctly with testcase01", async ({
-  page,
-}) => {
-  for (const [testcasePath, testcaseConfig] of Object.entries(TEST_CASES)) {
-    // Create CssGrid instance with testcase01 configuration
+async function generateBrowserResults() {
+  const testCases = await loadTestCases()
+  console.log(`Found ${Object.keys(testCases).length} test cases`)
+  
+  const browser = await chromium.launch()
+  const context = await browser.newContext({
+    ...devices["Desktop Chrome"],
+    viewport: { width: 120, height: 120 },
+  })
+  const page = await context.newPage()
+
+  for (const [testcasePath, testcaseConfig] of Object.entries(testCases)) {
+    // Create CssGrid instance with testcase configuration
     const grid = new CssGrid(testcaseConfig)
 
     // Generate HTML from the grid
@@ -74,5 +98,10 @@ test("CssGrid convertToHtml renders correctly with testcase01", async ({
     }
 
     fs.writeFileSync(outputPath, JSON.stringify(elementBounds, null, 2))
+    console.log(`Generated browser results for ${testcasePath}`)
   }
-})
+
+  await browser.close()
+}
+
+generateBrowserResults().catch(console.error)

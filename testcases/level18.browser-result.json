@@ -1,0 +1,32 @@
+{
+  "water-1": {
+    "x": 0,
+    "y": 0,
+    "width": 20,
+    "height": 20
+  },
+  "poison": {
+    "x": 20,
+    "y": 0,
+    "width": 20,
+    "height": 20
+  },
+  "water-2": {
+    "x": 40,
+    "y": 0,
+    "width": 20,
+    "height": 20
+  },
+  "water-3": {
+    "x": 60,
+    "y": 0,
+    "width": 20,
+    "height": 20
+  },
+  "water-4": {
+    "x": 80,
+    "y": 0,
+    "width": 20,
+    "height": 20
+  }
+}
