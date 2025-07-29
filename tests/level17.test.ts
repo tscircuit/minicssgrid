@@ -1,13 +1,18 @@
 import { expect, test } from "bun:test"
-import level1 from "testcases/level01"
-import browserResult from "testcases/level01.browser-result.json"
+import level17 from "testcases/level17"
+import browserResult from "testcases/level17.browser-result.json"
 import { testGrid } from "./fixtures/testGrid"
 
-test("level01", () => {
+test("level17", () => {
   const { browserResultSvg, layout, outputViz } = testGrid(
-    level1,
+    level17,
     browserResult,
   )
+
+    browserResultSvg,
+    layout,
+    outputViz,
+  })
 
   expect(layout).toMatchInlineSnapshot(`
     {
