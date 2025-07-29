@@ -1,18 +1,18 @@
 import { expect, test } from "bun:test"
-import level1 from "testcases/level01"
-import browserResult from "testcases/level01.browser-result.json"
+import level02 from "testcases/level02"
+import browserResult from "testcases/level02.browser-result.json"
 import { testGrid } from "./fixtures/testGrid"
 
-test("level01", () => {
-  const { laidOutResult, outputViz, layout } = testGrid(level1, browserResult)
+test("level02", () => {
+  const { laidOutResult, outputViz, layout } = testGrid(level02, browserResult)
 
   expect(browserResult).toMatchInlineSnapshot(`
     {
       "water": {
         "height": 20,
         "width": 20,
-        "x": 40,
-        "y": 0,
+        "x": 0,
+        "y": 40,
       },
     }
   `)
@@ -21,8 +21,8 @@ test("level01", () => {
       "water": {
         "height": 20,
         "width": 20,
-        "x": 40,
-        "y": 0,
+        "x": 0,
+        "y": 40,
       },
     }
   `)
@@ -31,10 +31,10 @@ test("level01", () => {
     {
       "cells": [
         {
-          "column": 2,
+          "column": 0,
           "columnSpan": 1,
           "key": "water",
-          "row": 0,
+          "row": 2,
           "rowSpan": 1,
         },
       ],
