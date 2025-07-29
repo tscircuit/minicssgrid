@@ -9,10 +9,6 @@ test("level12", () => {
     browserResult,
   )
 
-    browserResultSvg,
-    layout,
-    outputViz,
-  })
 
   expect(layout).toMatchInlineSnapshot(`
     {
