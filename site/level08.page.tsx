@@ -1,4 +1,4 @@
-import level8 from "testcases/level8"
+import level8 from "testcases/level08"
 import { LevelDisplay } from "./LevelDisplay"
 
 export default () => {

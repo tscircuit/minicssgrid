@@ -1,7 +1,7 @@
 import { expect, test } from "bun:test"
 import { CssGrid } from "lib/CssGrid/CssGrid"
-import level1 from "testcases/level1"
-import browserResult from "testcases/level1.browser-result.json"
+import level1 from "testcases/level01"
+import browserResult from "testcases/level01.browser-result.json"
 import { getSvgFromGraphicsObject } from "graphics-debug"
 import { visualizeBrowserResult } from "lib/visualizeBrowserResult"
 
