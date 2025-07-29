@@ -13,9 +13,9 @@ test("level1", () => {
       backgroundColor: "white",
     }),
   ).toMatchSvgSnapshot(import.meta.path)
-  // expect(grid.layout()).toMatchInlineSnapshot()
+  expect(grid.layout()).toMatchInlineSnapshot()
 
-  // const go = grid.visualize()
-  // const svg = getSvgFromGraphicsObject(go)
-  // expect(svg).toMatchSvgSnapshot(import.meta.path)
+  const go = grid.visualize()
+  const svg = getSvgFromGraphicsObject(go)
+  expect(svg).toMatchSvgSnapshot(import.meta.path)
 })
