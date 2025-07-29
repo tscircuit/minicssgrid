@@ -7,6 +7,7 @@ export default () => {
   // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
   return (
     <div style={{ width: "100vw", height: "100vh" }}>
+      <pre>{JSON.stringify(level1, null, 2)}</pre>
       <div dangerouslySetInnerHTML={{ __html: grid.convertToHtml() }} />
     </div>
   )
