@@ -25,22 +25,22 @@
     <circle data-type="point" data-label="corner" data-x="375" data-y="100" cx="351.1111111111111" cy="313" r="3" fill="black" />
   </g>
   <g>
-    <rect data-type="rect" data-label="a" data-x="50" data-y="50" x="40" y="230.03703703703704" width="82.96296296296296" height="82.96296296296296" fill="hsl(280deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
+    <rect data-type="rect" data-label="a" data-x="40" data-y="47.5" x="40" y="230.03703703703704" width="66.37037037037037" height="78.81481481481481" fill="hsl(280deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
   </g>
   <g>
-    <rect data-type="rect" data-label="b" data-x="150" data-y="50" x="122.96296296296296" y="230.03703703703704" width="82.96296296296296" height="82.96296296296296" fill="hsl(320deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
+    <rect data-type="rect" data-label="b" data-x="150" data-y="47.5" x="131.25925925925924" y="230.03703703703704" width="66.37037037037038" height="78.81481481481481" fill="hsl(320deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
   </g>
   <g>
-    <rect data-type="rect" data-label="c" data-x="250" data-y="50" x="205.92592592592592" y="230.03703703703704" width="82.96296296296299" height="82.96296296296296" fill="hsl(0deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
+    <rect data-type="rect" data-label="c" data-x="260" data-y="47.5" x="222.5185185185185" y="230.03703703703704" width="66.37037037037041" height="78.81481481481481" fill="hsl(0deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
   </g>
   <g>
-    <rect data-type="rect" data-label="d" data-x="50" data-y="150" x="40" y="313" width="82.96296296296296" height="82.96296296296293" fill="hsl(40deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
+    <rect data-type="rect" data-label="d" data-x="40" data-y="152.5" x="40" y="317.14814814814815" width="66.37037037037037" height="78.81481481481478" fill="hsl(40deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
   </g>
   <g>
-    <rect data-type="rect" data-label="e" data-x="150" data-y="150" x="122.96296296296296" y="313" width="82.96296296296296" height="82.96296296296293" fill="hsl(80deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
+    <rect data-type="rect" data-label="e" data-x="150" data-y="152.5" x="131.25925925925924" y="317.14814814814815" width="66.37037037037038" height="78.81481481481478" fill="hsl(80deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
   </g>
   <g>
-    <rect data-type="rect" data-label="f" data-x="250" data-y="150" x="205.92592592592592" y="313" width="82.96296296296299" height="82.96296296296293" fill="hsl(120deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
+    <rect data-type="rect" data-label="f" data-x="260" data-y="152.5" x="222.5185185185185" y="317.14814814814815" width="66.37037037037041" height="78.81481481481478" fill="hsl(120deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
   </g>
   <g>
     <rect data-type="rect" data-label="a" data-x="415" data-y="47.5" x="351.1111111111111" y="230.03703703703704" width="66.37037037037038" height="78.81481481481481" fill="hsl(280deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />

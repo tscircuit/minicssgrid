@@ -49,40 +49,40 @@ test("level06", () => {
   expect(laidOutResult).toMatchInlineSnapshot(`
     {
       "a": {
-        "height": 100,
-        "width": 100,
+        "height": 95,
+        "width": 80,
         "x": 0,
         "y": 0,
       },
       "b": {
-        "height": 100,
-        "width": 100,
-        "x": 100,
+        "height": 95,
+        "width": 80,
+        "x": 110,
         "y": 0,
       },
       "c": {
-        "height": 100,
-        "width": 100,
-        "x": 200,
+        "height": 95,
+        "width": 80,
+        "x": 220,
         "y": 0,
       },
       "d": {
-        "height": 100,
-        "width": 100,
+        "height": 95,
+        "width": 80,
         "x": 0,
-        "y": 100,
+        "y": 105,
       },
       "e": {
-        "height": 100,
-        "width": 100,
-        "x": 100,
-        "y": 100,
+        "height": 95,
+        "width": 80,
+        "x": 110,
+        "y": 105,
       },
       "f": {
-        "height": 100,
-        "width": 100,
-        "x": 200,
-        "y": 100,
+        "height": 95,
+        "width": 80,
+        "x": 220,
+        "y": 105,
       },
     }
   `)
@@ -133,14 +133,16 @@ test("level06", () => {
           "rowSpan": 1,
         },
       ],
+      "columnGap": 30,
       "columnSizes": [
-        100,
-        100,
-        100,
+        80,
+        80,
+        80,
       ],
+      "rowGap": 10,
       "rowSizes": [
-        100,
-        100,
+        95,
+        95,
       ],
     }
   `)

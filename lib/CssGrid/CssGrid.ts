@@ -28,6 +28,8 @@ export class CssGrid {
     cells: GridCell[]
     rowSizes: number[]
     columnSizes: number[]
+    rowGap: number
+    columnGap: number
   } {
     return CssGrid_layout(this)
   }

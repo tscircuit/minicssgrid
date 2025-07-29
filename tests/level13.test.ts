@@ -76,11 +76,13 @@ test("level13", () => {
           "rowSpan": 1,
         },
       ],
+      "columnGap": 0,
       "columnSizes": [
         100,
         220,
         80,
       ],
+      "rowGap": 0,
       "rowSizes": [
         300,
       ],
