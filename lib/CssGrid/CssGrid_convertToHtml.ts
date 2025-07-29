@@ -1,7 +1,7 @@
 import type { CssGridOptions } from "lib/types"
 import type { CssGrid } from "./CssGrid"
 
-export const CssGrid_convertToHtml = (grid: CssGrid, opts: CssGridOptions) => {
+export const CssGrid_convertToHtml = (grid: CssGrid) => {
   // helper to turn a template value into valid CSS text
   const stringifyTemplate = (tpl?: string | string[]) =>
     !tpl ? undefined : typeof tpl === "string" ? tpl : tpl.join(" ")

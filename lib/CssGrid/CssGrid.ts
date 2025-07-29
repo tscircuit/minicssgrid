@@ -1,10 +1,8 @@
 import type { GraphicsObject } from "graphics-debug"
-/* ────────────────────────────────────────────────────────
-      The class skeleton
-      ──────────────────────────────────────────────────────── */
 
 import type { CssGridOptions } from "../types"
 import { CssGrid_convertToHtml } from "./CssGrid_convertToHtml"
+import { CssGrid_visualize } from "./CssGrid_visualize"
 
 /** Final position of a single grid item (1-based like CSS Grid) */
 export interface GridCell {
@@ -34,10 +32,10 @@ export class CssGrid {
   }
 
   public convertToHtml(): string {
-    return CssGrid_convertToHtml(this, this.opts)
+    return CssGrid_convertToHtml(this)
   }
 
   public visualize(): GraphicsObject {
-    throw new Error("Not implemented")
+    return CssGrid_visualize(this)
   }
 }
