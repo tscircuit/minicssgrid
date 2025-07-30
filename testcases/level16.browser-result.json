@@ -1,26 +1,26 @@
 {
   "header": {
-    "x": 0,
-    "y": 0,
-    "width": 300,
-    "height": 50
+    "x": 1,
+    "y": 1,
+    "width": 298,
+    "height": 48
   },
   "sidebar": {
-    "x": 0,
-    "y": 50,
-    "width": 100,
-    "height": 191
+    "x": 1,
+    "y": 51,
+    "width": 98,
+    "height": 189
   },
   "content": {
-    "x": 100,
-    "y": 50,
-    "width": 200,
-    "height": 241
+    "x": 101,
+    "y": 51,
+    "width": 198,
+    "height": 239
   },
   "footer": {
-    "x": 0,
-    "y": 291,
-    "width": 300,
-    "height": 9
+    "x": 1,
+    "y": 292,
+    "width": 298,
+    "height": 7
   }
 }

@@ -47,7 +47,7 @@ export const CssGrid_convertToHtml = (grid: CssGrid) => {
     const cs: string[] = [
       "display:flex",
       "border: 1px solid black",
-      "box-sizing: border-box",
+      "box-sizing: content-box",
       `background-color:${getColor(c.key)}`,
     ]
 

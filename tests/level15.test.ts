@@ -9,28 +9,28 @@ test("level15", () => {
   expect(browserResult).toMatchInlineSnapshot(`
     {
       "center-item": {
-        "height": 14,
-        "width": 42,
-        "x": 0,
-        "y": 186,
+        "height": 12,
+        "width": 40,
+        "x": 1,
+        "y": 187,
       },
       "end-item": {
-        "height": 22,
-        "width": 32,
-        "x": 200,
-        "y": 78,
+        "height": 20,
+        "width": 30,
+        "x": 201,
+        "y": 79,
       },
       "start-item": {
-        "height": 32,
-        "width": 52,
-        "x": 0,
-        "y": 68,
+        "height": 30,
+        "width": 50,
+        "x": 1,
+        "y": 69,
       },
       "stretch-item": {
-        "height": 42,
-        "width": 26,
-        "x": 200,
-        "y": 158,
+        "height": 40,
+        "width": 24,
+        "x": 201,
+        "y": 159,
       },
     }
   `)

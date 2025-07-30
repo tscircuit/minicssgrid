@@ -182,12 +182,12 @@ export const CssGrid_layout = (
       const tokens = tokenize(expanded)
       const trackCnt = tokens.length
 
-      // helper – px value from contentWidth / contentHeight (+ 2 px border)
+      // helper – px value from contentWidth / contentHeight
       const toPx = (v: string | number | undefined): number => {
         if (v === undefined) return 0
-        if (typeof v === "number") return v + 2 // content + border
-        if (v.endsWith("px")) return parseFloat(v) + 2 // content + border
-        return parseFloat(v) + 2
+        if (typeof v === "number") return v
+        if (v.endsWith("px")) return parseFloat(v)
+        return parseFloat(v)
       }
 
       // gather the largest content-based size per track

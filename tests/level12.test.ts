@@ -9,22 +9,22 @@ test("level12", () => {
   expect(browserResult).toMatchInlineSnapshot(`
     {
       "auto-width": {
-        "height": 100,
-        "width": 52,
-        "x": 0,
-        "y": 0,
+        "height": 98,
+        "width": 50,
+        "x": 1,
+        "y": 1,
       },
       "fixed-width": {
-        "height": 100,
-        "width": 100,
-        "x": 52,
-        "y": 0,
+        "height": 98,
+        "width": 98,
+        "x": 53,
+        "y": 1,
       },
       "flexible": {
-        "height": 100,
-        "width": 148,
-        "x": 152,
-        "y": 0,
+        "height": 98,
+        "width": 146,
+        "x": 153,
+        "y": 1,
       },
     }
   `)

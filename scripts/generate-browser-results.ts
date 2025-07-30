@@ -75,15 +75,24 @@ async function generateBrowserResults() {
     for (const div of childDivs) {
       const id = await div.getAttribute("id")
       if (id?.trim()) {
-        const boundingBox = await div.boundingBox()
-        if (boundingBox) {
-          elementBounds[id.trim()] = {
-            x: boundingBox.x,
-            y: boundingBox.y,
-            width: boundingBox.width,
-            height: boundingBox.height,
+        // Get the computed client dimensions (content + padding, excluding border)
+        const dims = await div.evaluate((el: HTMLElement) => {
+          const rect = el.getBoundingClientRect()
+          const style = globalThis.window.getComputedStyle(el)
+          const borderLeft = parseFloat(style.borderLeftWidth) || 0
+          const borderRight = parseFloat(style.borderRightWidth) || 0  
+          const borderTop = parseFloat(style.borderTopWidth) || 0
+          const borderBottom = parseFloat(style.borderBottomWidth) || 0
+          
+          return {
+            x: rect.left + borderLeft,
+            y: rect.top + borderTop,
+            width: rect.width - borderLeft - borderRight,
+            height: rect.height - borderTop - borderBottom
           }
-        }
+        })
+        
+        elementBounds[id.trim()] = dims
       }
     }
 

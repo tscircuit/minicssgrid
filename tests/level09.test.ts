@@ -9,28 +9,28 @@ test("level09", () => {
   expect(browserResult).toMatchInlineSnapshot(`
     {
       "big": {
-        "height": 200,
-        "width": 200,
-        "x": 0,
-        "y": 0,
+        "height": 198,
+        "width": 198,
+        "x": 1,
+        "y": 1,
       },
       "bottom": {
-        "height": 100,
-        "width": 300,
-        "x": 0,
-        "y": 200,
+        "height": 98,
+        "width": 298,
+        "x": 1,
+        "y": 201,
       },
       "small1": {
-        "height": 100,
-        "width": 100,
-        "x": 200,
-        "y": 0,
+        "height": 98,
+        "width": 98,
+        "x": 201,
+        "y": 1,
       },
       "small2": {
-        "height": 100,
-        "width": 100,
-        "x": 200,
-        "y": 100,
+        "height": 98,
+        "width": 98,
+        "x": 201,
+        "y": 101,
       },
     }
   `)

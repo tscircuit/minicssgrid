@@ -9,10 +9,10 @@ test("level01", () => {
   expect(browserResult).toMatchInlineSnapshot(`
     {
       "water": {
-        "height": 20,
-        "width": 20,
-        "x": 40,
-        "y": 0,
+        "height": 18,
+        "width": 18,
+        "x": 41,
+        "y": 1,
       },
     }
   `)

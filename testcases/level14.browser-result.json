@@ -1,26 +1,26 @@
 {
   "background": {
-    "x": 0,
-    "y": 0,
-    "width": 300,
-    "height": 300
+    "x": 1,
+    "y": 1,
+    "width": 298,
+    "height": 298
   },
   "overlay1": {
-    "x": 0,
-    "y": 0,
-    "width": 200,
-    "height": 200
+    "x": 1,
+    "y": 1,
+    "width": 198,
+    "height": 198
   },
   "overlay2": {
-    "x": 100,
-    "y": 100,
-    "width": 200,
-    "height": 200
+    "x": 101,
+    "y": 101,
+    "width": 198,
+    "height": 198
   },
   "corner": {
-    "x": 200,
-    "y": 200,
-    "width": 100,
-    "height": 100
+    "x": 201,
+    "y": 201,
+    "width": 98,
+    "height": 98
   }
 }
