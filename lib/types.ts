@@ -33,6 +33,9 @@ interface GridItem {
   rowEnd?: number | string
   columnEnd?: number | string
 
+  contentWidth?: number | string
+  contentHeight?: number | string
+
   /** Named area (alternative to numeric placement) */
   area?: string
 

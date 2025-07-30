@@ -35,20 +35,35 @@ export const testGrid = (
     }
   }
 
-  algoOutputGraphics.points?.push(
+  algoOutputGraphics.lines?.push(
     {
-      x: 0,
-      y: 0,
+      strokeColor: "black",
+      points: [
+        { x: 0, y: 0 },
+        { x: 100, y: 0 },
+      ],
     },
     {
-      x: 100,
-      y: 0,
+      strokeColor: "black",
+      points: [
+        { x: 100, y: 0 },
+        { x: 100, y: 100 },
+      ],
     },
     {
-      x: 100,
-      y: 100,
+      strokeColor: "black",
+      points: [
+        { x: 100, y: 100 },
+        { x: 0, y: 100 },
+      ],
     },
-    { x: 0, y: 100 },
+    {
+      strokeColor: "black",
+      points: [
+        { x: 0, y: 100 },
+        { x: 0, y: 0 },
+      ],
+    },
   )
   const outputVizSvg = getSvgFromGraphicsObject(
     stackGraphicsHorizontally([algoOutputGraphics, browserResultGraphics], {

@@ -10,20 +10,20 @@ test("level12", () => {
     {
       "auto-width": {
         "height": 100,
-        "width": 73.828125,
+        "width": 52,
         "x": 0,
         "y": 0,
       },
       "fixed-width": {
         "height": 100,
         "width": 100,
-        "x": 73.828125,
+        "x": 52,
         "y": 0,
       },
       "flexible": {
         "height": 100,
-        "width": 126.171875,
-        "x": 173.828125,
+        "width": 148,
+        "x": 152,
         "y": 0,
       },
     }

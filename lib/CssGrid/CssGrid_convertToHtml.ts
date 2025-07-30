@@ -44,7 +44,12 @@ export const CssGrid_convertToHtml = (grid: CssGrid) => {
 
   /* ───────────── 2. build children markup ───────────── */
   const childDivs = grid.opts.children.map((c) => {
-    const cs: string[] = ["display:flex", `background-color:${getColor(c.key)}`]
+    const cs: string[] = [
+      "display:flex",
+      "border: 1px solid black",
+      "box-sizing: border-box",
+      `background-color:${getColor(c.key)}`,
+    ]
 
     /* placement ------------------------------------------------ */
     // 1. Named area still has top priority
@@ -103,7 +108,7 @@ export const CssGrid_convertToHtml = (grid: CssGrid) => {
 
     const childStyle = cs.join(";")
     // innerText is just the key for demo purposes
-    return `  <div style="${childStyle}">${c.key}</div>`
+    return `  <div id="${c.key}" style="${childStyle}"><div style="width:${c.key.length * 5}px;font-size: 7px;">${c.key}</div></div>`
   })
 
   /* ───────────── 3. final HTML string ───────────── */

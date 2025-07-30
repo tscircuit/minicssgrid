@@ -1,46 +1,46 @@
 <svg width="640" height="640" viewBox="0 0 640 640" xmlns="http://www.w3.org/2000/svg">
   <rect width="100%" height="100%" fill="white" />
   <g>
-    <circle data-type="point" data-label="" data-x="0" data-y="0" cx="40" cy="219.66666666666669" r="3" fill="black" />
+    <polyline data-points="0,0 100,0" data-type="line" data-label="" points="40,219.66666666666669 102.22222222222223,219.66666666666669" fill="none" stroke="black" stroke-width="1" />
   </g>
   <g>
-    <circle data-type="point" data-label="" data-x="100" data-y="0" cx="102.22222222222223" cy="219.66666666666669" r="3" fill="black" />
+    <polyline data-points="100,0 100,100" data-type="line" data-label="" points="102.22222222222223,219.66666666666669 102.22222222222223,281.8888888888889" fill="none" stroke="black" stroke-width="1" />
   </g>
   <g>
-    <circle data-type="point" data-label="" data-x="100" data-y="100" cx="102.22222222222223" cy="281.8888888888889" r="3" fill="black" />
+    <polyline data-points="100,100 100,0" data-type="line" data-label="" points="102.22222222222223,281.8888888888889 102.22222222222223,219.66666666666669" fill="none" stroke="black" stroke-width="1" />
   </g>
   <g>
-    <circle data-type="point" data-label="" data-x="0" data-y="100" cx="40" cy="281.8888888888889" r="3" fill="black" />
+    <polyline data-points="0,100 0,0" data-type="line" data-label="" points="40,281.8888888888889 40,219.66666666666669" fill="none" stroke="black" stroke-width="1" />
   </g>
   <g>
-    <circle data-type="point" data-label="corner" data-x="500" data-y="0" cx="351.11111111111114" cy="219.66666666666669" r="3" fill="black" />
+    <polyline data-points="500,0 600,0" data-type="line" data-label="" points="351.11111111111114,219.66666666666669 413.3333333333333,219.66666666666669" fill="none" stroke="black" stroke-width="1" />
   </g>
   <g>
-    <circle data-type="point" data-label="corner" data-x="600" data-y="0" cx="413.3333333333333" cy="219.66666666666669" r="3" fill="black" />
+    <polyline data-points="600,0 600,100" data-type="line" data-label="" points="413.3333333333333,219.66666666666669 413.3333333333333,281.8888888888889" fill="none" stroke="black" stroke-width="1" />
   </g>
   <g>
-    <circle data-type="point" data-label="corner" data-x="600" data-y="100" cx="413.3333333333333" cy="281.8888888888889" r="3" fill="black" />
+    <polyline data-points="600,100 500,100" data-type="line" data-label="" points="413.3333333333333,281.8888888888889 351.11111111111114,281.8888888888889" fill="none" stroke="black" stroke-width="1" />
   </g>
   <g>
-    <circle data-type="point" data-label="corner" data-x="500" data-y="100" cx="351.11111111111114" cy="281.8888888888889" r="3" fill="black" />
+    <polyline data-points="500,100 500,0" data-type="line" data-label="" points="351.11111111111114,281.8888888888889 351.11111111111114,219.66666666666669" fill="none" stroke="black" stroke-width="1" />
   </g>
   <g>
-    <rect data-type="rect" data-label="sidebar" data-x="50" data-y="150" x="40" y="219.66666666666669" width="62.22222222222223" height="186.66666666666669" fill="hsl(160deg, 100%, 50%)" stroke="black" stroke-width="1.6071428571428572" />
+    <rect data-type="rect" data-label="sidebar" data-x="50" data-y="150" x="40" y="219.66666666666669" width="62.22222222222223" height="186.66666666666669" fill="hsl(274.2857142857143deg, 100%, 50%)" stroke="black" stroke-width="1.6071428571428572" />
   </g>
   <g>
-    <rect data-type="rect" data-label="main" data-x="210" data-y="150" x="102.22222222222223" y="219.66666666666669" width="136.88888888888889" height="186.66666666666669" fill="hsl(160deg, 100%, 50%)" stroke="black" stroke-width="1.6071428571428572" />
+    <rect data-type="rect" data-label="main" data-x="210" data-y="150" x="102.22222222222223" y="219.66666666666669" width="136.88888888888889" height="186.66666666666669" fill="hsl(222.85714285714286deg, 100%, 50%)" stroke="black" stroke-width="1.6071428571428572" />
   </g>
   <g>
-    <rect data-type="rect" data-label="ads" data-x="360" data-y="150" x="239.11111111111111" y="219.66666666666669" width="49.7777777777778" height="186.66666666666669" fill="hsl(240deg, 100%, 50%)" stroke="black" stroke-width="1.6071428571428572" />
+    <rect data-type="rect" data-label="ads" data-x="360" data-y="150" x="239.11111111111111" y="219.66666666666669" width="49.7777777777778" height="186.66666666666669" fill="hsl(0deg, 100%, 50%)" stroke="black" stroke-width="1.6071428571428572" />
   </g>
   <g>
-    <rect data-type="rect" data-label="sidebar" data-x="550" data-y="150" x="351.11111111111114" y="219.66666666666669" width="62.22222222222217" height="186.66666666666669" fill="hsl(160deg, 100%, 50%)" stroke="black" stroke-width="1.6071428571428572" />
+    <rect data-type="rect" data-label="sidebar" data-x="550" data-y="150" x="351.11111111111114" y="219.66666666666669" width="62.22222222222217" height="186.66666666666669" fill="hsl(274.2857142857143deg, 100%, 50%)" stroke="black" stroke-width="1.6071428571428572" />
   </g>
   <g>
-    <rect data-type="rect" data-label="main" data-x="710" data-y="150" x="413.3333333333333" y="219.66666666666669" width="136.88888888888886" height="186.66666666666669" fill="hsl(160deg, 100%, 50%)" stroke="black" stroke-width="1.6071428571428572" />
+    <rect data-type="rect" data-label="main" data-x="710" data-y="150" x="413.3333333333333" y="219.66666666666669" width="136.88888888888886" height="186.66666666666669" fill="hsl(222.85714285714286deg, 100%, 50%)" stroke="black" stroke-width="1.6071428571428572" />
   </g>
   <g>
-    <rect data-type="rect" data-label="ads" data-x="860" data-y="150" x="550.2222222222222" y="219.66666666666669" width="49.77777777777783" height="186.66666666666669" fill="hsl(240deg, 100%, 50%)" stroke="black" stroke-width="1.6071428571428572" />
+    <rect data-type="rect" data-label="ads" data-x="860" data-y="150" x="550.2222222222222" y="219.66666666666669" width="49.77777777777783" height="186.66666666666669" fill="hsl(0deg, 100%, 50%)" stroke="black" stroke-width="1.6071428571428572" />
   </g><text data-type="text" data-label="algo" data-x="200" data-y="322.5" x="164.44444444444446" y="420.33333333333337" fill="black" font-size="14" font-family="sans-serif" text-anchor="middle" dominant-baseline="text-after-edge">algo</text><text data-type="text" data-label="correct" data-x="700" data-y="322.5" x="475.55555555555554" y="420.33333333333337" fill="black" font-size="14" font-family="sans-serif" text-anchor="middle" dominant-baseline="text-after-edge">correct</text>
   <g id="crosshair" style="display: none">
     <line id="crosshair-h" y1="0" y2="640" stroke="#666" stroke-width="0.5" />

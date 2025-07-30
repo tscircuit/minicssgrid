@@ -1,26 +1,26 @@
 {
   "start-item": {
     "x": 0,
-    "y": 82,
-    "width": 66.671875,
-    "height": 18
+    "y": 91,
+    "width": 52,
+    "height": 9
   },
   "end-item": {
     "x": 200,
-    "y": 82,
-    "width": 62.25,
-    "height": 18
+    "y": 91,
+    "width": 42,
+    "height": 9
   },
   "center-item": {
     "x": 0,
-    "y": 182,
-    "width": 80.03125,
-    "height": 18
+    "y": 191,
+    "width": 57,
+    "height": 9
   },
   "stretch-item": {
     "x": 200,
-    "y": 182,
-    "width": 83.578125,
-    "height": 18
+    "y": 191,
+    "width": 62,
+    "height": 9
   }
 }

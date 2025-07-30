@@ -69,15 +69,15 @@ async function generateBrowserResults() {
       { x: number; y: number; width: number; height: number }
     > = {}
 
-    // Find all div elements inside the grid container
-    const childDivs = await page.locator("div > div").all()
+    // Find all div elements with an id attribute
+    const childDivs = await page.locator("div[id]").all()
 
     for (const div of childDivs) {
-      const text = await div.textContent()
-      if (text?.trim()) {
+      const id = await div.getAttribute("id")
+      if (id?.trim()) {
         const boundingBox = await div.boundingBox()
         if (boundingBox) {
-          elementBounds[text.trim()] = {
+          elementBounds[id.trim()] = {
             x: boundingBox.x,
             y: boundingBox.y,
             width: boundingBox.width,

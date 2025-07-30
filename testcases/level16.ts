@@ -5,7 +5,7 @@ export default {
   children: [
     { key: "header", columnSpan: 2 },
     { key: "sidebar" },
-    { key: "content" },
+    { key: "content", rowSpan: 2 },
     { key: "footer", columnSpan: 2 },
   ],
   containerWidth: 300,

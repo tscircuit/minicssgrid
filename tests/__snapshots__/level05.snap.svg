@@ -1,52 +1,52 @@
 <svg width="640" height="640" viewBox="0 0 640 640" xmlns="http://www.w3.org/2000/svg">
   <rect width="100%" height="100%" fill="white" />
   <g>
-    <circle data-type="point" data-label="" data-x="0" data-y="0" cx="40" cy="188.55555555555557" r="3" fill="black" />
+    <polyline data-points="0,0 100,0" data-type="line" data-label="" points="40,188.55555555555557 143.7037037037037,188.55555555555557" fill="none" stroke="black" stroke-width="1" />
   </g>
   <g>
-    <circle data-type="point" data-label="" data-x="100" data-y="0" cx="143.7037037037037" cy="188.55555555555557" r="3" fill="black" />
+    <polyline data-points="100,0 100,100" data-type="line" data-label="" points="143.7037037037037,188.55555555555557 143.7037037037037,292.25925925925924" fill="none" stroke="black" stroke-width="1" />
   </g>
   <g>
-    <circle data-type="point" data-label="" data-x="100" data-y="100" cx="143.7037037037037" cy="292.25925925925924" r="3" fill="black" />
+    <polyline data-points="100,100 100,0" data-type="line" data-label="" points="143.7037037037037,292.25925925925924 143.7037037037037,188.55555555555557" fill="none" stroke="black" stroke-width="1" />
   </g>
   <g>
-    <circle data-type="point" data-label="" data-x="0" data-y="100" cx="40" cy="292.25925925925924" r="3" fill="black" />
+    <polyline data-points="0,100 0,0" data-type="line" data-label="" points="40,292.25925925925924 40,188.55555555555557" fill="none" stroke="black" stroke-width="1" />
   </g>
   <g>
-    <circle data-type="point" data-label="corner" data-x="300" data-y="0" cx="351.1111111111111" cy="188.55555555555557" r="3" fill="black" />
+    <polyline data-points="300,0 400,0" data-type="line" data-label="" points="351.1111111111111,188.55555555555557 454.8148148148148,188.55555555555557" fill="none" stroke="black" stroke-width="1" />
   </g>
   <g>
-    <circle data-type="point" data-label="corner" data-x="400" data-y="0" cx="454.8148148148148" cy="188.55555555555557" r="3" fill="black" />
+    <polyline data-points="400,0 400,100" data-type="line" data-label="" points="454.8148148148148,188.55555555555557 454.8148148148148,292.25925925925924" fill="none" stroke="black" stroke-width="1" />
   </g>
   <g>
-    <circle data-type="point" data-label="corner" data-x="400" data-y="100" cx="454.8148148148148" cy="292.25925925925924" r="3" fill="black" />
+    <polyline data-points="400,100 300,100" data-type="line" data-label="" points="454.8148148148148,292.25925925925924 351.1111111111111,292.25925925925924" fill="none" stroke="black" stroke-width="1" />
   </g>
   <g>
-    <circle data-type="point" data-label="corner" data-x="300" data-y="100" cx="351.1111111111111" cy="292.25925925925924" r="3" fill="black" />
+    <polyline data-points="300,100 300,0" data-type="line" data-label="" points="351.1111111111111,292.25925925925924 351.1111111111111,188.55555555555557" fill="none" stroke="black" stroke-width="1" />
   </g>
   <g>
-    <rect data-type="rect" data-label="box1" data-x="55" data-y="55" x="40" y="188.55555555555557" width="114.07407407407408" height="114.07407407407405" fill="hsl(0deg, 100%, 50%)" stroke="black" stroke-width="0.9642857142857143" />
+    <rect data-type="rect" data-label="box1" data-x="55" data-y="55" x="40" y="188.55555555555557" width="114.07407407407408" height="114.07407407407405" fill="hsl(257.14285714285717deg, 100%, 50%)" stroke="black" stroke-width="0.9642857142857143" />
   </g>
   <g>
-    <rect data-type="rect" data-label="box2" data-x="185" data-y="55" x="174.8148148148148" y="188.55555555555557" width="114.0740740740741" height="114.07407407407405" fill="hsl(40deg, 100%, 50%)" stroke="black" stroke-width="0.9642857142857143" />
+    <rect data-type="rect" data-label="box2" data-x="185" data-y="55" x="174.8148148148148" y="188.55555555555557" width="114.0740740740741" height="114.07407407407405" fill="hsl(274.2857142857143deg, 100%, 50%)" stroke="black" stroke-width="0.9642857142857143" />
   </g>
   <g>
-    <rect data-type="rect" data-label="box3" data-x="55" data-y="185" x="40" y="323.3703703703704" width="114.07407407407408" height="114.07407407407408" fill="hsl(80deg, 100%, 50%)" stroke="black" stroke-width="0.9642857142857143" />
+    <rect data-type="rect" data-label="box3" data-x="55" data-y="185" x="40" y="323.3703703703704" width="114.07407407407408" height="114.07407407407408" fill="hsl(291.42857142857144deg, 100%, 50%)" stroke="black" stroke-width="0.9642857142857143" />
   </g>
   <g>
-    <rect data-type="rect" data-label="box4" data-x="185" data-y="185" x="174.8148148148148" y="323.3703703703704" width="114.0740740740741" height="114.07407407407408" fill="hsl(120deg, 100%, 50%)" stroke="black" stroke-width="0.9642857142857143" />
+    <rect data-type="rect" data-label="box4" data-x="185" data-y="185" x="174.8148148148148" y="323.3703703703704" width="114.0740740740741" height="114.07407407407408" fill="hsl(308.57142857142856deg, 100%, 50%)" stroke="black" stroke-width="0.9642857142857143" />
   </g>
   <g>
-    <rect data-type="rect" data-label="box1" data-x="355" data-y="55" x="351.1111111111111" y="188.55555555555557" width="114.07407407407408" height="114.07407407407405" fill="hsl(0deg, 100%, 50%)" stroke="black" stroke-width="0.9642857142857143" />
+    <rect data-type="rect" data-label="box1" data-x="355" data-y="55" x="351.1111111111111" y="188.55555555555557" width="114.07407407407408" height="114.07407407407405" fill="hsl(257.14285714285717deg, 100%, 50%)" stroke="black" stroke-width="0.9642857142857143" />
   </g>
   <g>
-    <rect data-type="rect" data-label="box2" data-x="485" data-y="55" x="485.9259259259259" y="188.55555555555557" width="114.07407407407408" height="114.07407407407405" fill="hsl(40deg, 100%, 50%)" stroke="black" stroke-width="0.9642857142857143" />
+    <rect data-type="rect" data-label="box2" data-x="485" data-y="55" x="485.9259259259259" y="188.55555555555557" width="114.07407407407408" height="114.07407407407405" fill="hsl(274.2857142857143deg, 100%, 50%)" stroke="black" stroke-width="0.9642857142857143" />
   </g>
   <g>
-    <rect data-type="rect" data-label="box3" data-x="355" data-y="185" x="351.1111111111111" y="323.3703703703704" width="114.07407407407408" height="114.07407407407408" fill="hsl(80deg, 100%, 50%)" stroke="black" stroke-width="0.9642857142857143" />
+    <rect data-type="rect" data-label="box3" data-x="355" data-y="185" x="351.1111111111111" y="323.3703703703704" width="114.07407407407408" height="114.07407407407408" fill="hsl(291.42857142857144deg, 100%, 50%)" stroke="black" stroke-width="0.9642857142857143" />
   </g>
   <g>
-    <rect data-type="rect" data-label="box4" data-x="485" data-y="185" x="485.9259259259259" y="323.3703703703704" width="114.07407407407408" height="114.07407407407408" fill="hsl(120deg, 100%, 50%)" stroke="black" stroke-width="0.9642857142857143" />
+    <rect data-type="rect" data-label="box4" data-x="485" data-y="185" x="485.9259259259259" y="323.3703703703704" width="114.07407407407408" height="114.07407407407408" fill="hsl(308.57142857142856deg, 100%, 50%)" stroke="black" stroke-width="0.9642857142857143" />
   </g><text data-type="text" data-label="algo" data-x="120" data-y="253.5" x="164.44444444444446" y="451.44444444444446" fill="black" font-size="14" font-family="sans-serif" text-anchor="middle" dominant-baseline="text-after-edge">algo</text><text data-type="text" data-label="correct" data-x="420" data-y="253.5" x="475.55555555555554" y="451.44444444444446" fill="black" font-size="14" font-family="sans-serif" text-anchor="middle" dominant-baseline="text-after-edge">correct</text>
   <g id="crosshair" style="display: none">
     <line id="crosshair-h" y1="0" y2="640" stroke="#666" stroke-width="0.5" />

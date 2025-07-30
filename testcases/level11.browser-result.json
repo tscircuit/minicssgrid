@@ -1,14 +1,14 @@
 {
   "center-item": {
-    "x": 9.984375,
-    "y": 41,
-    "width": 80.03125,
-    "height": 18
+    "x": 21.5,
+    "y": 45.5,
+    "width": 57,
+    "height": 9
   },
   "another-item": {
-    "x": 105.078125,
-    "y": 41,
-    "width": 89.828125,
-    "height": 18
+    "x": 119,
+    "y": 45.5,
+    "width": 62,
+    "height": 9
   }
 }

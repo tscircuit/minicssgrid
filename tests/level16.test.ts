@@ -1,24 +1,24 @@
 import { expect, test } from "bun:test"
-import level07 from "testcases/level07"
-import browserResult from "testcases/level07.browser-result.json"
+import level16 from "testcases/level16"
+import browserResult from "testcases/level16.browser-result.json"
 import { testGrid } from "./fixtures/testGrid"
 
-test("level07", () => {
-  const { laidOutResult, outputViz, layout } = testGrid(level07, browserResult)
+test("level16", () => {
+  const { laidOutResult, outputViz, layout } = testGrid(level16, browserResult)
 
   expect(browserResult).toMatchInlineSnapshot(`
     {
       "content": {
-        "height": 200,
+        "height": 241,
         "width": 200,
         "x": 100,
         "y": 50,
       },
       "footer": {
-        "height": 50,
+        "height": 9,
         "width": 300,
         "x": 0,
-        "y": 250,
+        "y": 291,
       },
       "header": {
         "height": 50,
@@ -27,7 +27,7 @@ test("level07", () => {
         "y": 0,
       },
       "sidebar": {
-        "height": 200,
+        "height": 191,
         "width": 100,
         "x": 0,
         "y": 50,
@@ -37,7 +37,7 @@ test("level07", () => {
   expect(laidOutResult).toMatchInlineSnapshot(`
     {
       "content": {
-        "height": 200,
+        "height": 250,
         "width": 200,
         "x": 100,
         "y": 50,
@@ -85,7 +85,7 @@ test("level07", () => {
           "columnSpan": 1,
           "key": "content",
           "row": 1,
-          "rowSpan": 1,
+          "rowSpan": 2,
         },
         {
           "column": 0,
