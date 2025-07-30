@@ -123,16 +123,7 @@ test("level17", () => {
   `)
   expect(outputViz).toMatchSvgSnapshot(import.meta.path)
 
-  // Note: Browser and our implementation handle missing container dimensions differently
-  // Browser uses default sizing behavior, while our implementation auto-sizes based on content
-  // This test validates that our auto-sizing logic works correctly
   if (!process.env.BUN_UPDATE_SNAPSHOTS) {
-    // Verify our auto-sizing produces reasonable results
-    expect(laidOutResult.item1.width).toBe(40) // Should use minimum needed based on content
-    expect(laidOutResult.item2.width).toBe(40) // Auto column
-    expect(laidOutResult.item3.width).toBe(100) // Fixed 100px column
-    expect(laidOutResult.item1.x).toBe(0)
-    expect(laidOutResult.item2.x).toBe(50) // 40 + 10 gap
-    expect(laidOutResult.item3.x).toBe(100) // 40 + 10 + 40 + 10
+    expect(laidOutResult).toEqual(browserResult)
   }
 })
