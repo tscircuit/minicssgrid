@@ -4,7 +4,7 @@ A tiny CSS grid implementation in TypeScript that provides programmatic CSS Grid
 
 [Online Playground](https://minigrid.tscircuit.com)
 
-<img width="528" height="528" alt="image" src="https://github.com/user-attachments/assets/952f4f37-0644-456c-87a5-1cd78a573c46" />
+<img width="250" height="250" alt="image" src="https://github.com/user-attachments/assets/c0cd5c34-a62c-40e4-b132-fc2f81b6fc49" />
 
 ## Installation
 
