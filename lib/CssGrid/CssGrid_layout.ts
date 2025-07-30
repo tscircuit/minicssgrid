@@ -264,7 +264,9 @@ export const CssGrid_layout = (
   ): number => {
     let position = 0
     for (let i = 0; i < trackIndex; i++) {
-      position += (trackSizes[i] || 0) + (i > 0 ? gap : 0)
+      position += trackSizes[i] || 0
+      // Add gap after each track we've processed
+      position += gap
     }
     return position
   }
