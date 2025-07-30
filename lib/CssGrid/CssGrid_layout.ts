@@ -16,6 +16,12 @@ function tokenize(templateStr: string): string[] {
   return templateStr.trim().split(/\s+/).filter(Boolean)
 }
 
+// Returns number of tracks in a template string
+function countTracks(tpl?: string): number {
+  if (!tpl) return 0
+  return tokenize(expandRepeat(tpl)).length
+}
+
 // pxFromToken: returns px value or undefined for "fr"
 function pxFromToken(
   token: string,
@@ -83,6 +89,9 @@ export const CssGrid_layout = (
         ? opts.gridTemplateColumns
         : undefined
   }
+
+  const columnTrackCountDeclared = countTracks(colsTpl)
+  const rowTrackCountDeclared    = countTracks(rowsTpl)
 
   // --- 3. Auto-sizing helper functions ---
 
@@ -163,8 +172,78 @@ export const CssGrid_layout = (
     containerSize: number | undefined,
     gap: number,
     isWidth = true,
+    crossTrackCount = 1,               // NEW
   ): number[] {
     if (!tpl) return []
+
+    /* ── Intrinsic track sizing when container size is unknown ───────── */
+    if (containerSize == null) {
+      const expanded = expandRepeat(tpl)
+      const tokens   = tokenize(expanded)
+      const trackCnt = tokens.length
+
+      // helper – px value from contentWidth / contentHeight (+ 2 px border)
+      const toPx = (v: string | number | undefined): number => {
+        if (v === undefined) return 0
+        if (typeof v === "number") return v + 2          // content + border
+        if (v.endsWith("px")) return parseFloat(v) + 2   // content + border
+        return parseFloat(v) + 2
+      }
+
+      // gather the largest content-based size per track
+      const sizes = new Array<number>(trackCnt).fill(0)
+      let autoCursor = 0                                 // row-major auto placement
+
+      for (const child of children) {
+        const span = isWidth
+          ? (typeof child.columnSpan === "number"
+              ? child.columnSpan
+              : child.columnSpan ? parseInt(child.columnSpan.toString()) : 1)
+          : (typeof child.rowSpan === "number"
+              ? child.rowSpan
+              : child.rowSpan ? parseInt(child.rowSpan.toString()) : 1)
+
+        const rawSize = isWidth ? child.contentWidth : child.contentHeight
+        const sizePerTrack = toPx(rawSize) / span
+
+        // which track does the item start in?
+        let startIdx: number | undefined
+        if (isWidth) {
+          if (child.columnStart !== undefined || child.column !== undefined) {
+            startIdx = parseInt((child.columnStart ?? child.column) as string) - 1
+          }
+        } else {
+          if (child.rowStart !== undefined || child.row !== undefined) {
+            startIdx = parseInt((child.rowStart ?? child.row) as string) - 1
+          }
+        }
+        // ── determine implicit start track ──
+        if (startIdx === undefined || Number.isNaN(startIdx)) {
+          if (isWidth) {
+            // columns: wrap inside the same row
+            startIdx = autoCursor % trackCnt
+          } else {
+            // rows: CSS grid’s row-major auto-flow – fill columns first
+            startIdx = Math.floor(autoCursor / crossTrackCount)
+          }
+          autoCursor += span
+        }
+
+        // distribute over the spanned tracks
+        for (let i = 0; i < span && startIdx + i < trackCnt; i++) {
+          sizes[startIdx + i] = Math.max(sizes[startIdx + i], sizePerTrack)
+        }
+      }
+
+      // overwrite with any fixed/percentage tokens present
+      tokens.forEach((tok, idx) => {
+        const px = pxFromToken(tok, undefined)
+        if (typeof px === "number") sizes[idx] = px
+      })
+
+      return sizes                                       // <- EARLY RETURN
+    }
+
     const expanded = expandRepeat(tpl)
     const tokens = tokenize(expanded)
     const trackCount = tokens.length
@@ -222,12 +301,21 @@ export const CssGrid_layout = (
         ? opts.gap[1]
         : 0
 
-  const rowSizes = buildTrackSizes(rowsTpl, opts.containerHeight, rowGap, false)
+  // rows first
+  const rowSizes = buildTrackSizes(
+    rowsTpl,
+    opts.containerHeight,
+    rowGap,
+    /* isWidth = */ false,
+    /* cross-axis = */ columnTrackCountDeclared || 1,
+  )
+
   const columnSizes = buildTrackSizes(
     colsTpl,
     opts.containerWidth,
     columnGap,
-    true,
+    /* isWidth = */ true,
+    /* cross-axis = */ rowTrackCountDeclared || 1,
   )
 
   const rowCount = rowSizes.length

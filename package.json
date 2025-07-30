@@ -17,7 +17,7 @@
     "format": "biome format --write .",
     "format:check": "biome format .",
     "build:site": "cosmos-export",
-    "generate-browser-results": "bun run scripts/generate-browser-results.ts"
+    "generate-browser-results": "bun run scripts/generate-browser-results.ts && biome format --write ./testcases"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.1.2",
