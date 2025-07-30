@@ -7,6 +7,7 @@
     "start": "cosmos",
     "format": "biome format --write .",
     "format:check": "biome format .",
+    "build:site": "cosmos-export",
     "generate-browser-results": "bun run scripts/generate-browser-results.ts"
   },
   "devDependencies": {

@@ -38,3 +38,5 @@ playwright-report
 test-results
 
 *.diff.png
+.vercel
+cosmos-export
