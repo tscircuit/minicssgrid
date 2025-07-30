@@ -2,6 +2,8 @@
 
 A tiny CSS grid implementation in typescript
 
+<img width="528" height="528" alt="image" src="https://github.com/user-attachments/assets/952f4f37-0644-456c-87a5-1cd78a573c46" />
+
 ## Introducing Test Cases
 
 1. Create a test case in `testcases/levelXX.ts`
