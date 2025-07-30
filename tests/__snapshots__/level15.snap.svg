@@ -1,16 +1,16 @@
 <svg width="640" height="640" viewBox="0 0 640 640" xmlns="http://www.w3.org/2000/svg">
   <rect width="100%" height="100%" fill="white" />
   <g>
-    <circle data-type="point" data-label="" data-x="0" data-y="0" cx="40" cy="237.8069822087949" r="3" fill="black" />
+    <polyline data-points="0,0 100,0" data-type="line" data-label="" points="40,237.8069822087949 115.19301779120511,237.8069822087949" fill="none" stroke="black" stroke-width="1" />
   </g>
   <g>
-    <circle data-type="point" data-label="" data-x="100" data-y="0" cx="115.19301779120511" cy="237.8069822087949" r="3" fill="black" />
+    <polyline data-points="100,0 100,100" data-type="line" data-label="" points="115.19301779120511,237.8069822087949 115.19301779120511,313" fill="none" stroke="black" stroke-width="1" />
   </g>
   <g>
-    <circle data-type="point" data-label="" data-x="100" data-y="100" cx="115.19301779120511" cy="313" r="3" fill="black" />
+    <polyline data-points="100,100 100,0" data-type="line" data-label="" points="115.19301779120511,313 115.19301779120511,237.8069822087949" fill="none" stroke="black" stroke-width="1" />
   </g>
   <g>
-    <circle data-type="point" data-label="" data-x="0" data-y="100" cx="40" cy="313" r="3" fill="black" />
+    <polyline data-points="0,100 0,0" data-type="line" data-label="" points="40,313 40,237.8069822087949" fill="none" stroke="black" stroke-width="1" />
   </g>
   <g>
     <polyline data-points="482.75,0 582.75,0" data-type="line" data-label="" points="402.99429338704266,237.8069822087949 478.18731117824774,237.8069822087949" fill="none" stroke="black" stroke-width="1" />
