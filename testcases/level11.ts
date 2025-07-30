@@ -3,8 +3,8 @@ import type { CssGridOptions } from "lib/types"
 // Test: Alignment - justifyItems and alignItems
 export default {
   children: [
-    { key: "center-item" },
-    { key: "another-item" }
+    { key: "center-item", contentWidth: 30, contentHeight: 25 },
+    { key: "another-item", contentWidth: 30, contentHeight: 25 },
   ],
   containerWidth: 200,
   containerHeight: 200,
