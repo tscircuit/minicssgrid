@@ -1,14 +1,14 @@
 {
   "center-item": {
-    "x": 34,
-    "y": 36.5,
-    "width": 32,
-    "height": 27
+    "x": 35,
+    "y": 37.5,
+    "width": 30,
+    "height": 25
   },
   "another-item": {
-    "x": 134,
-    "y": 36.5,
-    "width": 32,
-    "height": 27
+    "x": 135,
+    "y": 37.5,
+    "width": 30,
+    "height": 25
   }
 }
