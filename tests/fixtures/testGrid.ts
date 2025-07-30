@@ -54,7 +54,7 @@ export const testGrid = (
       strokeColor: "black",
       points: [
         { x: 100, y: 100 },
-        { x: 100, y: 0 },
+        { x: 0, y: 100 },
       ],
     },
     {

@@ -7,7 +7,7 @@
     <polyline data-points="100,0 100,100" data-type="line" data-label="" points="122.96296296296296,230.03703703703704 122.96296296296296,313" fill="none" stroke="black" stroke-width="1" />
   </g>
   <g>
-    <polyline data-points="100,100 100,0" data-type="line" data-label="" points="122.96296296296296,313 122.96296296296296,230.03703703703704" fill="none" stroke="black" stroke-width="1" />
+    <polyline data-points="100,100 0,100" data-type="line" data-label="" points="122.96296296296296,313 40,313" fill="none" stroke="black" stroke-width="1" />
   </g>
   <g>
     <polyline data-points="0,100 0,0" data-type="line" data-label="" points="40,313 40,230.03703703703704" fill="none" stroke="black" stroke-width="1" />
