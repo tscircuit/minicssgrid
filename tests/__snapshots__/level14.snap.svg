@@ -13,16 +13,16 @@
     <circle data-type="point" data-label="" data-x="0" data-y="100" cx="40" cy="271.51851851851853" r="3" fill="black" />
   </g>
   <g>
-    <circle data-type="point" data-label="corner" data-x="375" data-y="0" cx="351.1111111111111" cy="188.55555555555557" r="3" fill="black" />
+    <polyline data-points="375,0 475,0" data-type="line" data-label="" points="351.1111111111111,188.55555555555557 434.0740740740741,188.55555555555557" fill="none" stroke="black" stroke-width="1" />
   </g>
   <g>
-    <circle data-type="point" data-label="corner" data-x="475" data-y="0" cx="434.0740740740741" cy="188.55555555555557" r="3" fill="black" />
+    <polyline data-points="475,0 475,100" data-type="line" data-label="" points="434.0740740740741,188.55555555555557 434.0740740740741,271.51851851851853" fill="none" stroke="black" stroke-width="1" />
   </g>
   <g>
-    <circle data-type="point" data-label="corner" data-x="475" data-y="100" cx="434.0740740740741" cy="271.51851851851853" r="3" fill="black" />
+    <polyline data-points="475,100 375,100" data-type="line" data-label="" points="434.0740740740741,271.51851851851853 351.1111111111111,271.51851851851853" fill="none" stroke="black" stroke-width="1" />
   </g>
   <g>
-    <circle data-type="point" data-label="corner" data-x="375" data-y="100" cx="351.1111111111111" cy="271.51851851851853" r="3" fill="black" />
+    <polyline data-points="375,100 375,0" data-type="line" data-label="" points="351.1111111111111,271.51851851851853 351.1111111111111,188.55555555555557" fill="none" stroke="black" stroke-width="1" />
   </g>
   <g>
     <rect data-type="rect" data-label="background" data-x="150" data-y="150" x="40" y="188.55555555555557" width="248.8888888888889" height="248.88888888888889" fill="hsl(205.71428571428572deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
