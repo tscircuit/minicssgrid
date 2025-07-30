@@ -51,7 +51,7 @@ export const LevelDisplay = ({ level }: { level: any }) => {
           <div
             dangerouslySetInnerHTML={{
               __html: getSvgFromGraphicsObject(resultGraphics, {
-                backgroundColor: "white",
+                backgroundColor: "rgba(255,255,255,0.5)",
                 svgHeight: 200,
                 svgWidth: 200,
               }),

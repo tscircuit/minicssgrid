@@ -6,7 +6,7 @@ export default {
     { key: "first", order: 3 },
     { key: "second", order: 1 },
     { key: "third", order: 2 },
-    { key: "fourth" } // no order, should be 0
+    { key: "fourth" }, // no order, should be 0
   ],
   containerWidth: 400,
   containerHeight: 100,

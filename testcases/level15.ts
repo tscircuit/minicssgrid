@@ -6,7 +6,7 @@ export default {
     { key: "start-item" },
     { key: "end-item" },
     { key: "center-item" },
-    { key: "stretch-item" }
+    { key: "stretch-item" },
   ],
   containerWidth: 400,
   containerHeight: 200,

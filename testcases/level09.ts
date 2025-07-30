@@ -6,7 +6,7 @@ export default {
     { key: "big", rowStart: 1, rowEnd: 3, columnStart: 1, columnEnd: 3 },
     { key: "small1", rowStart: 1, columnStart: 3 },
     { key: "small2", rowStart: 2, columnStart: 3 },
-    { key: "bottom", rowStart: 3, columnStart: 1, columnEnd: 4 }
+    { key: "bottom", rowStart: 3, columnStart: 1, columnEnd: 4 },
   ],
   containerWidth: 300,
   containerHeight: 300,
