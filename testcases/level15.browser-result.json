@@ -1,26 +1,26 @@
 {
   "start-item": {
     "x": 0,
-    "y": 91,
+    "y": 68,
     "width": 52,
-    "height": 9
+    "height": 32
   },
   "end-item": {
     "x": 200,
-    "y": 91,
-    "width": 42,
-    "height": 9
+    "y": 78,
+    "width": 32,
+    "height": 22
   },
   "center-item": {
     "x": 0,
-    "y": 191,
-    "width": 57,
-    "height": 9
+    "y": 186,
+    "width": 42,
+    "height": 14
   },
   "stretch-item": {
     "x": 200,
-    "y": 191,
-    "width": 62,
-    "height": 9
+    "y": 158,
+    "width": 26,
+    "height": 42
   }
 }
