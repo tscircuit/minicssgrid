@@ -1,4 +1,4 @@
-# minigrid
+# minicssgrid
 
 A tiny CSS grid implementation in TypeScript that provides programmatic CSS Grid layout computation.
 
@@ -9,15 +9,15 @@ A tiny CSS grid implementation in TypeScript that provides programmatic CSS Grid
 ## Installation
 
 ```bash
-bun add @tscircuit/minigrid
+bun add minicssgrid
 # or
-npm install @tscircuit/minigrid
+npm install minicssgrid
 ```
 
 ## Quick Start
 
 ```typescript
-import { CssGrid } from "@tscircuit/minigrid"
+import { CssGrid } from "minicssgrid"
 
 // Create a simple 2x2 grid
 const grid = new CssGrid({

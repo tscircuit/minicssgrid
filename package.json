@@ -1,10 +1,19 @@
 {
-  "name": "@tscircuit/minigrid",
-  "version": "0.0.1",
+  "name": "minicssgrid",
+  "version": "0.0.2",
   "main": "dist/index.js",
   "type": "module",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tscircuit/minicssgrid"
+  },
+  "license": "MIT",
   "scripts": {
     "start": "cosmos",
+    "build": "tsup ./lib/index.ts --format esm --dts",
     "format": "biome format --write .",
     "format:check": "biome format .",
     "build:site": "cosmos-export",
@@ -18,7 +27,8 @@
     "graphics-debug": "^0.0.61",
     "playwright": "^1.54.1",
     "react-cosmos": "^7.0.0",
-    "react-cosmos-plugin-vite": "^7.0.0"
+    "react-cosmos-plugin-vite": "^7.0.0",
+    "tsup": "^8.5.0"
   },
   "peerDependencies": {
     "typescript": "^5"
