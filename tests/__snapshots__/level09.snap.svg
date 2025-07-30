@@ -25,7 +25,7 @@
     <circle data-type="point" data-label="corner" data-x="375" data-y="100" cx="351.1111111111111" cy="271.51851851851853" r="3" fill="black" />
   </g>
   <g>
-    <rect data-type="rect" data-label="big" data-x="100" data-y="100" x="40" y="188.55555555555557" width="165.92592592592592" height="165.92592592592595" fill="hsl(120deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
+    <rect data-type="rect" data-label="big" data-x="100" data-y="100" x="40" y="188.55555555555557" width="165.92592592592592" height="165.92592592592595" fill="hsl(205.71428571428572deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
   </g>
   <g>
     <rect data-type="rect" data-label="small1" data-x="250" data-y="50" x="205.92592592592592" y="188.55555555555557" width="82.96296296296299" height="82.96296296296296" fill="none" stroke="black" stroke-width="1.2053571428571428" />

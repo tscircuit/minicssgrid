@@ -25,13 +25,13 @@
     <circle data-type="point" data-label="corner" data-x="375" data-y="100" cx="351.1111111111111" cy="271.51851851851853" r="3" fill="black" />
   </g>
   <g>
-    <rect data-type="rect" data-label="background" data-x="150" data-y="150" x="40" y="188.55555555555557" width="248.8888888888889" height="248.88888888888889" fill="hsl(240deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
+    <rect data-type="rect" data-label="background" data-x="150" data-y="150" x="40" y="188.55555555555557" width="248.8888888888889" height="248.88888888888889" fill="hsl(205.71428571428572deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
   </g>
   <g>
-    <rect data-type="rect" data-label="overlay1" data-x="100" data-y="100" x="40" y="188.55555555555557" width="165.92592592592592" height="165.92592592592595" fill="hsl(80deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
+    <rect data-type="rect" data-label="overlay1" data-x="100" data-y="100" x="40" y="188.55555555555557" width="165.92592592592592" height="165.92592592592595" fill="hsl(34.285714285714285deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
   </g>
   <g>
-    <rect data-type="rect" data-label="overlay2" data-x="200" data-y="200" x="122.96296296296296" y="271.51851851851853" width="165.92592592592595" height="165.92592592592592" fill="hsl(120deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
+    <rect data-type="rect" data-label="overlay2" data-x="200" data-y="200" x="122.96296296296296" y="271.51851851851853" width="165.92592592592595" height="165.92592592592592" fill="hsl(51.42857142857143deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
   </g>
   <g>
     <rect data-type="rect" data-label="corner" data-x="250" data-y="250" x="205.92592592592592" y="354.4814814814815" width="82.96296296296299" height="82.96296296296293" fill="none" stroke="black" stroke-width="1.2053571428571428" />

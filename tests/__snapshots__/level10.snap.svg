@@ -25,16 +25,16 @@
     <circle data-type="point" data-label="corner" data-x="500" data-y="100" cx="351.11111111111114" cy="344.11111111111114" r="3" fill="black" />
   </g>
   <g>
-    <rect data-type="rect" data-label="first" data-x="50" data-y="50" x="40" y="281.8888888888889" width="62.22222222222223" height="62.22222222222223" fill="hsl(240deg, 100%, 50%)" stroke="black" stroke-width="1.6071428571428572" />
+    <rect data-type="rect" data-label="first" data-x="50" data-y="50" x="40" y="281.8888888888889" width="62.22222222222223" height="62.22222222222223" fill="hsl(205.71428571428572deg, 100%, 50%)" stroke="black" stroke-width="1.6071428571428572" />
   </g>
   <g>
     <rect data-type="rect" data-label="second" data-x="150" data-y="50" x="102.22222222222223" y="281.8888888888889" width="62.22222222222223" height="62.22222222222223" fill="none" stroke="black" stroke-width="1.6071428571428572" />
   </g>
   <g>
-    <rect data-type="rect" data-label="third" data-x="250" data-y="50" x="164.44444444444446" y="281.8888888888889" width="62.2222222222222" height="62.22222222222223" fill="hsl(200deg, 100%, 50%)" stroke="black" stroke-width="1.6071428571428572" />
+    <rect data-type="rect" data-label="third" data-x="250" data-y="50" x="164.44444444444446" y="281.8888888888889" width="62.2222222222222" height="62.22222222222223" fill="hsl(188.57142857142858deg, 100%, 50%)" stroke="black" stroke-width="1.6071428571428572" />
   </g>
   <g>
-    <rect data-type="rect" data-label="fourth" data-x="350" data-y="50" x="226.66666666666666" y="281.8888888888889" width="62.22222222222226" height="62.22222222222223" fill="hsl(0deg, 100%, 50%)" stroke="black" stroke-width="1.6071428571428572" />
+    <rect data-type="rect" data-label="fourth" data-x="350" data-y="50" x="226.66666666666666" y="281.8888888888889" width="62.22222222222226" height="62.22222222222223" fill="none" stroke="black" stroke-width="1.6071428571428572" />
   </g>
   <g>
     <rect data-type="rect" data-label="first" data-x="550" data-y="50" x="351.11111111111114" y="281.8888888888889" width="62.22222222222217" height="62.22222222222223" fill="hsl(240deg, 100%, 50%)" stroke="black" stroke-width="1.6071428571428572" />

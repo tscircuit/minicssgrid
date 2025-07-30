@@ -9,5 +9,5 @@ export const stringHash = (str: string): number => {
   return hash
 }
 export const getColor = (str: string): string => {
-  return COLORS[stringHash(str) % COLORS.length]!
+  return COLORS[Math.abs(stringHash(str)) % COLORS.length]!
 }

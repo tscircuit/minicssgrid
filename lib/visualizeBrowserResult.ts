@@ -1,17 +1,6 @@
 import type { GraphicsObject } from "graphics-debug"
-import type { BrowserResult, BrowserResultItem } from "./types"
-
-const COLORS = [0, 1, 2, 3, 4, 5, 6, 7, 8].map(
-  (i) => `hsl(${(i * 360) / 9}deg, 100%, 50%)`,
-)
-
-const stringHash = (str: string): number => {
-  let hash = 0
-  for (let i = 0; i < str.length; i++) {
-    hash = (hash << 5) - hash + str.charCodeAt(i)
-  }
-  return hash
-}
+import type { BrowserResult } from "./types"
+import { getColor } from "./colors"
 
 export const visualizeBrowserResult = (
   browserOutput: BrowserResult,
@@ -42,7 +31,7 @@ export const visualizeBrowserResult = (
       },
       width: item.width,
       height: item.height,
-      fill: COLORS[stringHash(key) % COLORS.length],
+      fill: getColor(key),
       label: key,
     })
   }

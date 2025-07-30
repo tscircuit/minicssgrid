@@ -9,16 +9,16 @@ test("level07", () => {
   expect(browserResult).toMatchInlineSnapshot(`
     {
       "content": {
-        "height": 232,
+        "height": 243,
         "width": 200,
         "x": 100,
         "y": 50,
       },
       "footer": {
-        "height": 18,
+        "height": 7,
         "width": 300,
         "x": 0,
-        "y": 282,
+        "y": 293,
       },
       "header": {
         "height": 50,
@@ -27,7 +27,7 @@ test("level07", () => {
         "y": 0,
       },
       "sidebar": {
-        "height": 182,
+        "height": 193,
         "width": 100,
         "x": 0,
         "y": 50,

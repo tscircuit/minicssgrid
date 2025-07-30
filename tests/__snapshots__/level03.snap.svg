@@ -28,13 +28,13 @@
     <rect data-type="rect" data-label="item1" data-x="50" data-y="50" x="40" y="188.55555555555554" width="124.44444444444446" height="124.44444444444446" fill="hsl(0deg, 100%, 50%)" stroke="black" stroke-width="0.8035714285714286" />
   </g>
   <g>
-    <rect data-type="rect" data-label="item2" data-x="150" data-y="50" x="164.44444444444446" y="188.55555555555554" width="124.44444444444446" height="124.44444444444446" fill="hsl(40deg, 100%, 50%)" stroke="black" stroke-width="0.8035714285714286" />
+    <rect data-type="rect" data-label="item2" data-x="150" data-y="50" x="164.44444444444446" y="188.55555555555554" width="124.44444444444446" height="124.44444444444446" fill="hsl(17.142857142857142deg, 100%, 50%)" stroke="black" stroke-width="0.8035714285714286" />
   </g>
   <g>
-    <rect data-type="rect" data-label="item3" data-x="50" data-y="150" x="40" y="313" width="124.44444444444446" height="124.44444444444446" fill="hsl(80deg, 100%, 50%)" stroke="black" stroke-width="0.8035714285714286" />
+    <rect data-type="rect" data-label="item3" data-x="50" data-y="150" x="40" y="313" width="124.44444444444446" height="124.44444444444446" fill="hsl(34.285714285714285deg, 100%, 50%)" stroke="black" stroke-width="0.8035714285714286" />
   </g>
   <g>
-    <rect data-type="rect" data-label="item4" data-x="150" data-y="150" x="164.44444444444446" y="313" width="124.44444444444446" height="124.44444444444446" fill="hsl(120deg, 100%, 50%)" stroke="black" stroke-width="0.8035714285714286" />
+    <rect data-type="rect" data-label="item4" data-x="150" data-y="150" x="164.44444444444446" y="313" width="124.44444444444446" height="124.44444444444446" fill="hsl(51.42857142857143deg, 100%, 50%)" stroke="black" stroke-width="0.8035714285714286" />
   </g>
   <g>
     <rect data-type="rect" data-label="item1" data-x="300" data-y="50" x="351.11111111111114" y="188.55555555555554" width="124.4444444444444" height="124.44444444444446" fill="hsl(0deg, 100%, 50%)" stroke="black" stroke-width="0.8035714285714286" />

@@ -28,10 +28,10 @@
     <rect data-type="rect" data-label="header" data-x="150" data-y="25" x="40" y="188.55555555555557" width="248.8888888888889" height="41.481481481481495" fill="none" stroke="black" stroke-width="1.2053571428571428" />
   </g>
   <g>
-    <rect data-type="rect" data-label="sidebar" data-x="50" data-y="150" x="40" y="230.03703703703707" width="82.96296296296296" height="165.92592592592587" fill="hsl(160deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
+    <rect data-type="rect" data-label="sidebar" data-x="50" data-y="150" x="40" y="230.03703703703707" width="82.96296296296296" height="165.92592592592587" fill="hsl(274.2857142857143deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
   </g>
   <g>
-    <rect data-type="rect" data-label="content" data-x="200" data-y="175" x="122.96296296296296" y="230.03703703703707" width="165.92592592592595" height="207.4074074074074" fill="hsl(40deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
+    <rect data-type="rect" data-label="content" data-x="200" data-y="175" x="122.96296296296296" y="230.03703703703707" width="165.92592592592595" height="207.4074074074074" fill="hsl(274.2857142857143deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
   </g>
   <g>
     <rect data-type="rect" data-label="footer" data-x="150" data-y="275" x="40" y="395.96296296296293" width="248.8888888888889" height="41.481481481481524" fill="none" stroke="black" stroke-width="1.2053571428571428" />
@@ -40,13 +40,13 @@
     <rect data-type="rect" data-label="header" data-x="525" data-y="25" x="351.1111111111111" y="188.55555555555557" width="248.8888888888889" height="41.481481481481495" fill="none" stroke="black" stroke-width="1.2053571428571428" />
   </g>
   <g>
-    <rect data-type="rect" data-label="sidebar" data-x="425" data-y="141" x="351.1111111111111" y="230.03703703703707" width="82.96296296296299" height="150.9925925925926" fill="hsl(160deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
+    <rect data-type="rect" data-label="sidebar" data-x="425" data-y="146.5" x="351.1111111111111" y="230.03703703703707" width="82.96296296296299" height="160.1185185185185" fill="hsl(160deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
   </g>
   <g>
-    <rect data-type="rect" data-label="content" data-x="575" data-y="166" x="434.0740740740741" y="230.03703703703707" width="165.92592592592592" height="192.47407407407405" fill="hsl(40deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
+    <rect data-type="rect" data-label="content" data-x="575" data-y="171.5" x="434.0740740740741" y="230.03703703703707" width="165.92592592592592" height="201.59999999999997" fill="hsl(40deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
   </g>
   <g>
-    <rect data-type="rect" data-label="footer" data-x="525" data-y="291" x="351.1111111111111" y="422.5111111111111" width="248.8888888888889" height="14.933333333333337" fill="none" stroke="black" stroke-width="1.2053571428571428" />
+    <rect data-type="rect" data-label="footer" data-x="525" data-y="296.5" x="351.1111111111111" y="431.63703703703703" width="248.8888888888889" height="5.807407407407425" fill="none" stroke="black" stroke-width="1.2053571428571428" />
   </g><text data-type="text" data-label="algo" data-x="150" data-y="316.875" x="164.44444444444446" y="451.44444444444446" fill="black" font-size="14" font-family="sans-serif" text-anchor="middle" dominant-baseline="text-after-edge">algo</text><text data-type="text" data-label="correct" data-x="525" data-y="316.875" x="475.55555555555554" y="451.44444444444446" fill="black" font-size="14" font-family="sans-serif" text-anchor="middle" dominant-baseline="text-after-edge">correct</text>
   <g id="crosshair" style="display: none">
     <line id="crosshair-h" y1="0" y2="640" stroke="#666" stroke-width="0.5" />

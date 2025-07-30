@@ -25,16 +25,16 @@
     <circle data-type="point" data-label="corner" data-x="300" data-y="100" cx="351.1111111111111" cy="292.25925925925924" r="3" fill="black" />
   </g>
   <g>
-    <rect data-type="rect" data-label="box1" data-x="55" data-y="55" x="40" y="188.55555555555557" width="114.07407407407408" height="114.07407407407405" fill="hsl(0deg, 100%, 50%)" stroke="black" stroke-width="0.9642857142857143" />
+    <rect data-type="rect" data-label="box1" data-x="55" data-y="55" x="40" y="188.55555555555557" width="114.07407407407408" height="114.07407407407405" fill="hsl(257.14285714285717deg, 100%, 50%)" stroke="black" stroke-width="0.9642857142857143" />
   </g>
   <g>
-    <rect data-type="rect" data-label="box2" data-x="185" data-y="55" x="174.8148148148148" y="188.55555555555557" width="114.0740740740741" height="114.07407407407405" fill="hsl(40deg, 100%, 50%)" stroke="black" stroke-width="0.9642857142857143" />
+    <rect data-type="rect" data-label="box2" data-x="185" data-y="55" x="174.8148148148148" y="188.55555555555557" width="114.0740740740741" height="114.07407407407405" fill="hsl(274.2857142857143deg, 100%, 50%)" stroke="black" stroke-width="0.9642857142857143" />
   </g>
   <g>
-    <rect data-type="rect" data-label="box3" data-x="55" data-y="185" x="40" y="323.3703703703704" width="114.07407407407408" height="114.07407407407408" fill="hsl(80deg, 100%, 50%)" stroke="black" stroke-width="0.9642857142857143" />
+    <rect data-type="rect" data-label="box3" data-x="55" data-y="185" x="40" y="323.3703703703704" width="114.07407407407408" height="114.07407407407408" fill="hsl(291.42857142857144deg, 100%, 50%)" stroke="black" stroke-width="0.9642857142857143" />
   </g>
   <g>
-    <rect data-type="rect" data-label="box4" data-x="185" data-y="185" x="174.8148148148148" y="323.3703703703704" width="114.0740740740741" height="114.07407407407408" fill="hsl(120deg, 100%, 50%)" stroke="black" stroke-width="0.9642857142857143" />
+    <rect data-type="rect" data-label="box4" data-x="185" data-y="185" x="174.8148148148148" y="323.3703703703704" width="114.0740740740741" height="114.07407407407408" fill="hsl(308.57142857142856deg, 100%, 50%)" stroke="black" stroke-width="0.9642857142857143" />
   </g>
   <g>
     <rect data-type="rect" data-label="box1" data-x="355" data-y="55" x="351.1111111111111" y="188.55555555555557" width="114.07407407407408" height="114.07407407407405" fill="hsl(0deg, 100%, 50%)" stroke="black" stroke-width="0.9642857142857143" />
