@@ -28,25 +28,25 @@
     <rect data-type="rect" data-label="first" data-x="50" data-y="50" x="40" y="281.8888888888889" width="62.22222222222223" height="62.22222222222223" fill="hsl(205.71428571428572deg, 100%, 50%)" stroke="black" stroke-width="1.6071428571428572" />
   </g>
   <g>
-    <rect data-type="rect" data-label="second" data-x="150" data-y="50" x="102.22222222222223" y="281.8888888888889" width="62.22222222222223" height="62.22222222222223" fill="none" stroke="black" stroke-width="1.6071428571428572" />
+    <rect data-type="rect" data-label="second" data-x="150" data-y="50" x="102.22222222222223" y="281.8888888888889" width="62.22222222222223" height="62.22222222222223" fill="hsl(325.7142857142857deg, 100%, 50%)" stroke="black" stroke-width="1.6071428571428572" />
   </g>
   <g>
     <rect data-type="rect" data-label="third" data-x="250" data-y="50" x="164.44444444444446" y="281.8888888888889" width="62.2222222222222" height="62.22222222222223" fill="hsl(188.57142857142858deg, 100%, 50%)" stroke="black" stroke-width="1.6071428571428572" />
   </g>
   <g>
-    <rect data-type="rect" data-label="fourth" data-x="350" data-y="50" x="226.66666666666666" y="281.8888888888889" width="62.22222222222226" height="62.22222222222223" fill="none" stroke="black" stroke-width="1.6071428571428572" />
+    <rect data-type="rect" data-label="fourth" data-x="350" data-y="50" x="226.66666666666666" y="281.8888888888889" width="62.22222222222226" height="62.22222222222223" fill="hsl(102.85714285714286deg, 100%, 50%)" stroke="black" stroke-width="1.6071428571428572" />
   </g>
   <g>
-    <rect data-type="rect" data-label="first" data-x="550" data-y="50" x="351.11111111111114" y="281.8888888888889" width="62.22222222222217" height="62.22222222222223" fill="hsl(240deg, 100%, 50%)" stroke="black" stroke-width="1.6071428571428572" />
+    <rect data-type="rect" data-label="first" data-x="550" data-y="50" x="351.11111111111114" y="281.8888888888889" width="62.22222222222217" height="62.22222222222223" fill="hsl(205.71428571428572deg, 100%, 50%)" stroke="black" stroke-width="1.6071428571428572" />
   </g>
   <g>
-    <rect data-type="rect" data-label="second" data-x="650" data-y="50" x="413.3333333333333" y="281.8888888888889" width="62.22222222222223" height="62.22222222222223" fill="none" stroke="black" stroke-width="1.6071428571428572" />
+    <rect data-type="rect" data-label="second" data-x="650" data-y="50" x="413.3333333333333" y="281.8888888888889" width="62.22222222222223" height="62.22222222222223" fill="hsl(325.7142857142857deg, 100%, 50%)" stroke="black" stroke-width="1.6071428571428572" />
   </g>
   <g>
-    <rect data-type="rect" data-label="third" data-x="750" data-y="50" x="475.55555555555554" y="281.8888888888889" width="62.222222222222285" height="62.22222222222223" fill="hsl(200deg, 100%, 50%)" stroke="black" stroke-width="1.6071428571428572" />
+    <rect data-type="rect" data-label="third" data-x="750" data-y="50" x="475.55555555555554" y="281.8888888888889" width="62.222222222222285" height="62.22222222222223" fill="hsl(188.57142857142858deg, 100%, 50%)" stroke="black" stroke-width="1.6071428571428572" />
   </g>
   <g>
-    <rect data-type="rect" data-label="fourth" data-x="850" data-y="50" x="537.7777777777778" y="281.8888888888889" width="62.22222222222217" height="62.22222222222223" fill="hsl(0deg, 100%, 50%)" stroke="black" stroke-width="1.6071428571428572" />
+    <rect data-type="rect" data-label="fourth" data-x="850" data-y="50" x="537.7777777777778" y="281.8888888888889" width="62.22222222222217" height="62.22222222222223" fill="hsl(102.85714285714286deg, 100%, 50%)" stroke="black" stroke-width="1.6071428571428572" />
   </g><text data-type="text" data-label="algo" data-x="200" data-y="122.5" x="164.44444444444446" y="358.11111111111114" fill="black" font-size="14" font-family="sans-serif" text-anchor="middle" dominant-baseline="text-after-edge">algo</text><text data-type="text" data-label="correct" data-x="700" data-y="122.5" x="475.55555555555554" y="358.11111111111114" fill="black" font-size="14" font-family="sans-serif" text-anchor="middle" dominant-baseline="text-after-edge">correct</text>
   <g id="crosshair" style="display: none">
     <line id="crosshair-h" y1="0" y2="640" stroke="#666" stroke-width="0.5" />

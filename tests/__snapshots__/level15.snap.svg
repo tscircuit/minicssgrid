@@ -25,28 +25,28 @@
     <circle data-type="point" data-label="corner" data-x="482.5" data-y="100" cx="403.9057239057239" cy="313" r="3" fill="black" />
   </g>
   <g>
-    <rect data-type="rect" data-label="start-item" data-x="100" data-y="50" x="40" y="237.5791245791246" width="150.84175084175084" height="75.4208754208754" fill="none" stroke="black" stroke-width="1.3258928571428572" />
+    <rect data-type="rect" data-label="start-item" data-x="100" data-y="50" x="40" y="237.5791245791246" width="150.84175084175084" height="75.4208754208754" fill="hsl(17.142857142857142deg, 100%, 50%)" stroke="black" stroke-width="1.3258928571428572" />
   </g>
   <g>
-    <rect data-type="rect" data-label="end-item" data-x="300" data-y="50" x="190.84175084175084" y="237.5791245791246" width="150.84175084175084" height="75.4208754208754" fill="none" stroke="black" stroke-width="1.3258928571428572" />
+    <rect data-type="rect" data-label="end-item" data-x="300" data-y="50" x="190.84175084175084" y="237.5791245791246" width="150.84175084175084" height="75.4208754208754" fill="hsl(274.2857142857143deg, 100%, 50%)" stroke="black" stroke-width="1.3258928571428572" />
   </g>
   <g>
-    <rect data-type="rect" data-label="center-item" data-x="100" data-y="150" x="40" y="313" width="150.84175084175084" height="75.4208754208754" fill="none" stroke="black" stroke-width="1.3258928571428572" />
+    <rect data-type="rect" data-label="center-item" data-x="100" data-y="150" x="40" y="313" width="150.84175084175084" height="75.4208754208754" fill="hsl(240deg, 100%, 50%)" stroke="black" stroke-width="1.3258928571428572" />
   </g>
   <g>
-    <rect data-type="rect" data-label="stretch-item" data-x="300" data-y="150" x="190.84175084175084" y="313" width="150.84175084175084" height="75.4208754208754" fill="none" stroke="black" stroke-width="1.3258928571428572" />
+    <rect data-type="rect" data-label="stretch-item" data-x="300" data-y="150" x="190.84175084175084" y="313" width="150.84175084175084" height="75.4208754208754" fill="hsl(51.42857142857143deg, 100%, 50%)" stroke="black" stroke-width="1.3258928571428572" />
   </g>
   <g>
-    <rect data-type="rect" data-label="start-item" data-x="507.5" data-y="96.5" x="403.9057239057239" y="307.72053872053874" width="37.7104377104377" height="5.279461279461259" fill="none" stroke="black" stroke-width="1.3258928571428572" />
+    <rect data-type="rect" data-label="start-item" data-x="507.5" data-y="96.5" x="403.9057239057239" y="307.72053872053874" width="37.7104377104377" height="5.279461279461259" fill="hsl(17.142857142857142deg, 100%, 50%)" stroke="black" stroke-width="1.3258928571428572" />
   </g>
   <g>
-    <rect data-type="rect" data-label="end-item" data-x="702.5" data-y="96.5" x="554.7474747474747" y="307.72053872053874" width="30.16835016835023" height="5.279461279461259" fill="none" stroke="black" stroke-width="1.3258928571428572" />
+    <rect data-type="rect" data-label="end-item" data-x="702.5" data-y="96.5" x="554.7474747474747" y="307.72053872053874" width="30.16835016835023" height="5.279461279461259" fill="hsl(274.2857142857143deg, 100%, 50%)" stroke="black" stroke-width="1.3258928571428572" />
   </g>
   <g>
-    <rect data-type="rect" data-label="center-item" data-x="510" data-y="196.5" x="403.9057239057239" y="383.14141414141415" width="41.48148148148147" height="5.279461279461259" fill="none" stroke="black" stroke-width="1.3258928571428572" />
+    <rect data-type="rect" data-label="center-item" data-x="510" data-y="196.5" x="403.9057239057239" y="383.14141414141415" width="41.48148148148147" height="5.279461279461259" fill="hsl(240deg, 100%, 50%)" stroke="black" stroke-width="1.3258928571428572" />
   </g>
   <g>
-    <rect data-type="rect" data-label="stretch-item" data-x="712.5" data-y="196.5" x="554.7474747474747" y="383.14141414141415" width="45.25252525252529" height="5.279461279461259" fill="hsl(0deg, 100%, 50%)" stroke="black" stroke-width="1.3258928571428572" />
+    <rect data-type="rect" data-label="stretch-item" data-x="712.5" data-y="196.5" x="554.7474747474747" y="383.14141414141415" width="45.25252525252529" height="5.279461279461259" fill="hsl(51.42857142857143deg, 100%, 50%)" stroke="black" stroke-width="1.3258928571428572" />
   </g><text data-type="text" data-label="algo" data-x="200" data-y="218.5625" x="190.84175084175084" y="402.4208754208754" fill="black" font-size="14" font-family="sans-serif" text-anchor="middle" dominant-baseline="text-after-edge">algo</text><text data-type="text" data-label="correct" data-x="612.5" data-y="218.5625" x="501.95286195286195" y="402.4208754208754" fill="black" font-size="14" font-family="sans-serif" text-anchor="middle" dominant-baseline="text-after-edge">correct</text>
   <g id="crosshair" style="display: none">
     <line id="crosshair-h" y1="0" y2="640" stroke="#666" stroke-width="0.5" />

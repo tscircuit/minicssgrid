@@ -15,11 +15,35 @@ export const visualizeBrowserResult = (
     texts: [],
   }
 
-  go.points.push(
-    { x: 0, y: 0, label: "corner" },
-    { x: 100, y: 0, label: "corner" },
-    { x: 100, y: 100, label: "corner" },
-    { x: 0, y: 100, label: "corner" },
+  go.lines.push(
+    {
+      strokeColor: "black",
+      points: [
+        { x: 0, y: 0 },
+        { x: 100, y: 0 },
+      ],
+    },
+    {
+      strokeColor: "black",
+      points: [
+        { x: 100, y: 0 },
+        { x: 100, y: 100 },
+      ],
+    },
+    {
+      strokeColor: "black",
+      points: [
+        { x: 100, y: 100 },
+        { x: 0, y: 100 },
+      ],
+    },
+    {
+      strokeColor: "black",
+      points: [
+        { x: 0, y: 100 },
+        { x: 0, y: 0 },
+      ],
+    },
   )
 
   // Convert each item in browserOutput to a rectangle

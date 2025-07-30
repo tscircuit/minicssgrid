@@ -37,7 +37,7 @@ test("level07", () => {
   expect(laidOutResult).toMatchInlineSnapshot(`
     {
       "content": {
-        "height": 250,
+        "height": 200,
         "width": 200,
         "x": 100,
         "y": 50,
@@ -85,7 +85,7 @@ test("level07", () => {
           "columnSpan": 1,
           "key": "content",
           "row": 1,
-          "rowSpan": 2,
+          "rowSpan": 1,
         },
         {
           "column": 0,

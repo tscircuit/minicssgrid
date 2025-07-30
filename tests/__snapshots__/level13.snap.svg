@@ -34,13 +34,13 @@
     <rect data-type="rect" data-label="ads" data-x="360" data-y="150" x="239.11111111111111" y="219.66666666666669" width="49.7777777777778" height="186.66666666666669" fill="hsl(0deg, 100%, 50%)" stroke="black" stroke-width="1.6071428571428572" />
   </g>
   <g>
-    <rect data-type="rect" data-label="sidebar" data-x="550" data-y="150" x="351.11111111111114" y="219.66666666666669" width="62.22222222222217" height="186.66666666666669" fill="hsl(160deg, 100%, 50%)" stroke="black" stroke-width="1.6071428571428572" />
+    <rect data-type="rect" data-label="sidebar" data-x="550" data-y="150" x="351.11111111111114" y="219.66666666666669" width="62.22222222222217" height="186.66666666666669" fill="hsl(274.2857142857143deg, 100%, 50%)" stroke="black" stroke-width="1.6071428571428572" />
   </g>
   <g>
-    <rect data-type="rect" data-label="main" data-x="710" data-y="150" x="413.3333333333333" y="219.66666666666669" width="136.88888888888886" height="186.66666666666669" fill="hsl(160deg, 100%, 50%)" stroke="black" stroke-width="1.6071428571428572" />
+    <rect data-type="rect" data-label="main" data-x="710" data-y="150" x="413.3333333333333" y="219.66666666666669" width="136.88888888888886" height="186.66666666666669" fill="hsl(222.85714285714286deg, 100%, 50%)" stroke="black" stroke-width="1.6071428571428572" />
   </g>
   <g>
-    <rect data-type="rect" data-label="ads" data-x="860" data-y="150" x="550.2222222222222" y="219.66666666666669" width="49.77777777777783" height="186.66666666666669" fill="hsl(240deg, 100%, 50%)" stroke="black" stroke-width="1.6071428571428572" />
+    <rect data-type="rect" data-label="ads" data-x="860" data-y="150" x="550.2222222222222" y="219.66666666666669" width="49.77777777777783" height="186.66666666666669" fill="hsl(0deg, 100%, 50%)" stroke="black" stroke-width="1.6071428571428572" />
   </g><text data-type="text" data-label="algo" data-x="200" data-y="322.5" x="164.44444444444446" y="420.33333333333337" fill="black" font-size="14" font-family="sans-serif" text-anchor="middle" dominant-baseline="text-after-edge">algo</text><text data-type="text" data-label="correct" data-x="700" data-y="322.5" x="475.55555555555554" y="420.33333333333337" fill="black" font-size="14" font-family="sans-serif" text-anchor="middle" dominant-baseline="text-after-edge">correct</text>
   <g id="crosshair" style="display: none">
     <line id="crosshair-h" y1="0" y2="640" stroke="#666" stroke-width="0.5" />

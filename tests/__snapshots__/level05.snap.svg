@@ -37,16 +37,16 @@
     <rect data-type="rect" data-label="box4" data-x="185" data-y="185" x="174.8148148148148" y="323.3703703703704" width="114.0740740740741" height="114.07407407407408" fill="hsl(308.57142857142856deg, 100%, 50%)" stroke="black" stroke-width="0.9642857142857143" />
   </g>
   <g>
-    <rect data-type="rect" data-label="box1" data-x="355" data-y="55" x="351.1111111111111" y="188.55555555555557" width="114.07407407407408" height="114.07407407407405" fill="hsl(0deg, 100%, 50%)" stroke="black" stroke-width="0.9642857142857143" />
+    <rect data-type="rect" data-label="box1" data-x="355" data-y="55" x="351.1111111111111" y="188.55555555555557" width="114.07407407407408" height="114.07407407407405" fill="hsl(257.14285714285717deg, 100%, 50%)" stroke="black" stroke-width="0.9642857142857143" />
   </g>
   <g>
-    <rect data-type="rect" data-label="box2" data-x="485" data-y="55" x="485.9259259259259" y="188.55555555555557" width="114.07407407407408" height="114.07407407407405" fill="hsl(40deg, 100%, 50%)" stroke="black" stroke-width="0.9642857142857143" />
+    <rect data-type="rect" data-label="box2" data-x="485" data-y="55" x="485.9259259259259" y="188.55555555555557" width="114.07407407407408" height="114.07407407407405" fill="hsl(274.2857142857143deg, 100%, 50%)" stroke="black" stroke-width="0.9642857142857143" />
   </g>
   <g>
-    <rect data-type="rect" data-label="box3" data-x="355" data-y="185" x="351.1111111111111" y="323.3703703703704" width="114.07407407407408" height="114.07407407407408" fill="hsl(80deg, 100%, 50%)" stroke="black" stroke-width="0.9642857142857143" />
+    <rect data-type="rect" data-label="box3" data-x="355" data-y="185" x="351.1111111111111" y="323.3703703703704" width="114.07407407407408" height="114.07407407407408" fill="hsl(291.42857142857144deg, 100%, 50%)" stroke="black" stroke-width="0.9642857142857143" />
   </g>
   <g>
-    <rect data-type="rect" data-label="box4" data-x="485" data-y="185" x="485.9259259259259" y="323.3703703703704" width="114.07407407407408" height="114.07407407407408" fill="hsl(120deg, 100%, 50%)" stroke="black" stroke-width="0.9642857142857143" />
+    <rect data-type="rect" data-label="box4" data-x="485" data-y="185" x="485.9259259259259" y="323.3703703703704" width="114.07407407407408" height="114.07407407407408" fill="hsl(308.57142857142856deg, 100%, 50%)" stroke="black" stroke-width="0.9642857142857143" />
   </g><text data-type="text" data-label="algo" data-x="120" data-y="253.5" x="164.44444444444446" y="451.44444444444446" fill="black" font-size="14" font-family="sans-serif" text-anchor="middle" dominant-baseline="text-after-edge">algo</text><text data-type="text" data-label="correct" data-x="420" data-y="253.5" x="475.55555555555554" y="451.44444444444446" fill="black" font-size="14" font-family="sans-serif" text-anchor="middle" dominant-baseline="text-after-edge">correct</text>
   <g id="crosshair" style="display: none">
     <line id="crosshair-h" y1="0" y2="640" stroke="#666" stroke-width="0.5" />
