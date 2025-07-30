@@ -16,6 +16,12 @@ function tokenize(templateStr: string): string[] {
   return templateStr.trim().split(/\s+/).filter(Boolean)
 }
 
+// Returns number of tracks in a template string
+function countTracks(tpl?: string): number {
+  if (!tpl) return 0
+  return tokenize(expandRepeat(tpl)).length
+}
+
 // pxFromToken: returns px value or undefined for "fr"
 function pxFromToken(
   token: string,
@@ -84,19 +90,182 @@ export const CssGrid_layout = (
         : undefined
   }
 
-  // --- 3. Build numeric track size arrays ---
+  const columnTrackCountDeclared = countTracks(colsTpl)
+  const rowTrackCountDeclared = countTracks(rowsTpl)
+
+  // --- 3. Auto-sizing helper functions ---
+
+  // Calculate minimum container size needed for auto-sizing
+  function calculateMinimumContainerSize(
+    tpl: string | undefined,
+    children: typeof opts.children,
+    isWidth: boolean,
+    gap: number,
+  ): number {
+    if (!tpl) return 0
+
+    const expanded = expandRepeat(tpl)
+    const tokens = tokenize(expanded)
+    const trackCount = tokens.length
+
+    // Calculate minimum size needed based on content
+    let minContentSize = 0
+    let hasFlexibleTracks = false
+
+    // First pass: calculate minimum size from fixed tracks and content
+    for (let i = 0; i < tokens.length; i++) {
+      const token = tokens[i]!
+
+      if (token.endsWith("px")) {
+        minContentSize += parseFloat(token)
+      } else if (token.endsWith("em")) {
+        minContentSize += parseFloat(token) * 16
+      } else if (token.endsWith("fr") || token === "auto") {
+        hasFlexibleTracks = true
+        // For fr/auto tracks, use the largest content size in that track
+        let maxContentInTrack = 0
+
+        for (const child of children) {
+          const childStart = isWidth
+            ? child.columnStart || child.column
+            : child.rowStart || child.row
+          const childSpan = isWidth ? child.columnSpan || 1 : child.rowSpan || 1
+          const contentSize = isWidth ? child.contentWidth : child.contentHeight
+
+          // Check if this child occupies this track
+          const startIdx =
+            (typeof childStart === "number"
+              ? childStart
+              : parseInt(childStart || "1")) - 1
+          const span =
+            typeof childSpan === "number"
+              ? childSpan
+              : parseInt(childSpan.toString())
+
+          if (startIdx <= i && i < startIdx + span) {
+            if (contentSize) {
+              const size =
+                typeof contentSize === "string" && contentSize.endsWith("px")
+                  ? parseFloat(contentSize)
+                  : typeof contentSize === "number"
+                    ? contentSize
+                    : 0
+              maxContentInTrack = Math.max(maxContentInTrack, size / span) // Distribute across span
+            }
+          }
+        }
+
+        minContentSize += maxContentInTrack
+      }
+      // For percentage tracks without a container, we'll treat them as content-sized
+    }
+
+    // Add gaps
+    const totalGaps = gap * (trackCount - 1)
+    return minContentSize + totalGaps
+  }
+
+  // --- 4. Build numeric track size arrays ---
 
   function buildTrackSizes(
     tpl: string | undefined,
     containerSize: number | undefined,
     gap: number,
+    isWidth = true,
+    crossTrackCount = 1, // NEW
   ): number[] {
     if (!tpl) return []
+
+    /* ── Intrinsic track sizing when container size is unknown ───────── */
+    if (containerSize == null) {
+      const expanded = expandRepeat(tpl)
+      const tokens = tokenize(expanded)
+      const trackCnt = tokens.length
+
+      // helper – px value from contentWidth / contentHeight (+ 2 px border)
+      const toPx = (v: string | number | undefined): number => {
+        if (v === undefined) return 0
+        if (typeof v === "number") return v + 2 // content + border
+        if (v.endsWith("px")) return parseFloat(v) + 2 // content + border
+        return parseFloat(v) + 2
+      }
+
+      // gather the largest content-based size per track
+      const sizes = new Array<number>(trackCnt).fill(0)
+      let autoCursor = 0 // row-major auto placement
+
+      for (const child of children) {
+        const span = isWidth
+          ? typeof child.columnSpan === "number"
+            ? child.columnSpan
+            : child.columnSpan
+              ? parseInt(child.columnSpan.toString())
+              : 1
+          : typeof child.rowSpan === "number"
+            ? child.rowSpan
+            : child.rowSpan
+              ? parseInt(child.rowSpan.toString())
+              : 1
+
+        const rawSize = isWidth ? child.contentWidth : child.contentHeight
+        const sizePerTrack = toPx(rawSize) / span
+
+        // which track does the item start in?
+        let startIdx: number | undefined
+        if (isWidth) {
+          if (child.columnStart !== undefined || child.column !== undefined) {
+            startIdx =
+              parseInt((child.columnStart ?? child.column) as string) - 1
+          }
+        } else {
+          if (child.rowStart !== undefined || child.row !== undefined) {
+            startIdx = parseInt((child.rowStart ?? child.row) as string) - 1
+          }
+        }
+        // ── determine implicit start track ──
+        if (startIdx === undefined || Number.isNaN(startIdx)) {
+          if (isWidth) {
+            // columns: wrap inside the same row
+            startIdx = autoCursor % trackCnt
+          } else {
+            // rows: CSS grid’s row-major auto-flow – fill columns first
+            startIdx = Math.floor(autoCursor / crossTrackCount)
+          }
+          autoCursor += span
+        }
+
+        // distribute over the spanned tracks
+        for (let i = 0; i < span && startIdx + i < trackCnt; i++) {
+          sizes[startIdx + i] = Math.max(sizes[startIdx + i]!, sizePerTrack)
+        }
+      }
+
+      // overwrite with any fixed/percentage tokens present
+      tokens.forEach((tok, idx) => {
+        const px = pxFromToken(tok, undefined)
+        if (typeof px === "number") sizes[idx] = px
+      })
+
+      return sizes // <- EARLY RETURN
+    }
+
     const expanded = expandRepeat(tpl)
     const tokens = tokenize(expanded)
     const trackCount = tokens.length
-    const sizeForTracks =
-      containerSize != null ? containerSize - gap * (trackCount - 1) : undefined
+
+    // If no container size, calculate minimum needed for auto-sizing
+    let effectiveContainerSize = containerSize
+    if (effectiveContainerSize == null) {
+      effectiveContainerSize = calculateMinimumContainerSize(
+        tpl,
+        children,
+        isWidth,
+        gap,
+      )
+    }
+
+    const sizeForTracks = effectiveContainerSize - gap * (trackCount - 1)
+
     // First pass: collect fixed sizes and total fr
     let sumFixed = 0
     let totalFr = 0
@@ -117,7 +286,7 @@ export const CssGrid_layout = (
       }
     })
     // Compute free space
-    const free = Math.max((sizeForTracks ?? 0) - sumFixed, 0)
+    const free = Math.max(sizeForTracks - sumFixed, 0)
     // Second pass: assign fr tracks
     return sizes.map((v) =>
       typeof v === "number" ? v : totalFr > 0 ? (free / totalFr) * v.fr : 0,
@@ -137,8 +306,22 @@ export const CssGrid_layout = (
         ? opts.gap[1]
         : 0
 
-  const rowSizes = buildTrackSizes(rowsTpl, opts.containerHeight, rowGap)
-  const columnSizes = buildTrackSizes(colsTpl, opts.containerWidth, columnGap)
+  // rows first
+  const rowSizes = buildTrackSizes(
+    rowsTpl,
+    opts.containerHeight,
+    rowGap,
+    /* isWidth = */ false,
+    /* cross-axis = */ columnTrackCountDeclared || 1,
+  )
+
+  const columnSizes = buildTrackSizes(
+    colsTpl,
+    opts.containerWidth,
+    columnGap,
+    /* isWidth = */ true,
+    /* cross-axis = */ rowTrackCountDeclared || 1,
+  )
 
   const rowCount = rowSizes.length
   const colCount = columnSizes.length
