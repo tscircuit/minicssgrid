@@ -39,7 +39,7 @@ function pxFromToken(
   }
   // fallback: treat as px if number
   const n = parseFloat(token)
-  if (!isNaN(n)) return n
+  if (!Number.isNaN(n)) return n
   return 0
 }
 
@@ -54,6 +54,12 @@ export const CssGrid_layout = (
   cells: GridCell[]
   rowSizes: number[]
   columnSizes: number[]
+  rowGap: number
+  columnGap: number
+  itemCoordinates: Record<
+    string,
+    { x: number; y: number; width: number; height: number }
+  >
 } => {
   const opts = grid.opts
   const children = opts.children
@@ -144,9 +150,9 @@ export const CssGrid_layout = (
 
   for (const child of children) {
     // Placement: row/col start
-    let rowStart: number | undefined =
+    let rowStart: number | string | undefined =
       child.rowStart !== undefined ? child.rowStart : child.row
-    let colStart: number | undefined =
+    let colStart: number | string | undefined =
       child.columnStart !== undefined ? child.columnStart : child.column
 
     // Spans
@@ -227,6 +233,10 @@ export const CssGrid_layout = (
       column,
       rowSpan,
       columnSpan: colSpan,
+      x: 0, // Will be calculated below
+      y: 0, // Will be calculated below
+      width: 0, // Will be calculated below
+      height: 0, // Will be calculated below
     })
 
     // Advance auto cursor
@@ -244,12 +254,144 @@ export const CssGrid_layout = (
   while (rowSizes.length < maxRow) rowSizes.push(0)
   while (columnSizes.length < maxCol) columnSizes.push(0)
 
-  // --- 6. Return assembled object ---
+  // --- 6. Calculate exact coordinates for each cell ---
+
+  // Helper function to calculate position from track index
+  const getPositionFromTracks = (
+    trackIndex: number,
+    trackSizes: number[],
+    gap: number,
+  ): number => {
+    let position = 0
+    for (let i = 0; i < trackIndex; i++) {
+      position += (trackSizes[i] || 0) + (i > 0 ? gap : 0)
+    }
+    return position
+  }
+
+  // Helper function to calculate size from span
+  const getSizeFromSpan = (
+    trackIndex: number,
+    span: number,
+    trackSizes: number[],
+    gap: number,
+  ): number => {
+    let size = 0
+    for (let i = trackIndex; i < trackIndex + span; i++) {
+      size += trackSizes[i] || 0
+      if (i > trackIndex) size += gap
+    }
+    return size
+  }
+
+  const itemCoordinates: Record<
+    string,
+    { x: number; y: number; width: number; height: number }
+  > = {}
+
+  // Update cells with coordinates and build itemCoordinates
+  for (const cell of cells) {
+    // Find the corresponding child to get contentWidth/contentHeight and other properties
+    const child = children.find((c) => c.key === cell.key)
+
+    // Calculate grid cell boundaries
+    const cellX = getPositionFromTracks(cell.column, columnSizes, columnGap)
+    const cellY = getPositionFromTracks(cell.row, rowSizes, rowGap)
+    const cellWidth = getSizeFromSpan(
+      cell.column,
+      cell.columnSpan,
+      columnSizes,
+      columnGap,
+    )
+    const cellHeight = getSizeFromSpan(cell.row, cell.rowSpan, rowSizes, rowGap)
+
+    // Get content dimensions (support string or number)
+    const getContentDimension = (
+      value: string | number | undefined,
+    ): number => {
+      if (value === undefined) return 0
+      if (typeof value === "string") {
+        if (value.endsWith("px")) return parseFloat(value)
+        if (value.endsWith("%")) return 0 // TODO: implement percentage support
+        return parseFloat(value)
+      }
+      return value
+    }
+
+    const contentWidth = getContentDimension(child?.contentWidth)
+    const contentHeight = getContentDimension(child?.contentHeight)
+
+    // Calculate actual item dimensions and position based on alignment
+    let itemWidth = cellWidth
+    let itemHeight = cellHeight
+    let itemX = cellX
+    let itemY = cellY
+
+    // Apply contentWidth/contentHeight if specified
+    if (contentWidth > 0) {
+      itemWidth = contentWidth
+      // Apply horizontal alignment (justifyItems)
+      const justifyItems = opts.justifyItems || "stretch"
+      switch (justifyItems) {
+        case "start":
+          itemX = cellX
+          break
+        case "end":
+          itemX = cellX + cellWidth - itemWidth
+          break
+        case "center":
+          itemX = cellX + (cellWidth - itemWidth) / 2
+          break
+        case "stretch":
+          itemWidth = cellWidth
+          itemX = cellX
+          break
+      }
+    }
+
+    if (contentHeight > 0) {
+      itemHeight = contentHeight
+      // Apply vertical alignment (alignItems)
+      const alignItems = opts.alignItems || "stretch"
+      switch (alignItems) {
+        case "start":
+          itemY = cellY
+          break
+        case "end":
+          itemY = cellY + cellHeight - itemHeight
+          break
+        case "center":
+          itemY = cellY + (cellHeight - itemHeight) / 2
+          break
+        case "stretch":
+          itemHeight = cellHeight
+          itemY = cellY
+          break
+      }
+    }
+
+    // Update the cell object
+    cell.x = itemX
+    cell.y = itemY
+    cell.width = itemWidth
+    cell.height = itemHeight
+
+    // Store in itemCoordinates for easy access
+    itemCoordinates[cell.key] = {
+      x: itemX,
+      y: itemY,
+      width: itemWidth,
+      height: itemHeight,
+    }
+  }
+
+  // --- 7. Return assembled object ---
   return {
     cells,
     rowSizes,
     columnSizes,
     rowGap,
     columnGap,
+    itemCoordinates,
   }
 }

@@ -8,7 +8,7 @@ export default {
     { key: "c" },
     { key: "d" },
     { key: "e" },
-    { key: "f" }
+    { key: "f" },
   ],
   containerWidth: 300,
   containerHeight: 200,

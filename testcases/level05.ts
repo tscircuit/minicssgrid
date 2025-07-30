@@ -6,7 +6,7 @@ export default {
     { key: "box1" },
     { key: "box2" },
     { key: "box3" },
-    { key: "box4" }
+    { key: "box4" },
   ],
   containerWidth: 240,
   containerHeight: 240,

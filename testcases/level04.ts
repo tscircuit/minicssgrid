@@ -6,7 +6,7 @@ export default {
     { key: "header" },
     { key: "sidebar" },
     { key: "content" },
-    { key: "footer" }
+    { key: "footer" },
   ],
   containerWidth: 300,
   containerHeight: 200,

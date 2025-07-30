@@ -12,6 +12,10 @@ export interface GridCell {
   column: number
   rowSpan: number
   columnSpan: number
+  x: number
+  y: number
+  width: number
+  height: number
 }
 
 export class CssGrid {
@@ -30,6 +34,10 @@ export class CssGrid {
     columnSizes: number[]
     rowGap: number
     columnGap: number
+    itemCoordinates: Record<
+      string,
+      { x: number; y: number; width: number; height: number }
+    >
   } {
     return CssGrid_layout(this)
   }

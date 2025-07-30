@@ -107,8 +107,30 @@ export const CssGrid_convertToHtml = (grid: CssGrid) => {
     }
 
     const childStyle = cs.join(";")
-    // innerText is just the key for demo purposes
-    return `  <div id="${c.key}" style="${childStyle}"><div style="width:${c.key.length * 5}px;font-size: 7px;">${c.key}</div></div>`
+
+    // Build inner div style with contentWidth/contentHeight if provided
+    const innerStyles: string[] = ["font-size: 7px"]
+
+    if (c.contentWidth !== undefined) {
+      const width =
+        typeof c.contentWidth === "string"
+          ? c.contentWidth
+          : `${c.contentWidth}px`
+      innerStyles.push(`width:${width}`)
+    } else {
+      innerStyles.push(`width:${c.key.length * 5}px`)
+    }
+
+    if (c.contentHeight !== undefined) {
+      const height =
+        typeof c.contentHeight === "string"
+          ? c.contentHeight
+          : `${c.contentHeight}px`
+      innerStyles.push(`height:${height}`)
+    }
+
+    const innerStyle = innerStyles.join(";")
+    return `  <div id="${c.key}" style="${childStyle}"><div style="${innerStyle}">${c.key}</div></div>`
   })
 
   /* ───────────── 3. final HTML string ───────────── */

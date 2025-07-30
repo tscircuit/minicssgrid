@@ -4,9 +4,9 @@ import type { CssGridOptions } from "lib/types"
 export default {
   children: [
     { key: "item1" },
-    { key: "item2" }, 
+    { key: "item2" },
     { key: "item3" },
-    { key: "item4" }
+    { key: "item4" },
   ],
   containerWidth: 200,
   containerHeight: 200,

@@ -5,7 +5,7 @@ export default {
   children: [
     { key: "auto-width" },
     { key: "fixed-width" },
-    { key: "flexible" }
+    { key: "flexible" },
   ],
   containerWidth: 300,
   containerHeight: 100,
