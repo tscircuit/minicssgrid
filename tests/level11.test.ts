@@ -9,16 +9,16 @@ test("level11", () => {
   expect(browserResult).toMatchInlineSnapshot(`
     {
       "another-item": {
-        "height": 9,
-        "width": 62,
-        "x": 119,
-        "y": 45.5,
+        "height": 27,
+        "width": 32,
+        "x": 134,
+        "y": 36.5,
       },
       "center-item": {
-        "height": 9,
-        "width": 57,
-        "x": 21.5,
-        "y": 45.5,
+        "height": 27,
+        "width": 32,
+        "x": 34,
+        "y": 36.5,
       },
     }
   `)
@@ -45,16 +45,24 @@ test("level11", () => {
         {
           "column": 0,
           "columnSpan": 1,
+          "height": 100,
           "key": "center-item",
           "row": 0,
           "rowSpan": 1,
+          "width": 100,
+          "x": 0,
+          "y": 0,
         },
         {
           "column": 1,
           "columnSpan": 1,
+          "height": 100,
           "key": "another-item",
           "row": 0,
           "rowSpan": 1,
+          "width": 100,
+          "x": 100,
+          "y": 0,
         },
       ],
       "columnGap": 0,
@@ -62,6 +70,20 @@ test("level11", () => {
         100,
         100,
       ],
+      "itemCoordinates": {
+        "another-item": {
+          "height": 100,
+          "width": 100,
+          "x": 100,
+          "y": 0,
+        },
+        "center-item": {
+          "height": 100,
+          "width": 100,
+          "x": 0,
+          "y": 0,
+        },
+      },
       "rowGap": 0,
       "rowSizes": [
         100,

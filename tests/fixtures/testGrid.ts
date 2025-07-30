@@ -21,19 +21,8 @@ export const testGrid = (
 
   const algoOutputGraphics = grid.visualize()
 
-  const laidOutResult: Record<
-    string,
-    { x: number; y: number; width: number; height: number }
-  > = {}
-
-  for (const rect of algoOutputGraphics.rects ?? []) {
-    laidOutResult[rect.label!] = {
-      x: rect.center.x - rect.width / 2, // Convert center to top-left
-      y: rect.center.y - rect.height / 2, // Convert center to top-left
-      width: rect.width,
-      height: rect.height,
-    }
-  }
+  // Use the itemCoordinates directly from the layout
+  const laidOutResult = layout.itemCoordinates
 
   algoOutputGraphics.lines?.push(
     {

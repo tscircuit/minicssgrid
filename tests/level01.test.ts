@@ -33,9 +33,13 @@ test("level01", () => {
         {
           "column": 2,
           "columnSpan": 1,
+          "height": 20,
           "key": "water",
           "row": 0,
           "rowSpan": 1,
+          "width": 20,
+          "x": 40,
+          "y": 0,
         },
       ],
       "columnGap": 0,
@@ -46,6 +50,14 @@ test("level01", () => {
         20,
         20,
       ],
+      "itemCoordinates": {
+        "water": {
+          "height": 20,
+          "width": 20,
+          "x": 40,
+          "y": 0,
+        },
+      },
       "rowGap": 0,
       "rowSizes": [
         20,

@@ -54,6 +54,12 @@ export const CssGrid_layout = (
   cells: GridCell[]
   rowSizes: number[]
   columnSizes: number[]
+  rowGap: number
+  columnGap: number
+  itemCoordinates: Record<
+    string,
+    { x: number; y: number; width: number; height: number }
+  >
 } => {
   const opts = grid.opts
   const children = opts.children
@@ -227,6 +233,10 @@ export const CssGrid_layout = (
       column,
       rowSpan,
       columnSpan: colSpan,
+      x: 0, // Will be calculated below
+      y: 0, // Will be calculated below
+      width: 0, // Will be calculated below
+      height: 0, // Will be calculated below
     })
 
     // Advance auto cursor
@@ -244,12 +254,79 @@ export const CssGrid_layout = (
   while (rowSizes.length < maxRow) rowSizes.push(0)
   while (columnSizes.length < maxCol) columnSizes.push(0)
 
-  // --- 6. Return assembled object ---
+  // --- 6. Calculate exact coordinates for each cell ---
+
+  // Helper function to calculate position from track index
+  const getPositionFromTracks = (
+    trackIndex: number,
+    trackSizes: number[],
+    gap: number,
+  ): number => {
+    let position = 0
+    for (let i = 0; i < trackIndex; i++) {
+      position += trackSizes[i] + (i > 0 ? gap : 0)
+    }
+    return position
+  }
+
+  // Helper function to calculate size from span
+  const getSizeFromSpan = (
+    trackIndex: number,
+    span: number,
+    trackSizes: number[],
+    gap: number,
+  ): number => {
+    let size = 0
+    for (let i = trackIndex; i < trackIndex + span; i++) {
+      size += trackSizes[i] || 0
+      if (i > trackIndex) size += gap
+    }
+    return size
+  }
+
+  const itemCoordinates: Record<
+    string,
+    { x: number; y: number; width: number; height: number }
+  > = {}
+
+  // Update cells with coordinates and build itemCoordinates
+  for (let i = 0; i < cells.length; i++) {
+    const cell = cells[i]
+
+    // Calculate x position (sum of column widths + gaps before this column)
+    const x = getPositionFromTracks(cell.column, columnSizes, columnGap)
+
+    // Calculate y position (sum of row heights + gaps before this row)
+    const y = getPositionFromTracks(cell.row, rowSizes, rowGap)
+
+    // Calculate width (sum of spanned column widths + gaps between them)
+    const width = getSizeFromSpan(
+      cell.column,
+      cell.columnSpan,
+      columnSizes,
+      columnGap,
+    )
+
+    // Calculate height (sum of spanned row heights + gaps between them)
+    const height = getSizeFromSpan(cell.row, cell.rowSpan, rowSizes, rowGap)
+
+    // Update the cell object
+    cell.x = x
+    cell.y = y
+    cell.width = width
+    cell.height = height
+
+    // Store in itemCoordinates for easy access
+    itemCoordinates[cell.key] = { x, y, width, height }
+  }
+
+  // --- 7. Return assembled object ---
   return {
     cells,
     rowSizes,
     columnSizes,
     rowGap,
     columnGap,
+    itemCoordinates,
   }
 }
