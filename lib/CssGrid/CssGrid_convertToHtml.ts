@@ -44,12 +44,7 @@ export const CssGrid_convertToHtml = (grid: CssGrid) => {
 
   /* ───────────── 2. build children markup ───────────── */
   const childDivs = grid.opts.children.map((c) => {
-    const cs: string[] = [
-      "display:flex",
-      "border: 1px solid black",
-      "box-sizing: border-box",
-      `background-color:${getColor(c.key)}`,
-    ]
+    const cs: string[] = ["display:flex", `background-color:${getColor(c.key)}`]
 
     /* placement ------------------------------------------------ */
     // 1. Named area still has top priority

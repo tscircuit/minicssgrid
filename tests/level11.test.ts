@@ -9,16 +9,16 @@ test("level11", () => {
   expect(browserResult).toMatchInlineSnapshot(`
     {
       "another-item": {
-        "height": 27,
-        "width": 32,
-        "x": 134,
-        "y": 36.5,
+        "height": 25,
+        "width": 30,
+        "x": 135,
+        "y": 37.5,
       },
       "center-item": {
-        "height": 27,
-        "width": 32,
-        "x": 34,
-        "y": 36.5,
+        "height": 25,
+        "width": 30,
+        "x": 35,
+        "y": 37.5,
       },
     }
   `)
