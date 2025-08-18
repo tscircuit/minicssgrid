@@ -1,0 +1,6 @@
+{
+  "buildCommand": "npm run build:site",
+  "outputDirectory": "cosmos-export",
+  "devCommand": "npm start",
+  "installCommand": "npm install"
+}
