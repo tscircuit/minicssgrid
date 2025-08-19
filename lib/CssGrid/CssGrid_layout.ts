@@ -434,13 +434,14 @@ export const CssGrid_layout = (
     if (cell.column + cell.columnSpan > maxCol)
       maxCol = cell.column + cell.columnSpan
   }
-  
+
   // Handle implicit row sizing when no gridTemplateRows is specified
   if (rowSizes.length === 0 && maxRow > 0 && opts.containerHeight) {
     // If no explicit rows but we have content and a container height,
     // distribute the height equally among the implicit rows
     const implicitRowCount = maxRow
-    const availableHeight = opts.containerHeight - rowGap * (implicitRowCount - 1)
+    const availableHeight =
+      opts.containerHeight - rowGap * (implicitRowCount - 1)
     const implicitRowHeight = availableHeight / implicitRowCount
     for (let i = 0; i < implicitRowCount; i++) {
       rowSizes.push(implicitRowHeight)
@@ -449,13 +450,14 @@ export const CssGrid_layout = (
     // Default behavior: add zero-height rows
     while (rowSizes.length < maxRow) rowSizes.push(0)
   }
-  
+
   // Handle implicit column sizing when no gridTemplateColumns is specified
   if (columnSizes.length === 0 && maxCol > 0 && opts.containerWidth) {
     // If no explicit columns but we have content and a container width,
     // distribute the width equally among the implicit columns
     const implicitColCount = maxCol
-    const availableWidth = opts.containerWidth - columnGap * (implicitColCount - 1)
+    const availableWidth =
+      opts.containerWidth - columnGap * (implicitColCount - 1)
     const implicitColWidth = availableWidth / implicitColCount
     for (let i = 0; i < implicitColCount; i++) {
       columnSizes.push(implicitColWidth)
