@@ -324,7 +324,12 @@ export const CssGrid_layout = (
   )
 
   const rowCount = rowSizes.length
-  const colCount = columnSizes.length
+  let colCount = columnSizes.length
+
+  // If we have children but no explicit columns, we need at least 1 implicit column
+  if (colCount === 0 && children.length > 0) {
+    colCount = 1
+  }
 
   // --- 4. Item placement (auto-placement, cut-down) ---
 
@@ -462,6 +467,14 @@ export const CssGrid_layout = (
     for (let i = 0; i < implicitColCount; i++) {
       columnSizes.push(implicitColWidth)
     }
+  } else if (
+    columnSizes.length === 0 &&
+    children.length > 0 &&
+    opts.containerWidth
+  ) {
+    // If no explicit columns but we have children and container width,
+    // create one implicit column taking full width
+    columnSizes.push(opts.containerWidth)
   } else {
     // Default behavior: add zero-width columns
     while (columnSizes.length < maxCol) columnSizes.push(0)
