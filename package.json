@@ -13,19 +13,17 @@
   "license": "MIT",
   "scripts": {
     "start": "cosmos",
-    "build": "tsup ./lib/index.ts --format esm --dts",
+    "build": "tsup-node ./lib/index.ts --format esm --dts",
     "format": "biome format --write .",
     "format:check": "biome format .",
     "build:site": "cosmos-export",
     "generate-browser-results": "bun run scripts/generate-browser-results.ts && biome format --write ./testcases"
   },
-  "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
-  },
   "devDependencies": {
     "@biomejs/biome": "^2.1.2",
     "@playwright/test": "^1.54.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "@types/bun": "latest",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
