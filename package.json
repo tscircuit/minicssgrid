@@ -13,7 +13,7 @@
   "license": "MIT",
   "scripts": {
     "start": "cosmos",
-    "build": "tsup-node ./lib/index.ts --format esm --dts",
+    "build": "tsup-node ./lib/index.ts --external react,react-dom,graphics-debug --format esm --dts",
     "format": "biome format --write .",
     "format:check": "biome format .",
     "build:site": "cosmos-export",
