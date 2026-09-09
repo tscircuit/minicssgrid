@@ -2,6 +2,12 @@ import type { CssGrid, GridCell } from "./CssGrid"
 
 // --- Helpers ---
 
+// Join array templates the same way convertToHtml already does.
+function stringifyGridTemplate(tpl?: string | string[]): string | undefined {
+  if (!tpl) return undefined
+  return typeof tpl === "string" ? tpl : tpl.join(" ")
+}
+
 // Expand repeat(N, X) into X X X...
 function expandRepeat(templateStr: string): string {
   // Only handles single-level repeat(N, X) as used in the repo
@@ -80,14 +86,8 @@ export const CssGrid_layout = (
     rowsTpl = rows?.trim()
     colsTpl = cols?.trim()
   } else {
-    rowsTpl =
-      typeof opts.gridTemplateRows === "string"
-        ? opts.gridTemplateRows
-        : undefined
-    colsTpl =
-      typeof opts.gridTemplateColumns === "string"
-        ? opts.gridTemplateColumns
-        : undefined
+    rowsTpl = stringifyGridTemplate(opts.gridTemplateRows)
+    colsTpl = stringifyGridTemplate(opts.gridTemplateColumns)
   }
 
   const columnTrackCountDeclared = countTracks(colsTpl)
