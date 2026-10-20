@@ -37,16 +37,16 @@ test("level16", () => {
   expect(laidOutResult).toMatchInlineSnapshot(`
     {
       "content": {
-        "height": 250,
+        "height": 243,
         "width": 200,
         "x": 100,
         "y": 50,
       },
       "footer": {
-        "height": 50,
+        "height": 7,
         "width": 300,
         "x": 0,
-        "y": 250,
+        "y": 293,
       },
       "header": {
         "height": 50,
@@ -55,7 +55,7 @@ test("level16", () => {
         "y": 0,
       },
       "sidebar": {
-        "height": 200,
+        "height": 193,
         "width": 100,
         "x": 0,
         "y": 50,
@@ -80,7 +80,7 @@ test("level16", () => {
         {
           "column": 0,
           "columnSpan": 1,
-          "height": 200,
+          "height": 193,
           "key": "sidebar",
           "row": 1,
           "rowSpan": 1,
@@ -91,7 +91,7 @@ test("level16", () => {
         {
           "column": 1,
           "columnSpan": 1,
-          "height": 250,
+          "height": 243,
           "key": "content",
           "row": 1,
           "rowSpan": 2,
@@ -102,13 +102,13 @@ test("level16", () => {
         {
           "column": 0,
           "columnSpan": 2,
-          "height": 50,
+          "height": 7,
           "key": "footer",
-          "row": 2,
+          "row": 3,
           "rowSpan": 1,
           "width": 300,
           "x": 0,
-          "y": 250,
+          "y": 293,
         },
       ],
       "columnGap": 0,
@@ -118,16 +118,16 @@ test("level16", () => {
       ],
       "itemCoordinates": {
         "content": {
-          "height": 250,
+          "height": 243,
           "width": 200,
           "x": 100,
           "y": 50,
         },
         "footer": {
-          "height": 50,
+          "height": 7,
           "width": 300,
           "x": 0,
-          "y": 250,
+          "y": 293,
         },
         "header": {
           "height": 50,
@@ -136,7 +136,7 @@ test("level16", () => {
           "y": 0,
         },
         "sidebar": {
-          "height": 200,
+          "height": 193,
           "width": 100,
           "x": 0,
           "y": 50,
@@ -145,8 +145,9 @@ test("level16", () => {
       "rowGap": 0,
       "rowSizes": [
         50,
-        200,
+        193,
         50,
+        7,
       ],
     }
   `)

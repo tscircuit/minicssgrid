@@ -25,13 +25,13 @@
     <polyline data-points="375,100 375,0" data-type="line" data-label="" points="351.1111111111111,354.4814814814815 351.1111111111111,271.51851851851853" fill="none" stroke="black" stroke-width="1" />
   </g>
   <g>
-    <rect data-type="rect" data-label="auto-width" data-x="50" data-y="50" x="40" y="271.51851851851853" width="82.96296296296296" height="82.96296296296299" fill="hsl(205.71428571428572deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
+    <rect data-type="rect" data-label="auto-width" data-x="25" data-y="50" x="40" y="271.51851851851853" width="41.48148148148148" height="82.96296296296299" fill="hsl(205.71428571428572deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
   </g>
   <g>
-    <rect data-type="rect" data-label="fixed-width" data-x="150" data-y="50" x="122.96296296296296" y="271.51851851851853" width="82.96296296296296" height="82.96296296296299" fill="hsl(34.285714285714285deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
+    <rect data-type="rect" data-label="fixed-width" data-x="100" data-y="50" x="81.48148148148148" y="271.51851851851853" width="82.96296296296298" height="82.96296296296299" fill="hsl(34.285714285714285deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
   </g>
   <g>
-    <rect data-type="rect" data-label="flexible" data-x="250" data-y="50" x="205.92592592592592" y="271.51851851851853" width="82.96296296296299" height="82.96296296296299" fill="hsl(34.285714285714285deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
+    <rect data-type="rect" data-label="flexible" data-x="225" data-y="50" x="164.44444444444446" y="271.51851851851853" width="124.44444444444446" height="82.96296296296299" fill="hsl(34.285714285714285deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />
   </g>
   <g>
     <rect data-type="rect" data-label="auto-width" data-x="400" data-y="50" x="351.1111111111111" y="271.51851851851853" width="41.481481481481524" height="82.96296296296299" fill="hsl(205.71428571428572deg, 100%, 50%)" stroke="black" stroke-width="1.2053571428571428" />

@@ -17,6 +17,7 @@
     "format": "biome format --write .",
     "format:check": "biome format .",
     "build:site": "cosmos-export",
+    "benchmark": "bun run benchmarks/benchmark.ts",
     "generate-browser-results": "bun run scripts/generate-browser-results.ts && biome format --write ./testcases"
   },
   "devDependencies": {

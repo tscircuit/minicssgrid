@@ -265,13 +265,71 @@ export const CssGrid_layout = (
     }
 
     const sizeForTracks = effectiveContainerSize - gap * (trackCount - 1)
+    const hasExplicitFr = tokens.some((t) => t.endsWith("fr"))
 
     // First pass: collect fixed sizes and total fr
     let sumFixed = 0
     let totalFr = 0
     const frTokens: { idx: number; fr: number }[] = []
     const sizes: (number | { fr: number })[] = []
+    let autoCursor = 0
+    const autoTrackMaxContent = new Array<number>(trackCount).fill(0)
+    if (hasExplicitFr && tokens.includes("auto")) {
+      for (const child of children) {
+        const span = isWidth
+          ? typeof child.columnSpan === "number"
+            ? child.columnSpan
+            : child.columnSpan
+              ? parseInt(child.columnSpan.toString())
+              : 1
+          : typeof child.rowSpan === "number"
+            ? child.rowSpan
+            : child.rowSpan
+              ? parseInt(child.rowSpan.toString())
+              : 1
+        let startIdx: number | undefined
+        if (isWidth) {
+          if (child.columnStart !== undefined || child.column !== undefined) {
+            startIdx =
+              parseInt((child.columnStart ?? child.column) as string) - 1
+          }
+        } else {
+          if (child.rowStart !== undefined || child.row !== undefined) {
+            startIdx = parseInt((child.rowStart ?? child.row) as string) - 1
+          }
+        }
+        if (startIdx === undefined || Number.isNaN(startIdx)) {
+          startIdx = isWidth
+            ? autoCursor % trackCount
+            : Math.floor(autoCursor / crossTrackCount)
+          autoCursor += span
+        }
+        const raw = isWidth ? child.contentWidth : child.contentHeight
+        const pxVal =
+          raw !== undefined
+            ? typeof raw === "number"
+              ? raw
+              : parseFloat(raw)
+            : isWidth
+              ? child.key.length * 5
+              : 7
+        const perTrack = pxVal / span
+        for (let k = 0; k < span && startIdx + k < trackCount; k++) {
+          autoTrackMaxContent[startIdx + k] = Math.max(
+            autoTrackMaxContent[startIdx + k]!,
+            perTrack,
+          )
+        }
+      }
+    }
+
     tokens.forEach((token, i) => {
+      if (token === "auto" && hasExplicitFr) {
+        const px = autoTrackMaxContent[i] || 0
+        sizes.push(px)
+        sumFixed += px
+        return
+      }
       const px = pxFromToken(token, sizeForTracks)
       if (typeof px === "number") {
         sizes.push(px)
@@ -335,6 +393,16 @@ export const CssGrid_layout = (
 
   const cells: GridCell[] = []
   let nextAutoCell = 0 // row-major index
+  const occupied = new Set<string>()
+  const isFree = (r: number, c: number, rSpan: number, cSpan: number) => {
+    if (cSpan <= colCount && c + cSpan > colCount) return false
+    for (let dr = 0; dr < rSpan; dr++) {
+      for (let dc = 0; dc < cSpan; dc++) {
+        if (occupied.has(`${r + dr},${c + dc}`)) return false
+      }
+    }
+    return true
+  }
 
   for (const child of children) {
     // Placement: row/col start
@@ -393,6 +461,10 @@ export const CssGrid_layout = (
     if (typeof colStart === "number" && colStart < 0)
       colStart = resolveNegativeLine(colStart, colCount)
 
+    // Clamp spans to at least 1
+    rowSpan = Math.max(1, rowSpan)
+    colSpan = Math.max(1, colSpan)
+
     // Handle partial placement - if only one dimension is specified
     if (rowStart === undefined && colStart !== undefined) {
       // Column specified but not row - place in row 1
@@ -402,18 +474,26 @@ export const CssGrid_layout = (
       colStart = 1
     } else if (rowStart === undefined && colStart === undefined) {
       // Neither specified - use auto-placement
-      const idx = nextAutoCell
+      let idx = nextAutoCell
+      while (
+        !isFree(Math.floor(idx / colCount), idx % colCount, rowSpan, colSpan)
+      ) {
+        idx++
+      }
       rowStart = Math.floor(idx / colCount) + 1
       colStart = (idx % colCount) + 1
+      nextAutoCell = idx + colSpan
     }
 
     // Compute end indices
     const row = (rowStart as number) - 1
     const column = (colStart as number) - 1
 
-    // Clamp spans to at least 1
-    rowSpan = Math.max(1, rowSpan)
-    colSpan = Math.max(1, colSpan)
+    for (let dr = 0; dr < rowSpan; dr++) {
+      for (let dc = 0; dc < colSpan; dc++) {
+        occupied.add(`${row + dr},${column + dc}`)
+      }
+    }
 
     cells.push({
       key: child.key,
@@ -426,9 +506,6 @@ export const CssGrid_layout = (
       width: 0, // Will be calculated below
       height: 0, // Will be calculated below
     })
-
-    // Advance auto cursor
-    nextAutoCell += colSpan
   }
 
   // --- 5. Ensure size arrays are long enough for implicit tracks ---
@@ -450,6 +527,48 @@ export const CssGrid_layout = (
     const implicitRowHeight = availableHeight / implicitRowCount
     for (let i = 0; i < implicitRowCount; i++) {
       rowSizes.push(implicitRowHeight)
+    }
+  } else if (rowSizes.length > 0 && rowSizes.length < maxRow) {
+    const explicitRowCount = rowSizes.length
+    let extraImplicitHeight = 0
+    while (rowSizes.length < maxRow) {
+      const rIdx = rowSizes.length
+      let maxContentH = 0
+      for (const cell of cells) {
+        if (cell.row <= rIdx && rIdx < cell.row + cell.rowSpan) {
+          const ch = children.find((c) => c.key === cell.key)
+          const rawH = ch?.contentHeight
+          const hVal =
+            rawH !== undefined
+              ? typeof rawH === "number"
+                ? rawH
+                : parseFloat(rawH)
+              : opts.containerHeight
+                ? 7
+                : 0
+          maxContentH = Math.max(maxContentH, hVal / cell.rowSpan)
+        }
+      }
+      rowSizes.push(maxContentH)
+      extraImplicitHeight += maxContentH + rowGap
+    }
+    if (opts.containerHeight && rowsTpl && extraImplicitHeight > 0) {
+      const tokens = tokenize(expandRepeat(rowsTpl))
+      let totalFr = 0
+      tokens.forEach((tok) => {
+        if (tok.endsWith("fr")) totalFr += parseFloat(tok)
+      })
+      if (totalFr > 0) {
+        tokens.forEach((tok, idx) => {
+          if (tok.endsWith("fr") && idx < explicitRowCount) {
+            const fr = parseFloat(tok)
+            rowSizes[idx] = Math.max(
+              0,
+              rowSizes[idx]! - (extraImplicitHeight * fr) / totalFr,
+            )
+          }
+        })
+      }
     }
   } else {
     // Default behavior: add zero-height rows
