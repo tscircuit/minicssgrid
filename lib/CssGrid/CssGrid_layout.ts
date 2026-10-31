@@ -272,7 +272,7 @@ export const CssGrid_layout = (
     const frTokens: { idx: number; fr: number }[] = []
     const sizes: (number | { fr: number })[] = []
     tokens.forEach((token, i) => {
-      const px = pxFromToken(token, sizeForTracks)
+      const px = pxFromToken(token, effectiveContainerSize)
       if (typeof px === "number") {
         sizes.push(px)
         sumFixed += px
