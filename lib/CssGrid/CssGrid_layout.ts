@@ -605,12 +605,17 @@ export const CssGrid_layout = (
     cell.height = itemHeight
 
     // Store in itemCoordinates for easy access
-    itemCoordinates[cell.key] = {
-      x: itemX,
-      y: itemY,
-      width: itemWidth,
-      height: itemHeight,
-    }
+    Object.defineProperty(itemCoordinates, cell.key, {
+      value: {
+        x: itemX,
+        y: itemY,
+        width: itemWidth,
+        height: itemHeight,
+      },
+      enumerable: true,
+      configurable: true,
+      writable: true,
+    })
   }
 
   // --- 7. Return assembled object ---
