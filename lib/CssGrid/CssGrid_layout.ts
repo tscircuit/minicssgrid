@@ -323,7 +323,6 @@ export const CssGrid_layout = (
     /* cross-axis = */ rowTrackCountDeclared || 1,
   )
 
-  const rowCount = rowSizes.length
   let colCount = columnSizes.length
 
   // If we have children but no explicit columns, we need at least 1 implicit column
@@ -343,6 +342,14 @@ export const CssGrid_layout = (
     let colStart: number | string | undefined =
       child.columnStart !== undefined ? child.columnStart : child.column
 
+    // Resolve supplied starts against the explicit grid before calculating spans.
+    if (typeof rowStart === "string") rowStart = parseInt(rowStart)
+    if (typeof colStart === "string") colStart = parseInt(colStart)
+    if (typeof rowStart === "number" && rowStart < 0)
+      rowStart = resolveNegativeLine(rowStart, rowTrackCountDeclared)
+    if (typeof colStart === "number" && colStart < 0)
+      colStart = resolveNegativeLine(colStart, columnTrackCountDeclared)
+
     // Spans
     let rowSpan: number =
       child.rowSpan !== undefined
@@ -357,41 +364,31 @@ export const CssGrid_layout = (
           : (child.columnSpan as number)
         : 1
 
-    // End indices (not used for placement, but for span calculation)
+    // Resolve end lines before deriving a span or an omitted start.
     if (child.rowEnd !== undefined) {
-      const end =
+      let end =
         typeof child.rowEnd === "string"
           ? parseInt(child.rowEnd)
           : (child.rowEnd as number)
+      if (end < 0) end = resolveNegativeLine(end, rowTrackCountDeclared)
       if (rowStart !== undefined) {
-        rowSpan =
-          end - (typeof rowStart === "string" ? parseInt(rowStart) : rowStart)
+        rowSpan = end - rowStart
       } else {
         rowStart = end - rowSpan
       }
     }
     if (child.columnEnd !== undefined) {
-      const end =
+      let end =
         typeof child.columnEnd === "string"
           ? parseInt(child.columnEnd)
           : (child.columnEnd as number)
+      if (end < 0) end = resolveNegativeLine(end, columnTrackCountDeclared)
       if (colStart !== undefined) {
-        colSpan =
-          end - (typeof colStart === "string" ? parseInt(colStart) : colStart)
+        colSpan = end - colStart
       } else {
         colStart = end - colSpan
       }
     }
-
-    // Parse string indices
-    if (typeof rowStart === "string") rowStart = parseInt(rowStart)
-    if (typeof colStart === "string") colStart = parseInt(colStart)
-
-    // Negative line indices
-    if (typeof rowStart === "number" && rowStart < 0)
-      rowStart = resolveNegativeLine(rowStart, rowCount)
-    if (typeof colStart === "number" && colStart < 0)
-      colStart = resolveNegativeLine(colStart, colCount)
 
     // Handle partial placement - if only one dimension is specified
     if (rowStart === undefined && colStart !== undefined) {
