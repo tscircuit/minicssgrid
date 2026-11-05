@@ -11,13 +11,13 @@ test("level10", () => {
       "first": {
         "height": 100,
         "width": 100,
-        "x": 0,
+        "x": 300,
         "y": 0,
       },
       "fourth": {
         "height": 100,
         "width": 100,
-        "x": 300,
+        "x": 0,
         "y": 0,
       },
       "second": {
@@ -39,13 +39,13 @@ test("level10", () => {
       "first": {
         "height": 100,
         "width": 100,
-        "x": 0,
+        "x": 300,
         "y": 0,
       },
       "fourth": {
         "height": 100,
         "width": 100,
-        "x": 300,
+        "x": 0,
         "y": 0,
       },
       "second": {
@@ -70,7 +70,7 @@ test("level10", () => {
           "column": 0,
           "columnSpan": 1,
           "height": 100,
-          "key": "first",
+          "key": "fourth",
           "row": 0,
           "rowSpan": 1,
           "width": 100,
@@ -103,7 +103,7 @@ test("level10", () => {
           "column": 3,
           "columnSpan": 1,
           "height": 100,
-          "key": "fourth",
+          "key": "first",
           "row": 0,
           "rowSpan": 1,
           "width": 100,
@@ -122,13 +122,13 @@ test("level10", () => {
         "first": {
           "height": 100,
           "width": 100,
-          "x": 0,
+          "x": 300,
           "y": 0,
         },
         "fourth": {
           "height": 100,
           "width": 100,
-          "x": 300,
+          "x": 0,
           "y": 0,
         },
         "second": {
