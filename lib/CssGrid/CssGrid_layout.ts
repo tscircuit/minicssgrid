@@ -1,4 +1,5 @@
 import type { CssGrid, GridCell } from "./CssGrid"
+import { getItemOrder } from "./getItemOrder"
 
 // --- Helpers ---
 
@@ -68,7 +69,11 @@ export const CssGrid_layout = (
   >
 } => {
   const opts = grid.opts
-  const children = opts.children
+  // Stable sorting preserves source order within each ordinal group. Copy the
+  // array so visual reordering never changes the caller's document order.
+  const children = [...opts.children].sort(
+    (a, b) => getItemOrder(a.order) - getItemOrder(b.order),
+  )
 
   // --- 2. Parse user options for templates ---
   let rowsTpl: string | undefined

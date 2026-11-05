@@ -218,6 +218,11 @@ const grid = new CssGrid({
 
 ### Item Ordering
 
+Items are laid out in ascending integer `order`, with a default of `0`.
+Equal values keep their original order in `children`. Integer strings are
+also accepted; invalid values use `0`. This changes visual placement without
+changing the input array or the HTML document order.
+
 ```typescript
 const grid = new CssGrid({
   containerWidth: 400,
@@ -225,10 +230,10 @@ const grid = new CssGrid({
   gridTemplateColumns: "1fr 1fr 1fr 1fr",
   gridTemplateRows: "1fr",
   children: [
-    { key: "first", order: 3 }, // Appears third
-    { key: "second", order: 1 }, // Appears first
-    { key: "third", order: 2 }, // Appears second
-    { key: "fourth" }, // Default order (0), appears last
+    { key: "first", order: 3 }, // Appears fourth
+    { key: "second", order: 1 }, // Appears second
+    { key: "third", order: 2 }, // Appears third
+    { key: "fourth" }, // Default order (0), appears first
   ],
 })
 ```

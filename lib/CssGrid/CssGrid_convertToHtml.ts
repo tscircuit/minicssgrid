@@ -1,6 +1,7 @@
 import type { CssGridOptions } from "lib/types"
 import type { CssGrid } from "./CssGrid"
 import { getColor } from "lib/colors"
+import { getItemOrder } from "./getItemOrder"
 
 export const CssGrid_convertToHtml = (grid: CssGrid) => {
   // helper to turn a template value into valid CSS text
@@ -45,6 +46,8 @@ export const CssGrid_convertToHtml = (grid: CssGrid) => {
   /* ───────────── 2. build children markup ───────────── */
   const childDivs = grid.opts.children.map((c) => {
     const cs: string[] = ["display:flex", `background-color:${getColor(c.key)}`]
+
+    if (c.order !== undefined) cs.push(`order:${getItemOrder(c.order)}`)
 
     /* placement ------------------------------------------------ */
     // 1. Named area still has top priority
